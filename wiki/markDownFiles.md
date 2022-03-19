@@ -32,7 +32,7 @@ anythign within here will be considered code
 this makes it very easy to display, and copy + paste code from
 ```js
 // this is Javascript code
-console.log("Hello world)
+console.log("Hello world")
 
 
 ```
