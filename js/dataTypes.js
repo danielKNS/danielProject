@@ -120,3 +120,4 @@ const numberAsStrind = "10"
 if (nu1 == numberAsStrind) {
   console.log("number is equals numberAsStrind")
 }
+

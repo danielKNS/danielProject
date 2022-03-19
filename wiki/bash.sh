@@ -19,3 +19,12 @@ clear # clears window
 ./filename # run file (must be executable)
 man   # open manual
 man some_command # open that manual
+
+# TO SAVE TO GITBUT YOU NEED TO FO THE FOLLOWING  :
+#pwd 
+#cd to the folder 
+#cd inside the folfer
+#git status
+#git add .
+#git commit -m "... "
+#git push
