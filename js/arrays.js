@@ -9,5 +9,4 @@ console.log(names[2])
 
 const number0 = [1, 2 , 3 , 4 , 5]
 number0.forEach (number =>
- console.log ("adding 10 to the value:", number , "which gives me:", number + 10 )
- )
+ console.log ("adding 10 to the value:", number , "which gives me:", number + 10 )) 
