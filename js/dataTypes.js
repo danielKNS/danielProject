@@ -10,7 +10,7 @@ Hello u cannot read  this comment my friend
 // copies 
 
 
-//STRINGS
+//STRINGS data types
 const country = " USA "
 const country2 = " Brasil"
 const sentence = " hello MY !! "
@@ -27,7 +27,7 @@ console.log ("hi my name is "+ name + " i live in " + country )
 
 console.log ("........................")
 
-//NUMBERS
+//NUMBERS data types
 
 const number1 = 5
 const number2 = 10
@@ -68,7 +68,7 @@ console.log("those here are the even numbers",evenNumber)
 console.log("those here are the odd numbers",oddNumber)
 
 
-// Boonleans 
+// Boonleans  data types
 
 const ishappy = true
 const isSad = false
@@ -120,7 +120,7 @@ const numberAsStrind = "10"
 if (nu1 == numberAsStrind) {
   console.log("number is equals numberAsStrind")
 }
-/*ARRAYS 
+/*ARRAYS  data types
 const myName = "hello"
 console.log(myName)
 const number1 = 2
