@@ -26,6 +26,9 @@ numbers.forEach( number => {
 })
 console.log ("total is : ", totalSum)
 
+//pratice again
+console.log (names[2],"and your favorate number is ", numbers [0])
+
 
 /* 
 First get a plate 
