@@ -6,7 +6,7 @@ whenever a number is divisble by 3, we want to print out the word "Fizz"
 whenever a number is divisble by 5, we want to print out the word "Buzz"
 whenever a number is divisble by both 3 and 5, we want to print out the word "FizzBuzz"
 
-REMEMBER THAT DIVISIBLE IS  A NUMBER THAT IS CAPABLE TO BE DIVIDED.
+REMEMBER THAT DIVISIBLE IS A NUMBER THAT IS CAPABLE TO BE DIVIDED.
 */
 
 const fizzBuzz = (numbers) => {
