@@ -32,3 +32,7 @@ etc
 * else = is used when the same statement/codition is false
 * else if = is used when the first statement/codition false
 * switch = is when to specify many alternative block of code to be executed
+
+# Arrow function :
+* Arrow function allows you to create functions in a cleaner way compared to regular funtions.
+* Arrow funtions are best used for callbacks, methods like map, reduce and forEach .
