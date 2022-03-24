@@ -30,7 +30,7 @@ etc
 * for = loop through block of code a number of times
 * if = is used when a statement or an codition is true
 * else = is used when the same statement/codition is false
-* else if = is used when the first statement/codition false
+* else if = is used when the first statement/codition is false
 * switch = is when to specify many alternative block of code to be executed
 
 # Arrow function :
