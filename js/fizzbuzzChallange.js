@@ -21,4 +21,4 @@ const fizzBuzz = (numbers) => {
     
 }
 }
- console.log (fizzBuzz (100))
+console.log(fizzBuzz(100))
