@@ -39,3 +39,10 @@ function subtractNumbers(number,number3){
 subtractNumbers(15, 20)
 subtractNumbers(7, 8)
 subtractNumbers(1, 1)
+
+const subtractNumbers2 = (number1, number2) =>{ 
+    console.log("helooooo")
+    const total3 = number1 - number2
+    console.log("total3 :", total3)
+}
+subtractNumbers2(2, 4)
