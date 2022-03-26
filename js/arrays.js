@@ -18,7 +18,8 @@ console.log('total :', total)
 
 let totalSum = 0
 
-numbers.forEach(number => { // iteration : each time 
+numbers.forEach( number => { // iteration : each time 
+
     console.log( 'number: ',number)
     totalSum = number + totalSum //assign
 
