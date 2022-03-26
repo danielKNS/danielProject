@@ -14,10 +14,29 @@ const numbers = [1, ...., 100]
 6. [10, 11,...20, 30, 31, ..., 40]
 */
 
-const numbers = Array(100).fill(0).map((e, i) => i + 1)
+const emptyArrayOf100 = Array(100)
+console.log("emptyArrayOf100 :",emptyArrayOf100)
+const  fillNumbers = emptyArrayOf100.fill(0)
+console.log("fillNumbers :", fillNumbers)
+const numbers = fillNumbers.map((number,index)=> {
+    console.log("number and index",number , index) 
+    return index + 1
+})
+
+
+// .fill(0).map((e, i) => i + 1)
 console.log("numbers: ", numbers)
 const evenNumber = numbers.filter(n => n % 2 === 0)
 console.log ("Even Numbers : ",evenNumber )
+
+const evenNumber2 = numbers.filter(number => {
+    if (number % 2 === 0){
+     console.log(" is divisible by 2", number )
+     return number 
+    }
+})
+console.log("even number 2 :", evenNumber2)
+
 
 const oddNumber = numbers.filter(n => n % 2 === 1)
 

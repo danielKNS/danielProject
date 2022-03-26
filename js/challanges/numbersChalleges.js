@@ -21,7 +21,8 @@ numbers.forEach(number => {
         console.log (" ")
         console.log ("THE BIGGEST NUMBER NOW IS : ",largestNumber)
         console.log (" ")
-    }})
+    }
+})
 
 console.log ("-------------------------------------")
 console.log (" ")
@@ -39,10 +40,11 @@ numbers.forEach(number => {
         console.log (" ")
         console.log ("THE SMALLEST NUMBER NOW IS : ",smallestNumber)
         console.log (" ")
-    }})
+    }
+})
 
-    console.log ("The Largest number in the array is :", largestNumber)
-    console.log (" ")
-    console.log ("The Smallest number in the arrays is :", smallestNumber)
+console.log ("The Largest number in the array is :", largestNumber)
+console.log (" ")
+console.log ("The Smallest number in the arrays is :", smallestNumber)
 
 
