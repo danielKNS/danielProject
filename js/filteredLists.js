@@ -38,4 +38,4 @@ console.log ("betweenNumbers 20 to 30 : ",betweenNumbers)
 
 const betweenNumbers2 = numbers.filter (numbers => numbers >= 10 && numbers <= 20 || numbers >= 30 && numbers <= 40)
 
-console.log ("betweenNumbers 10 to 40 : ",betweenNumbers2)
+console.log ("betweenNumbers 10 to 20 , 30 to  40 : ",betweenNumbers2)
