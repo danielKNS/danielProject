@@ -40,18 +40,18 @@ const getPersonisHappy = (personObject) => {
 const isHappy1 = getPersonisHappy(person) 
 console.log("is this person Happy :", isHappy1)
 
-const getPersonfavoriteSport = (personObject) => { 
+const getPersonFavoriteSport = (personObject) => { 
     return personObject.favoriteSport  
     
 }
-const favoriteSport1 = getPersonfavoriteSport(person) 
+const favoriteSport1 = getPersonFavoriteSport(person) 
 console.log("Favorite Sport :", favoriteSport1)
 
-const getPersonfavoriteColor = (personObject) => { 
+const getPersonFavoriteColour = (personObject) => { 
     return personObject.favoriteColour  
     
 }
-const favoriteColour1 = getPersonfavoriteColor(person) 
+const favoriteColour1 = getPersonFavoriteColour(person) 
 console.log("Favorite Colour :", favoriteColour1)
 
 const getPersonvideoGames = (personObject) => {
@@ -84,10 +84,10 @@ console.log("Age :", Age2)
 const isHappy2 = getPersonisHappy(person2)
 console.log ("Is this person happy :", isHappy2)
 
-const favoriteSport2 = getPersonfavoriteSport(person2)
+const favoriteSport2 = getPersonFavoriteSport(person2)
 console.log("Favorite Sport :", favoriteSport2)
 
-const favoriteColor2 = getPersonfavoriteColor(person2)
+const favoriteColor2 = getPersonFavoriteSport(person2)
 console.log("Favorite Colour", favoriteColor2)
 
 const videoGame2 = getPersonvideoGames(person2)
@@ -116,20 +116,25 @@ console.log("Age :", Age3)
 const isHappy3 = getPersonisHappy(person3)
 console.log("Is this person Happy :", isHappy3)
 
-const favoriteSport3 = getPersonfavoriteSport(person3)
+const favoriteSport3 = getPersonFavoriteSport(person3)
 console.log ("Favorite Sport :",favoriteSport3)
 
-const favoriteColour3 = getPersonfavoriteColor(person3)
+const favoriteColour3 = getPersonFavoriteSport(person3)
 console.log ("Favorite Colour :",favoriteColour3)
 
 const videoGame3 = getPersonvideoGames(person3)
 console.log("Favorite Video Games :", videoGame3)
 
 console.log("------CHANGE PERSON INFO---------")
-const change = {
-    ...person, 
-    firstName: "Gabriel",
-    lastName : "Santos"
+
+const changePersonName = (personChange) => {
+    return personChange.firstName = "Nicolas"
 }
-change.age = 20 
-console.log("New person info :",change)
+const newName = changePersonName(person)
+console.log ("new Name :", newName)
+
+const changePersonLastName =(personChange) => {
+    return personChange.lastName = "Costa"
+}
+ const newLastName = changePersonLastName(person)
+ console.log("New Last Name :", newLastName)
