@@ -127,14 +127,15 @@ console.log("Favorite Video Games :", videoGame3)
 
 console.log("------CHANGE PERSON INFO---------")
 
-const changePersonName = (personChange) => {
-    return personChange.firstName = "Nicolas"
+const changePersonName = (personChange,firstName = "Nicolas") => {
+    return firstName
 }
 const newName = changePersonName(person)
 console.log ("new Name :", newName)
 
-const changePersonLastName =(personChange) => {
-    return personChange.lastName = "Costa"
+const changePersonLastName =(personChange,lastName = "Costa") => {
+    return lastName
 }
  const newLastName = changePersonLastName(person)
  console.log("New Last Name :", newLastName)
+ 
