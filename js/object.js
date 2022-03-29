@@ -32,15 +32,14 @@ console.log("-----------creating new object---------")
 const person2 = person 
 console.log("person 2",person2)
 person2.age = 17 
-console.log("person 2",person2)
 console.log("person after changing person2", person)
 
-const person3 = {
+const change = {
     ...person, // copy a different object
     firstName: "Gabriel",
     eyeColour: "brown"
 }
-console.log("person3",person3)
-person3.lastName = "Santos" 
-console.log("person3",person3)
+console.log("person3",change)
+change.lastName = "Santos" 
+console.log("person3",change)
 console.log("person", person)

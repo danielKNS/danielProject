@@ -1,3 +1,5 @@
+console.log("------First person---------")
+
 const person = {
     firstName: "Daniel",
     lastName: "Ribeiro",
@@ -11,7 +13,7 @@ const person = {
 const getPersonFirstName = (personObject) => { // 1) you have a funtions getPersonFirstName it takes in the a single paramenter
     return personObject.firstName  // 3) then we return here and read what is inside get the personObject.firstName and RETURN IT
     
- }
+}
 const name1 = getPersonFirstName(person) //  2) we CALL the fuction getPersonFirstName PASSING  into it a 'person'
 console.log("name :", name1)  // 4) then now the return value from factions call to name1
 
@@ -19,7 +21,7 @@ console.log("name :", name1)  // 4) then now the return value from factions call
 const getPersonLastName = (personObject) => { 
     return personObject.lastName  
     
- }
+}
 const lastName1 = getPersonLastName(person) 
 console.log("Last Name :", lastName1)
 
@@ -27,28 +29,28 @@ console.log("Last Name :", lastName1)
 const getPersonAge = (personObject) => { 
     return personObject.age  
     
- }
+}
 const Age1 = getPersonAge(person) 
 console.log("Age :", Age1)
 
 const getPersonisHappy = (personObject) => { 
     return personObject.isHappy  
     
- }
+}
 const isHappy1 = getPersonisHappy(person) 
 console.log("is this person Happy :", isHappy1)
 
 const getPersonfavoriteSport = (personObject) => { 
     return personObject.favoriteSport  
     
- }
+}
 const favoriteSport1 = getPersonfavoriteSport(person) 
 console.log("Favorite Sport :", favoriteSport1)
 
 const getPersonfavoriteColor = (personObject) => { 
     return personObject.favoriteColour  
     
- }
+}
 const favoriteColour1 = getPersonfavoriteColor(person) 
 console.log("Favorite Colour :", favoriteColour1)
 
@@ -90,3 +92,44 @@ console.log("Favorite Colour", favoriteColor2)
 
 const videoGame2 = getPersonvideoGames(person2)
 console.log("Favorite Video Games :", videoGame2)
+
+console.log("------Third Person----------")
+
+const person3 = {  
+    firstName: "Samuel",
+    lastName: "Alef",
+    age: 14,
+    isHappy: false,
+    favoriteSport: "Soccer",
+    favoriteColour: "Red",
+    videoGames: ["Minecraft", "Black OPS", "Sonic"],
+}
+const name3 = getPersonFirstName(person3)
+console.log ("Name :", name3)
+
+const lastName3 = getPersonLastName(person3)
+console.log ("Last Name :", lastName3)
+
+const Age3 = getPersonAge(person3)
+console.log("Age :", Age3)
+
+const isHappy3 = getPersonisHappy(person3)
+console.log("Is this person Happy :", isHappy3)
+
+const favoriteSport3 = getPersonfavoriteSport(person3)
+console.log ("Favorite Sport :",favoriteSport3)
+
+const favoriteColour3 = getPersonfavoriteColor(person3)
+console.log ("Favorite Colour :",favoriteColour3)
+
+const videoGame3 = getPersonvideoGames(person3)
+console.log("Favorite Video Games :", videoGame3)
+
+console.log("------CHANGE PERSON INFO---------")
+const change = {
+    ...person, 
+    firstName: "Gabriel",
+    lastName : "Santos"
+}
+change.age = 20 
+console.log("New person info :",change)
