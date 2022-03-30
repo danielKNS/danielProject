@@ -127,15 +127,17 @@ console.log("Favorite Video Games :", videoGame3)
 
 console.log("------CHANGE PERSON INFO---------")
 
-const changePersonName = (personChange,firstName = "Nicolas") => {
-    return firstName
+// Function declaration       - receives 2 parameters. - this function is REUSABLE - can be called many times
+const setPersonName = (personObject, newFirstName) => {
+    personObject.firstName = newFirstName // changed the object field,
+    return personObject // returns the changed object
 }
-const newName = changePersonName(person)
-console.log ("new Name :", newName)
-
-const changePersonLastName =(personChange,lastName = "Costa") => {
-    return lastName
-}
- const newLastName = changePersonLastName(person)
- console.log("New Last Name :", newLastName)
- 
+const changedPerson1 = setPersonName(person, "Nicolas") 
+const changedPerson2 = setPersonName(person2, "Lucas")
+const changedPerson3 = setPersonName(person3, "Sasha")
+console.log("------New update-----")
+console.log(changedPerson1)
+console.log("-----New update------")
+console.log(changedPerson2)
+console.log("-----New update-----")
+console.log(changedPerson3)

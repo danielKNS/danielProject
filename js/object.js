@@ -1,3 +1,4 @@
+// An object is a collection of properties, and a property is an association between a name (or key) and a value.
 const computer2 = {}// <= this is an object
 const person = {
     // key: value
