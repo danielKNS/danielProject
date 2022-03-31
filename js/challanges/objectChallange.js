@@ -135,6 +135,55 @@ const setPersonName = (personObject, newFirstName) => {
 const changedPerson1 = setPersonName(person, "Nicolas") 
 const changedPerson2 = setPersonName(person2, "Lucas")
 const changedPerson3 = setPersonName(person3, "Sasha")
+
+const setPersonLastName = (personObject, newLastName) => {
+    personObject.lastName = newLastName
+    return personObject 
+}
+const changedPersonLastName1 = setPersonLastName(person, "Silva")
+const changedPersonLastName2 = setPersonLastName(person2, "Vida")
+const changedPersonLastName3 = setPersonLastName(person3, "Junior")
+
+const setPersonAge = (personObject, newAge) => {
+    personObject.age = newAge
+    return personObject 
+}
+const changedAge1 = setPersonAge (person, 5 )
+const changedAge2 = setPersonAge (person2, 21 )
+const changedAge3 = setPersonAge (person3, 17 )
+
+const setPersonIsHappy = (personObject, newIsHappy) => {
+    personObject.isHappy = newIsHappy
+    return personObject 
+}
+const changedIsHappy1 = setPersonIsHappy (person, false )
+const changedIsHappy2 = setPersonIsHappy (person2, false )
+const changedIsHappy3 = setPersonIsHappy (person3, true )
+
+const setPersonFavoriteSport = (personObject, newFavoriteSport) => {
+    personObject.favoriteSport = newFavoriteSport
+    return personObject 
+}
+const changedFavoriteSport1 = setPersonFavoriteSport (person, "Golf" )
+const changedFavoriteSport2 = setPersonFavoriteSport (person2, "Rugby" )
+const changedFavoriteSport3 = setPersonFavoriteSport (person3, "VolleyBall" )
+
+const setPersonFavoriteColour = (personObject, newFavoriteColour) => {
+    personObject.favoriteColour = newFavoriteColour
+    return personObject 
+}
+const changedAFavoriteColour1 = setPersonFavoriteColour (person, "Purple" )
+const changedFavoriteColour2 = setPersonFavoriteColour (person2, "Green" )
+const changedFavoriteColour3 = setPersonFavoriteColour (person3, null )
+
+const setPersonVideoGames = (personObject, newVideoGames) => {
+    personObject.videoGames = newVideoGames
+    return personObject 
+}
+const changedVideoGames1 = setPersonVideoGames (person, ["Roblox", "Among Us", "Halo"] )
+const changedVideoGames2 = setPersonVideoGames (person2, ["Sea of Thieves", "Ark", "Destiny"])
+const changedVideoGames3 = setPersonVideoGames (person3, ["Undertale","A Way out","Ghost of Tsushima"] )
+
 console.log("------New update-----")
 console.log(changedPerson1)
 console.log("-----New update------")
