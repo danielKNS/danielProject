@@ -29,12 +29,14 @@
 
 // call each function once, passing in your list of users
 
+// .push / .map / .filter
+
 const user1 = {
     name: "Nicolas",
     lastName: "Silva",
     Age: 20,
     luckyNumber: 7,
-    favoriteColor: "Blue",
+    favoriteColor: "Red",
     favoriteSport: "Tennis",
     salary: 25000,
 }
@@ -53,7 +55,7 @@ const user3 = {
     name: "Jonas",
     lastName: "Coelho",
     Age: 59,
-    luckyNumber: 7,
+    luckyNumber: 8,
     favoriteColor: "Grey",
     favoriteSport: "Orange",
     salary: 56000,
@@ -79,49 +81,71 @@ const user5 = {
     salary: 78000,
 }
 
+
 console.log("--------List of Old Users-----------")
 
-const usersList = [user1, user2, user3, user4, user5]
+const usersObject = [user1, user2, user3, user4, user5]
 
-const getOldUsers = (usersObject) => {
-    usersList.forEach(users => {
-        if (users.Age >= 59) console.log("This User is older or same age  :", users)
-    }) 
-    return usersObject 
-    
-}
-const usersInfo1 = getOldUsers(usersList) 
+const getOldUsers = (usersObject) =>
+    usersObject.filter(users => {
+    return users.Age >= 59
+})
+const usersInfo1 = getOldUsers(usersObject)
+console.log(usersInfo1) 
 
 console.log("---------List of Young Users----------")
 
-const getyoungUsers = (usersObject) => {
-    usersList.forEach(users => {
-        if (users.Age <= 21) console.log("This User is younger or same age :", users)
-    }) 
-    return usersObject 
-    
-}
-const usersInfo2 = getyoungUsers(usersList)
+const getyoungUsers = (usersObject) => 
+    usersObject.filter(users => {
+    return users.Age >= 21
+})
+
+const usersInfo2 = getyoungUsers(usersObject)
+console.log(usersInfo2) 
 
 console.log("---------List of Users that are underpaid----------")
 
-const getUserSalary = (usersObject) => {
-    usersList.forEach(users => {
-        if (users.salary < 30000 ) console.log("This User is Underpaid :", users)
-    }) 
-    return usersObject 
-    
-}
-const usersInfo3 = getUserSalary(usersList)
+const getUserSalary = (usersObject) => 
+    usersObject.filter(users => {
+    return users.salary < 30000
+})
 
-// const getUsersTotalSalary = (usersObject) => {
-//     usersList.forEach(users => {
-//         (users.salary + ) 
-//     }) 
-//     return usersObject 
-    
-// }
-// const usersInfo4 = getUsersTotalSalary(usersList)
+const usersInfo3 = getUserSalary(usersObject)
+console.log(usersInfo3) 
+
+console.log("---------The total of the salary----------")
+
+const total1 = usersObject[0]+ usersObject[1] + usersObject[2] + usersObject[3] +usersObject[4]
+
+let totalSum1 = 0
+
+usersObject.forEach( user => { 
+
+    console.log( "The Number of the Salary : $",user.salary)
+    totalSum1 = user.salary + totalSum1 
+
+})
+console.log ("The total we spend per year : ", "$",totalSum1)
+
+console.log("---------The total of people that like Red----------")
+
+const total = usersObject[0]+ usersObject[1] + usersObject[2] + usersObject[3] +usersObject[4]
+
+let totalSum = 0
+
+usersObject.forEach( user => { 
+    if (user.favoriteColor === "Red" )
+     totalSum = 1 + totalSum
+
+})
+console.log ("The total  users that like Red is : ",totalSum)
 
 
+console.log("---------The total of people that like number 7----------")
 
+const getUsersNumber = (usersObject) =>
+    usersObject.filter(users => {
+    return users.luckyNumber === 7
+})
+const usersInfo4 = getUsersNumber(usersObject)
+console.log(usersInfo4) 
