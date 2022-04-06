@@ -37,3 +37,10 @@ etc
 # Arrow function :
 * Arrow function allows you to create functions in a cleaner way compared to regular funtions.
 * Arrow funtions are best used for callbacks, methods like map, reduce and forEach .
+
+# React :
+* React is a delclation,efficient and flexible JavaScript library for building user interfaces.
+- it lets you compose complex UIs from small and isolated pieces of code called "Componets".
+
+* HERE ARE THE DIFFERENT COMPONETS :
+https://reactjs.org/tutorial/tutorial.html#before-we-start-the-tutorial
