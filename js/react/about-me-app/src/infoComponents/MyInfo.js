@@ -12,7 +12,7 @@ const MyInfo = (props) => {
     return (
       <div>
         <h1>-----About Me----- :</h1>
-        {listItems}
+         {listItems} 
       </div>
     );
   }

@@ -2,7 +2,8 @@ import React from "react";
 
 import MyInfo from "./MyInfo.js"
 import MyHobby from "./MyHobby.js"
-
+import MyProfile from "./MyProfile"
+import Mylogo from "./MyLogo"
 const myInfo = [
     {
       name: "Name : Daniel",
@@ -21,6 +22,10 @@ const myInfo = [
 
  const MainComponent = (props) => (
   <div>
+    <MyProfile
+    />
+    <Mylogo
+    />
     <MyInfo
       myInfo={myInfo}
     />
