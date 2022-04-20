@@ -1,10 +1,10 @@
 import React from "react";
 
-import MyInfo from "./MyInfo.js"
-import MyHobby from "./MyHobby.js"
-import MyProfile from "./MyProfile"
-import Mylogo from "./MyLogo"
-import MyFriendList from "./MyFriendList.js";
+import MyInfo from "./MyInfoo.js"
+import MyHobby from "./MyHobbi.js"
+// import MyProfile from "./MyProfile"
+// import Mylogo from "./MyLogo"
+// import MyFriendList from "./MyFriendList.js";
 
 const myInfo = [
     {
@@ -25,25 +25,27 @@ const myInfo = [
 
  const MainComponent = (props) => (
   <>
-    <div style = {{backgroundColor: "black", display: "grid" }}>
+    {/* <div style = {{backgroundColor: "black", display: "grid" }}>
       <Mylogo/>
     </div>
 
     <div style = {{backgroundColor: "blue"}}>
       <MyProfile/>
-    </div>
+    </div> */}
     <div style ={{backgroundColor: "white"}} >
       <MyInfo
       myInfo={myInfo}/>
     </div>
+    <h1> hi iiidhcisdos</h1>
     <MyHobby
       myHobby={myHobby}/>
     <hr/>
 
-    <MyFriendList/>
+    {/* <MyFriendList/> */}
 
     <hr/>
     </>
 )
+
 
 export default MainComponent;

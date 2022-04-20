@@ -6,10 +6,10 @@ body {
 }
 
 .my_profile_picture {
-  max-width: 30%;
+  width: "30px";
 }
 
-.App {
+.Intro {
   text-align: center;
 }
 
