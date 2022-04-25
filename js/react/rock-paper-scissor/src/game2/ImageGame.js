@@ -18,15 +18,6 @@ const ImageGame = () => {
             SetMessageColor("red")
             SetHeadMessage(`YOU choose, ${Hand} , CPU picked ${result}, LOST!!`) 
         }
-    //     if (headMessage === "Rock") {
-    //         if (result === "Rock") {
-    //         SetMessageColor (`YOU choose, ${Hand} , CPU picked ${result}, TIE!!`)
-    //         } else if (result === "Paper") {
-    //         SetMessageColor (`YOU choose, ${Hand} , CPU picked ${result}, YOU LOST!!`)
-    //         } else if (result === "Scissors") {
-    //          SetMessageColor (`YOU choose, ${Hand} , CPU picked ${result}, YOU WON!!`)
-    //     } 
-    // }
     }
 
 
