@@ -2,6 +2,7 @@ import React, { useState } from "react"
 const ImageCoin = () => {
 
     const [headMessage, SetHeadMessage, ] = useState("")
+    const [messageColor , SetMessageColor] = useState("blue")
 
     const handleCoinClick = (Coin) =>{ // Coin is now Head
         const randomNumber = Math.floor(Math.random() * 2)
@@ -9,8 +10,10 @@ const ImageCoin = () => {
         const result = randomNumber === 1 ? "Head" : "Tail"
         console.log("result", result)
         if (Coin === result){
+            SetMessageColor("green")
             SetHeadMessage(`YOU choose, ${Coin} , CPU picked ${result}, YOU WON!!`)
         }else {
+            SetHeadMessage("red")
             SetHeadMessage(`YOU choose, ${Coin} , CPU picked ${result}, YOU LOST!!`)
         }
        
@@ -30,7 +33,14 @@ const ImageCoin = () => {
             </div>
             <div>
                 <p style= {{color: "yellow"}}>The results :</p>
-                <h2 style={{color: "green"}}>{headMessage} </h2>
+                {/* <h2 style={{color: "green"}}>{headMessage} </h2> */}
+                <p style={{
+                    display:"flex",
+                    justifyContent: "left",
+                    color: messageColor,
+                }}>
+                {headMessage}
+                </p>
             </div>
         </div>
         
