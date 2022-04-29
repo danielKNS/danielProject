@@ -65,3 +65,9 @@ input[type=text] {
 #remaining-count {
   font-weight: bold;
 }
+label{
+  display: block;
+}
+label input[type=checkedbox]:checked + span {
+  text-decoration: line-through;
+}
