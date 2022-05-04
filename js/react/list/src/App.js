@@ -29,7 +29,7 @@ const  App= ()  => {
       completeStatus:"todo"
     },
     {
-    id: 5,
+      id: 5,
       text: "Take a walk",
       completed: true,
       completeStatus:"todo"
@@ -39,8 +39,8 @@ const  App= ()  => {
 
   //----------------------------------------------------
 
-  // 
-  const [completetask,setCompletetask] = useState("")
+  //  use the id  .map .filter .id .find
+  const [completetask,setCompletetask] = useState("") // is a hook fuction from react to create state varible
   const handleClick = (task) => {
     console.log("i am being Clicked")
     console.log("Task Selected:",task)
@@ -49,23 +49,19 @@ const  App= ()  => {
     const todo = todoTask 
     todo.forEach(todo => {
       if (todo.completed === true){
-        setCompletetask(todo.completeStatus = "todo complete")
-      
-      }else if(todo.completed === false) {
-        return setCompletetask (todo.completeStatus = "todo")
+              setCompletetask(todo.completeStatus = "todo complete")
+        }else if(todo.completed === false) {
+
+          return setCompletetask (todo.completeStatus = "todo")
 
       }
     })
   
   
 }
+//
 
-// i having a problem of crossing the line everytime the checked box is being clicked.
-// i tried using if staments but i think i am missing something.
-// i am using className but is not working.
-// i the problem is from .map(line 54)
-
-  return (
+ return (
   <div>
 
       <div className="app"/>
