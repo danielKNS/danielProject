@@ -42,22 +42,22 @@ const  App= ()  => {
   // }
   // 
   //----------------------------------------------------//
-  const [testId,setTestId] = useState("")
+  const [testId,setChange] = useState("")
   const [completetask,setCompletetask] = useState("") // is a hook fuction from react to create state varible
-  const [taskRemain,setTaskRemain] = useState(todoTask.length)
+  const [taskRemain,setTaskRemain] = useState("")
   const handleClick = (task,e) => {
     console.log("e",e)
-    console.log("Task Selected:",task)
-    const todoStatus = task.completed
-    console.log("Todo is : ",todoStatus)//  show which task is being selected and is checking if the complete is true or False 
+    console.log("Task Selected:",task)//  show which task is being selected and is checking if the complete is true or False 
+    const todoStatus = task.completed // assign task.completed to see which one is completed or not (true/ false)
+    console.log("Todo is : ",todoStatus) //Line 54 is mapping through all the todoTask(array of object) 
     if (todoStatus === true){
-      const newTask = todoTask.map(todo => {
-        if (todo.id === task.id){
-        return {...setCompletetask(todo, todo.completed = false ,todo.completeStatus = "todo")}
+      const newTask = todoTask.map(todo => { 
+        if (todo.id === task.id){ 
+        return {...setCompletetask( todo,todo.completed = false ,todo.completeStatus = "todo")}
       }
       return todo
     });
-    setTestId(newTask)
+    setChange(newTask)
 
     const taskRemaining = newTask.filter(todo => todo.completed === false).length 
     console.log("Tasks Remaining :",taskRemaining)
@@ -71,41 +71,70 @@ const  App= ()  => {
     }
     return todo
   });
-  setTestId(newTask)
+  setChange(newTask)
   
-  const taskRemaining = newTask.filter(todo => todo.completed === false).length
+  const taskRemaining = newTask.filter(todo => todo.completed === false).length 
   console.log("Tasks Remaining :",taskRemaining)
   setTaskRemain(taskRemaining)
+  
 }
   
 }
-// fix remain, allow to add more task, do the checkbox and finally remove the ones that are done.
+const handleSubmit = (e) => {
+  e.preventDefault()
+  console.log("i am being submited by the event:", e)
+  const newTodoTask = todoTask[todoTask.length -1]
+  console.log("newTask:",newTodoTask.id + 1)
 
+  setTodoTask(
+    [
+      ...todoTask,
+      {
+        id:newTodoTask.id +1,
+        text:e.target.addMoreTask.value,
+        completed: false,
+        completeStatus:"todo"
+      }
+    ]
+  )
+  e.target.addMoreTask.value = (" ")
+  // console.log("id:",newTodoTask.id)
+}
+
+const [completedTask,setCompletedTask] = useState("")
+const handleClickedCompleted= (e) => {
+} 
+
+// fix remain, do the checkbox and finally remove the ones that are done(new array).
+// Line 119 is mapping through all the task(array of object) 
  return (
-  <div>
+  <div> 
 
       <div className="app"/>
         <h1>Things to Do : </h1>
         {todoTask.map((task) => <div id="main-todo-list"  className="todo-list"
-        key={task.id} onClick={(e)=> handleClick (task,e)}     // i just want to know which task is being selected. Also the "task" is each individual of the objects.
+        key={task.id} onClick={(e)=> handleClick (task,e)} // i just want to know which task is being selected. Also the "task" is each individual of the objects. 
         >
         <div className={task.completeStatus}>
-          <input type="checkbox"  className="todo-checkbox" />
-          <span className="todo-text"> {task.text}  </span>
+          <input type="checkbox" className="todo-checkbox" />
+          <span className="todo-text" > {task.text} </span> 
         </div>
           </div>
         )}
-      <input type ="text" placeholder="Add more Task "/>
+        <form onSubmit={handleSubmit}> 
+      <input  type="text" name={"addMoreTask"} placeholder="Add more Task "/>
       <p><span id="remaining-count">0</span> Task remaining</p>
-        <script src="script/todo.js"></script>
-      
+      </form>
+
+      <button onClick={handleClickedCompleted()}>Hide completed Task </button>
   </div>)
-  }
+}
   
   export default App;
   
-//  use the id  .map .filter .id .find
-  // on line 53 i am mapping through all the task(array of object) 
+//  use the id  .map .filter .find
 
-  // the first need to be checked completed 
-  //.map .filter .find
+  // Notes:
+//the .map object holds the key value pair and remembers the original insertion order of the keys.any value(both objects and primitive value) may be used as either a key or a value.
+//The filter() method creates a new array with all elements that passes the test implemented by the provided function| Returns the elements of an array that meet the condition specified in a callback function.
+//(...)Spread operator lets you expand an iterable like an object,string or array into elements.This is very usefl when you want to make an exact copy of an existing array.
