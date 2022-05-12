@@ -1,0 +1,56 @@
+body {
+  color: #262626;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+.insta-header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: white;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  object-fit: contain;
+  border-bottom: 1px solid lightgray;
+}
+
+.insta-wrapper {
+  max-width: 975px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.log_button__button {
+  background-color: #0095f6;
+  border-radius: 4px;
+  color: #fff;
+  padding: 5px 9px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.setupPost{
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 10px;
+}
+/* 
+.search {
+  height: 20vh;
+  width: 20%;
+  display: flex;
+  align-items: center;
+} */
