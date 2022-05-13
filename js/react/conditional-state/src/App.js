@@ -85,7 +85,7 @@ const App = () => {
 }
 
 
-// // class componenet return jxs your not allowed to use hooks
+// // class componets return jxs your not allowed to use hooks
 // class App extends React.Component{
 
 //   constructor(){
