@@ -1,4 +1,4 @@
-/**brew install typescriptp
+/**brew install typescript
  * yarn create react-app name 
  * Data types:
  * 
