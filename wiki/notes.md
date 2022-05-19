@@ -5,6 +5,7 @@
 * Arrays/list = [1,2,3,4,5] or ["hello world"]
 * Boonleans = true or false
 * Function = what is withing ()
+* Object
 
 // GO SEE EXAPLES IN (dataTypes.js)
 # Operatos :
@@ -17,6 +18,8 @@
 * -- = decrease
 * && = and 
 * || = or
+* ? = if
+* : else
 * ; is needed on the end  of every statement
 * {} = start and where it finish a  funtion
 * [] = an array
@@ -44,3 +47,5 @@ etc
 
 * HERE ARE THE DIFFERENT COMPONETS :
 https://reactjs.org/tutorial/tutorial.html#before-we-start-the-tutorial
+
+render tell the computer what you want to put in a browser example "hello" or an picture etc

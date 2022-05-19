@@ -64,6 +64,9 @@ button {
   margin: 28px 0;
   row-gap: 15px;
 }
+.Icon_profile{
+  object-position: left;
+}
 
 .timeline{
   margin: 0 auto;

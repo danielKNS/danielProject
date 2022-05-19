@@ -6,9 +6,10 @@ type PostProps = {
   username: string,
   caption: string,
   imageUrl: string,
+  likes: number,
 }
 
-const Post = ({username, caption, imageUrl}: PostProps) => {
+const Post = ({username, caption, imageUrl, likes}: PostProps) => {
 
   return (
     <div className="post">
@@ -24,6 +25,7 @@ const Post = ({username, caption, imageUrl}: PostProps) => {
       {/* Image */}
       <img className="post__image"  width={200} height={200} src={imageUrl} alt="" />
       {/* Username + caption */}
+      <button>Like: {likes}</button>
       <h4 className="post__text">
         <strong>{username}:</strong> {caption}
       </h4>    

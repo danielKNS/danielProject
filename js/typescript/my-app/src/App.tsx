@@ -10,18 +10,21 @@ const  App= () => {
       username: "blessingthebobo",
       caption: "why is he looking at me ",
       imageUrl:"meme.jpeg",
+      likes: 250,
     },
     {
       id:2,
       username: "Jason",
       caption: "Oh my a God!, Season 3 is coming!!!!",
       imageUrl:"demonslayer.jpeg",
+      likes: 1050,
     },
     {
       id:3,
       username: "Pablo",
       caption: "hello enjoy my work",
       imageUrl:"work.jpeg",
+      likes: 2345,
     },
   ]);
   
@@ -47,6 +50,7 @@ const  App= () => {
             username={post.username}
             caption={post.caption}
             imageUrl={post.imageUrl}
+            likes={post.likes}
           />
         ))} 
        </div> 
