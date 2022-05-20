@@ -1,6 +1,8 @@
 import React from "react";
 import "./Post.css";
 import Avatar from "@material-ui/core/Avatar";
+import { Checkbox, FormControlLabel } from "@material-ui/core";
+import { Favorite, FavoriteBorder } from "@material-ui/icons";
 
 type PostProps = {
   username: string,
@@ -25,7 +27,18 @@ const Post = ({username, caption, imageUrl, likes}: PostProps) => {
       {/* Image */}
       <img className="post__image"  width={200} height={200} src={imageUrl} alt="" />
       {/* Username + caption */}
-      <button>Like: {likes}</button>
+      <div style={{
+        margin: "left",
+        display: "block",
+        width: "fit-content"
+      }}>
+        <FormControlLabel
+        control={<Checkbox icon ={<FavoriteBorder/>}
+        checkedIcon={<Favorite/>}
+        name="checkedH" />}
+        label = {likes}
+        />
+      </div>
       <h4 className="post__text">
         <strong>{username}:</strong> {caption}
       </h4>    
