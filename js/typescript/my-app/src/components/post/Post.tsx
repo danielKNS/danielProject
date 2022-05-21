@@ -5,13 +5,14 @@ import { Checkbox, FormControlLabel } from "@material-ui/core";
 import { Favorite, FavoriteBorder } from "@material-ui/icons";
 
 type PostProps = {
+  avatar: string|undefined,
   username: string,
   caption: string,
   imageUrl: string,
   likes: number,
 }
 
-const Post = ({username, caption, imageUrl, likes}: PostProps) => {
+const Post = ({username, caption, imageUrl, likes, avatar}: PostProps) => {
 
   return (
     <div className="post">
@@ -19,7 +20,7 @@ const Post = ({username, caption, imageUrl, likes}: PostProps) => {
         {/* Header: avatar with username */}
         <Avatar
           className="post__avatar"
-          alt={username}
+          alt={avatar}
           src="/static/images/avatar/1.jpg"
         />
         <h3>{username}</h3>
