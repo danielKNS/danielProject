@@ -50,7 +50,7 @@ const  App= () => {
           id: lastPost.id + 1,
           avatar:"D",
           username:"Daniel",
-          imageUrl:imageURL,
+          imageUrl:imageURL,  // the image that the user choose
           caption:e.target.Description.value,
           likes: 0,
         },
@@ -80,20 +80,20 @@ const  App= () => {
             {/* Profile picture */}
             <Avatar 
             className="post__avatar"
-            alt={"Daniel"}
+            alt={"D"}
             src="/static/images/avatar/1.jpg"
           />
       </div>
       <div>
-        {/* <button onClick={handleClick}>choose a file </button> */}
-        <form style={{padding:"5px 45%"}} onSubmit={(e) => handleSubmit(e)}>  {/* resevies the event */}
-          <input type= "file" onChange={handleImage}/>
+        {/* This here is what is happening when you are creating a Post*/}
+        <form style={{padding:"5px 45%"}} onSubmit={(e) => handleSubmit(e)}>  {/* handleSubmit recieves the event */}
+          <input type= "file" onChange={handleImage}/> {/* onChange detects when the value of an input changes. */}
           <input name="Description" placeholder="Description"/>
           <button>Upload New Post</button>
         </form>
       </div>
-      <div className="timeline">
-        {posts.map((post) => (
+      <div className="frontpage">
+        {posts.map((post) => ( // mapping throgh each post.
           <Post key={post.id}
             avatar={post.avatar}
             username={post.username}
