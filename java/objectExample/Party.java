@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Party {
     public static void main(String[] args) {
-
+    //EACH GUEST IS A DIFFERENTS INSTACES BUT THEY ARE IN THE SAME CLASS/OBJECT
 
 
         System.out.println("--------DEFAULT CONSTRUCTOR--------");
@@ -42,20 +42,39 @@ public class Party {
         Guest guest4 = new Guest("Carlos","Santos",17,2002,5,"Mashed potatoes",false,true);
 
         guest4.fullName("Rocha");
-        System.out.println("guest2 "+ guest4);
-        System.out.println("guest3 fistName: "+ guest4.firstName);
-        System.out.println("guest3 lastName: "+ guest4.lastName);
-        System.out.println("guest3  age: "+ guest4.age);
-        System.out.println("guest3 year you are born: " + guest4.year);
-        System.out.println("guest3 Favorite number: " + guest4.favoriteNumber);
-        System.out.println("guest3 Favorite food: " + guest4.favoriteFood);
-        System.out.println("Is guest3 happy: " + guest4.isHappy);
-        System.out.println("Does guest3 like Anime: " + guest4.doYouLikeAnime);
+        System.out.println("guest4 "+ guest4);
+        System.out.println("guest4 fistName: "+ guest4.firstName);
+        System.out.println("guest4 lastName: "+ guest4.lastName);
+        System.out.println("guest4  age: "+ guest4.age);
+        System.out.println("guest4 year you are born: " + guest4.year);
+        System.out.println("guest4 Favorite number: " + guest4.favoriteNumber);
+        System.out.println("guest4 Favorite food: " + guest4.favoriteFood);
+        System.out.println("Is guest4 happy: " + guest4.isHappy);
+        System.out.println("Does guest4 like Anime: " + guest4.doYouLikeAnime);
         guest4.favoriteAnime("Sword art online");
         guest4.eat("Nothing.... because he has coding to do ");
         guest4.guestPassword(123456789);
 
-        List<Guest> guests = List.of(guest1,guest2,guest3,guest4);
+        System.out.println("------ All ARGS CONSTRUTOR TEST AGAIN --------");
+
+        Guest guest5 = new Guest("james","branco",46);
+        System.out.println("guest5 "+ guest5);
+        System.out.println("guest5 fistName: "+ guest5.firstName);
+        System.out.println("guest5 lastName: "+ guest5.lastName);
+        System.out.println("guest5  age: "+ guest5.age);
+        guest5.guestPassword(175438809);
+
+        Guest guest6 = new Guest("Bob","Smart",76,false);
+        System.out.println("guest6 "+ guest6); // DIFFERENT INSTANCE
+        System.out.println("guest6 fistName: "+ guest6.firstName);
+        System.out.println("guest6 lastName: "+ guest6.lastName);
+        System.out.println("guest6  age: "+ guest6.age);
+        System.out.println("Does guest6 like Anime: " + guest6.doYouLikeAnime + " ...He said he never watched cartoons in his life ");
+        guest6.guestPassword(15488539);
+        
+        
+
+        List<Guest> guests = List.of(guest1,guest2,guest3,guest4,guest5);
         guests.forEach(guest -> {
             System.out.println("The following guest has just walked in..."+ guest.firstName + " " + guest.lastName);
         });

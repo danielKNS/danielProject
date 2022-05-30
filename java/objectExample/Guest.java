@@ -1,6 +1,8 @@
 public class Guest {
 
-    // attributes/properties
+    // ATTRIBUTES/PROPERTIES
+    // information about your object
+    // descriptions
     String firstName;
     String lastName;
     Integer age;
@@ -9,6 +11,7 @@ public class Guest {
     String favoriteFood;
     Boolean isHappy;
     Boolean doYouLikeAnime;
+    // floating (is not inside of a method)
 
     // Constructor = creates an Instance of guest class
     // default Constructor
@@ -17,18 +20,21 @@ public class Guest {
     }
 
     // all args Constructor
-    public Guest(String firstName, String lastName, Integer age){
-
+    // takes 3 arguments
+    public Guest(String firstName, String lastName, Integer age){ 
+        
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
 
     }
 
+    //Args Constructor
+    //Takes 8 arguments
     public Guest(String firstName, String lastName, Integer age,
     Integer year, Integer favoriteNumber,String favoriteFood,
     Boolean isHappy,Boolean doYouLikeAnime){
-
+    //this. = is a way fro you to look within a class and it looks for any attributes
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -39,6 +45,14 @@ public class Guest {
         this.doYouLikeAnime = doYouLikeAnime;
     }
 
+    public Guest(String firstName, String lastName, Integer age,Boolean doYouLikeAnime){
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.doYouLikeAnime = doYouLikeAnime;
+
+    }
 
     //Methods = actions
     public void eat(String food){
