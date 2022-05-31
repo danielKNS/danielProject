@@ -6,7 +6,7 @@ public class Adventure {
         System.out.print("---------------------Complete to play the game ---------------------");
         System.out.println(" ");
 
-        Scanner scanner = new Scanner(System.in); // we instaciante a scanner object
+        Scanner scanner = new Scanner(System.in); // we instanciante a scanner object
         System.out.print("What is you name ? ");
 
         String userInput = scanner.nextLine(); // ask for user input
