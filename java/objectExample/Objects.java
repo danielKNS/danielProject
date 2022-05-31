@@ -2,16 +2,16 @@ public class Objects {
      // Create a class attribute
     int x; 
 
-    //Create a class Constructor for "Main" Class.
-    public Object(){ 
-        x=5; // set the initial value for the class attribute.
-    }
+    // //Create a class Constructor for "Main" Class.
+    // public Object(){ 
+    //     x=5; // set the initial value for the class attribute.
+    // }
 
-    public static void object(String[] args){
-        Object myobj = new Object(); // Create an object of Class "Main" (this will call the Constructor)
-        System.out.println(myobj); // Print the value x
+    // public static void object(String[] args){
+    //     Object myobj = new Object(); // Create an object of Class "Main" (this will call the Constructor)
+    //     System.out.println(myobj); // Print the value x
 
-    }
+    // }
     
 }
 // Notes:
