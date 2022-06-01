@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Room {
     
     private String owners;
@@ -6,6 +8,18 @@ public class Room {
     private Integer posters;
     private String walls;
     private String floors;
+    private List<String> list; 
+
+    public Room(String owners,Integer beds,Integer desks,Integer posters,String walls,
+    String floors){
+        this.owners = owners;
+        this.beds = beds;
+        this.desks = desks;
+        this.posters = posters;
+        this.walls = walls;
+        this.floors = floors;
+
+    }
 
     // -------------Rooms---------------//
     public String getOwner(){
@@ -60,4 +74,18 @@ public class Room {
     public void setFloors(String floors){
         this.floors = floors;
     } 
+
+     // -------------List of Owners---------------//
+
+     public Room(List<String> list){
+        this.list = list;
+     }
+
+     public List<String> getOwnersList(){
+        return list;
+     }
+
+     public void setOwnersList(List<String> list){
+        this.list = list;
+     }
 }
