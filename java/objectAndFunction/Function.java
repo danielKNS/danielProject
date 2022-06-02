@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+// import java.util.ArrayList;
 import java.util.List;
 // import java.util.function.Predicate;
 // import java.util.stream.Collectors;
@@ -117,14 +117,7 @@ public class Function {
         System.out.println("---------------TOTAL USERS THAT LIKE THE SAME NUMBER -----------------");
         List<Object> userLuckyNumber = users.stream().filter(user -> user.getLuckyNumber() == 5).collect(Collectors.toList());
         userLuckyNumber.forEach(user -> {
-        System.out.println("THIS user lucky number is : " + user.getLuckyNumber());
-        });
-        
-        System.out.println("---------------TOTAL USERS SALARY-----------------");
-        List<Object> usersTotalSalary =users.stream().filter(user -> user.getFavoriteColor() == "Black").collect(Collectors.toList());
-        usersTotalSalary.forEach(user -> {
-            System.out.println("THIS user favorite colour is: " + user.getFavoriteColor());
-        });
+        System.out.println("THIS user lucky number is : " + user.getLuckyNumber());});
     }
     
 }
