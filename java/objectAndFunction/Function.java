@@ -3,7 +3,6 @@ import java.util.List;
 // import java.util.function.Predicate;
 // import java.util.stream.Collectors;
 // import java.util.stream.Stream;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Function {
@@ -65,16 +64,16 @@ public class Function {
         System.out.println("user5 Salary: " + user5.getSalary());
 
 
-        var users = List.of(user1,user2,user3,user4,user5);
+        // var users = List.of(user1,user2,user3,user4,user5);
 
-        var result = new ArrayList<Object>();
+        // var result = new ArrayList<Object>();
 
-        for (Object user : users){
-            if (user.getAge() > 30){
-                result.add(user);
-            }
-        }
-        System.out.println(result);
+        // for (Object user : users){
+        //     if (user.getAge() > 30){
+        //         result.add(user);
+        //     }
+        // }
+        // System.out.println(result);
 
 
         // List<Object> users = List.of(user1,user2,user3,user4,user5); 
@@ -87,19 +86,45 @@ public class Function {
 
         // List<Object> users = List.of(user1,user2,user3,user4,user5);
 
-
         // List<Object> users = users.stream().filter
         // (user -> user.getAge() > 30).collect(Collectors.toList()); i am putting in the list
 
+        List<Object> users = List.of(user1,user2,user3,user4,user5);
+
+        System.out.println("---------------OLD USERS-----------------");
         //.collect = collect my list and put it in a list
         List<Object> oldUsers = users.stream().filter(user -> user.getAge() >= 30).collect(Collectors.toList());
-        System.out.println(" these user are old" + oldUsers);// console log checking if is giving what i want
+        // System.out.println(" these user are old" + oldUsers);
+        // console log checking if is giving what i want
        
+        // getting oldUser and for each user i want to get their name and etc
         oldUsers.forEach(user -> {
-            System.out.println("USER: " + user.getFirstName() + " " + user.getLastName());
+            System.out.println("THIS user is above age 30: " + user.getFirstName() + " " + user.getLastName());
         });
 
+        System.out.println("---------------YOUNG USERS-----------------");
+        List<Object> youngUsers = users.stream().filter(user -> user.getAge() <= 30).collect(Collectors.toList());
+        youngUsers.forEach(user -> {
+        System.out.println("THIS user is under the age of 30: " + user.getFirstName() + " " + user.getLastName());
+        });
+
+        System.out.println("---------------LIST OF USERS THAT ARE UNDERPAID-----------------");
+        List<Object> usersSalary = users.stream().filter(user -> user.getSalary() <= 35000).collect(Collectors.toList());
+        usersSalary.forEach(user -> {
+        System.out.println("THIS user: "+ user.getFirstName() + user.getLastName()+" is underpaind: "+ user.getSalary());
+        });
+
+        System.out.println("---------------TOTAL USERS THAT LIKE THE SAME NUMBER -----------------");
+        List<Object> userLuckyNumber = users.stream().filter(user -> user.getLuckyNumber() == 5).collect(Collectors.toList());
+        userLuckyNumber.forEach(user -> {
+        System.out.println("THIS user lucky number is : " + user.getLuckyNumber());
+        });
         
+        System.out.println("---------------TOTAL USERS SALARY-----------------");
+        List<Object> usersTotalSalary =users.stream().filter(user -> user.getFavoriteColor() == "Black").collect(Collectors.toList());
+        usersTotalSalary.forEach(user -> {
+            System.out.println("THIS user favorite colour is: " + user.getFavoriteColor());
+        });
     }
     
 }

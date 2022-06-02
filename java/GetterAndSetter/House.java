@@ -12,10 +12,10 @@ public class House {
         // room.setWalls("white");
         // room.setFloors("marble");
 
-        Owner owners = new Owner(List.of("dsda","dsda"));
+        Owners ownerrs = new Owners(List.of("Jack","jack0005@gmail.com",123456));
 
 
-        System.out.println("The House has: " + room.getOwnersList());
+        System.out.println("The House has: " + ownerrs);
         // System.out.println("For each Room of the House has: " + room.getBeds() + " Bed.");
         // System.out.println("There are only: " + room.getDesks() + " Desks in two rooms.");
         // System.out.println("There are: " + room.getPosters() + " Posters in one Room");

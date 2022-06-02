@@ -2,17 +2,18 @@ import java.util.List;
 
 public class Room {
     
-    private String owners;
+    private String owners1;
     private Integer beds;
     private Integer desks;
     private Integer posters;
     private String walls;
     private String floors;
     private List<String> list; 
+    private List<Owners> owners;
 
-    public Room(String owners,Integer beds,Integer desks,Integer posters,String walls,
+    public Room(String owners1,Integer beds,Integer desks,Integer posters,String walls,
     String floors){
-        this.owners = owners;
+        this.owners1 = owners1;
         this.beds = beds;
         this.desks = desks;
         this.posters = posters;
@@ -23,11 +24,11 @@ public class Room {
 
     // -------------Rooms---------------//
     public String getOwner(){
-        return owners;
+        return owners1;
     }
 
-    public void setOwner(String owners){
-        this.owners = owners;
+    public void setOwner(String owners1){
+        this.owners1 = owners1;
     }
 
     // -------------Beds---------------//
