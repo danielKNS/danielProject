@@ -75,8 +75,8 @@ public class Statements {
 
         // System.out.println("Largest number is : %s".formatted(smallests));
 
-        System.out.println("Largest number is : %s".formatted(largests));
-        System.out.println("Smallest number is : %s".formatted(smallests));
+        // System.out.println("Largest number is : %s".formatted(largests));
+        // System.out.println("Smallest number is : %s".formatted(smallests));
         
         System.out.println("------ForEach Loop---------");
 

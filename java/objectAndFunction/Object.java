@@ -1,12 +1,12 @@
 public class Object{
 
-    String firstName;
-    String lastName;
-    Integer age;
-    Integer luckyNumber;
-    String favoriteColor;
-    String favoriteSport;
-    Integer salary;
+   private String firstName;
+   private String lastName;
+   private Integer age;
+   private Integer luckyNumber;
+   private String favoriteColor;
+   private String favoriteSport;
+   private Integer salary;
 
     public Object(String firstName, String lastName,Integer age,Integer luckyNumber,
     String favoriteColor,String favoriteSport,Integer salary){
@@ -30,7 +30,7 @@ public class Object{
     }
 
     // -------------LastName---------------//
-    public Integer getLastName(){
+    public String getLastName(){
         return lastName;
     }
 
@@ -75,7 +75,7 @@ public class Object{
     } 
 
     // -------------Salary---------------//
-    public String getSalary(){
+    public Integer getSalary(){
         return salary;
     }
 
