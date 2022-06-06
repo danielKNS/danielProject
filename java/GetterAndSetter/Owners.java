@@ -1,14 +1,17 @@
-import java.util.List;
-
 public class Owners{
+
+
     private String name ;
     private String email;
     private Integer password;
+    private Boolean likeDog;
 
-    public Owners(String name , String email , Integer password){
+
+    public Owners(String name , String email , Integer password,Boolean likeDog){
         this.name = name;
         this.email = email;
         this.password = password;
+        this.likeDog = likeDog;
     }
 
    
@@ -34,5 +37,21 @@ public class Owners{
 
     public void setPassword(Integer password){
         this.password = password;
+    }
+
+    public Boolean getlikeDog(){
+        return likeDog;
+    }
+
+    public void setLikeDog(Boolean likeDog){
+        this.likeDog = likeDog;
+    }
+
+    public String toString(){
+        return "name: " + name
+        + " Email: " + email 
+        + " Password: " + password
+        + " Does the owner like a dog; " + likeDog
+        ;
     }
 };

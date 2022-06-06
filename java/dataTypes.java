@@ -12,7 +12,7 @@ class DataTypes{
 // 3) "Main" is the entry point to our program.(whenever we execute a java the main function 
 // gets called and the code inside will gets executed).
 // 4) "public" is an access modifier used for classes,attributes,method and constructors making them accessible by any other class.
-// 5) Static A non-access modifier used for methods and attributes.(it makes a method accessable withou using class)
+// 5) Static A non-access modifier used for methods and attributes.(it makes a method accessable without using class)
 // 6)(String[] args) it stores java command line arguments.(the argument that the funtions receives.)
     public static void main(String[] args) { //Method(When a function belongs to a class its called a "Method".)
         System.out.println("----------Data Types-------- :");

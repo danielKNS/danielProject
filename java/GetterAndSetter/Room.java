@@ -12,13 +12,14 @@ public class Room {
     private List<Owners> owners;
 
     public Room(String owners1,Integer beds,Integer desks,Integer posters,String walls,
-    String floors){
+    String floors, List<Owners> owners){
         this.owners1 = owners1;
         this.beds = beds;
         this.desks = desks;
         this.posters = posters;
         this.walls = walls;
         this.floors = floors;
+        this.owners = owners;
 
     }
 
@@ -82,11 +83,26 @@ public class Room {
         this.list = list;
      }
 
-     public List<String> getOwnersList(){
+     public List<String> getOwnersList1(){
         return list;
      }
 
-     public void setOwnersList(List<String> list){
+     public void setOwnersList1(List<String> list){
         this.list = list;
      }
+     ////////
+   
+
+    //METHOD OVERWRITING = A METHOD THAT ALREADY EXIST AND YOU ARE OVERRULING WHAT DOES.
+     public String toString(){ // toString Method.
+         return "room3 {" + 
+         "Owner: " + owners1 
+         + " The room has: " + beds + " Beds" 
+         + " There is: " + desks + " Desks"
+         + " There are: " + posters + " Posters"
+         + " The color of thr walls is: " + walls
+         + " The floor are made of: " + floors
+         + " The owner is: " + owners
+         +" }";
+     };
 }
