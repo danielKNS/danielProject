@@ -15,18 +15,31 @@ public class App {
         // System.out.println("-------USER 3--------");
         Users user3 = new Users(3,"Pablo","Cardozo","pabloHermamo@gmail.com");
         Posts post3 = new Posts(3,"this is pedro mi hermano ");
-        Comments comment3 = new Comments(3,"HOLA PEDRO ;) ");
-        // List<Posts>  posts1 = List.of(post1,post2);
-        // List<Comments> comments1 = List.of(comment1,comment2);
+        Comments comment3 = new Comments(3,"HOLA PEDRO :) ");
 
         System.out.println("-----------------USER 1--------------------");
         System.out.println(user1);
         System.out.println(post1);
+        System.out.println(comment1);
         System.out.println("-----------------USER 2--------------------");
         System.out.println(user2);
         System.out.println(post2);
+        System.out.println(comment2);
         System.out.println("-----------------USER 3--------------------");
         System.out.println(user3);
         System.out.println(post3);
+        System.out.println(comment3);
+        
+        System.out.println("--------(Creating) List of 3 Users---------");
+
+        List<Users> users = List.of(user1,user2,user3);
+        users.forEach(user -> {
+            System.out.println("User:" + users);
+            // System.out.println(users);
+        });
+        // List<Posts>  posts1 = List.of(post1,post2);
+        // List<Comments> comments1 = List.of(comment1,comment2);
+
+
     }
 }

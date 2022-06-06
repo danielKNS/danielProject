@@ -5,6 +5,7 @@ public class Users {
     private String lastName;
     private String email;
 
+    // all args Contructor
     public Users(Integer id, String userName,String lastName, String email){
         this.id = id;
         this.userName = userName;
@@ -46,10 +47,10 @@ public class Users {
 
     public String toString(){
         return "{"
-        + " Id: " + id 
-        + " UserName: " + userName
-        + " LastName: " + lastName
-        + " Email: " + email
+        + " Id:" + id 
+        + " UserName:" + userName
+        + " LastName:" + lastName
+        + " Email:" + email
         + " }";
     }
 }

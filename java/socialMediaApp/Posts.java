@@ -4,6 +4,7 @@ public class Posts {
     private String text;
     
 
+    // all args Contructor
     public Posts(Integer id, String text){
         this.id = id ;
         this. text = text;

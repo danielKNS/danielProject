@@ -104,6 +104,7 @@ public class Function {
         // console log checking if is giving what i want
        
         // getting oldUser and for each user i want to get their name and etc
+        System.out.println("---------------OLD USERS-----------------");
         oldUsers.forEach(user -> {
             System.out.println("THIS user is above age 30: " + user.getFirstName() + " " + user.getLastName());
         });

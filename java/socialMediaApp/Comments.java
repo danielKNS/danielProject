@@ -4,6 +4,7 @@ public class Comments {
     private String text;
     
 
+    // all args Contructor
     public Comments(Integer id, String text){
         this.id = id;
         this. text = text;
