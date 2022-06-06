@@ -5,6 +5,7 @@ public class App {
         System.out.println("----------WELCOME TO CLIMAX------------");
 
         // System.out.println("-------USER 1--------");
+        //REMBEMBER: to get an INSTANCE OF CLASS you must INSTANCIATE IT.
         Users user1 = new Users(1,"Daniel","Ribero","data02@gmail.com");
         Posts post1 = new Posts(1,"Look at Jack! ");
         Comments comment1 = new Comments(1,"Wow what a cute dog :) ");
@@ -32,11 +33,10 @@ public class App {
         
         System.out.println("--------(Creating) List of 3 Users---------");
 
-        List<Users> users = List.of(user1,user2,user3);
-        users.forEach(user -> {
-            System.out.println("User:" + users);
-            // System.out.println(users);
-        });
+        // List<Users> users = List.of(user1,user2,user3);
+        // users.forEach(user -> {
+        //     System.out.println("User:"+ users);
+        // });
         // List<Posts>  posts1 = List.of(post1,post2);
         // List<Comments> comments1 = List.of(comment1,comment2);
 

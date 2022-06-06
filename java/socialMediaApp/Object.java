@@ -1,5 +1,5 @@
 import java.util.List;
-//the list of objects for each models
+//the list of objects for each
 public class Object{
 
     private List<Users> users;

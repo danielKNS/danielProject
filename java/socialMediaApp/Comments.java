@@ -26,6 +26,7 @@ public class Comments {
         this.text= text;
     }
 
+    // Method Overwriting = OOP concept
     public String toString(){
         return " Id: " + id 
         + " Comments: " + text;
