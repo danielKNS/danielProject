@@ -1,4 +1,4 @@
-public class Users {
+public class Users { // TODO: rename the folders to User
 
     private Integer id;
     private String userName;
@@ -47,10 +47,10 @@ public class Users {
 
     public String toString(){
         return "{"
-        + " Id:" + id 
-        + " UserName:" + userName
-        + " LastName:" + lastName
-        + " Email:" + email
+        + " id:" + id 
+        + " userName:" + userName
+        + " lastName:" + lastName
+        + " email:" + email
         + " }";
     }
 }

@@ -27,7 +27,7 @@ public class Posts {
     }
 
     public String toString(){
-        return " Id: " + id 
-        + " Description: " + text;
+        return " id: " + id 
+        + " text: " + text;
     }
 }
