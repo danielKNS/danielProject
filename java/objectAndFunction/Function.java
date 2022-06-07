@@ -1,4 +1,4 @@
-// import java.util.ArrayList;
+
 import java.util.List;
 // import java.util.function.Predicate;
 // import java.util.stream.Collectors;
@@ -134,6 +134,22 @@ public class Function {
         System.out.println("THIS user: "+ user.getFirstName() + " FavoriteColor is: " + user.getFavoriteColor());
         });
 
+        System.out.println("---------------TOTAL SALARY OF ALL USERS-----------------");
+        Integer totalSalary = getTotalSalary(users);
+        System.out.println("Total spend on salary: " + totalSalary);
+
     }
+
+    // Funtions
+
+    public static Integer getTotalSalary(List<Object> users){
+        Integer totalSalaryCost = 0;
+        for(Object user : users){
+            totalSalaryCost = totalSalaryCost + user.getSalary();
+        }
+        return totalSalaryCost;
+    }
+
+    
     
 }
