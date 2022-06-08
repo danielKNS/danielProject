@@ -2,13 +2,14 @@ public class Post {
 
     private Integer id;// primary key
     private String text;
-    private Integer userKey; // foreing key 
+    private Integer userId; // foreing key 
     
 
     // all args Contructor
-    public Post(Integer id, String text){
+    public Post(Integer id, String text,Integer userId){
         this.id = id ;
         this. text = text;
+        this.userId = userId;
     }
 
     public Integer getId(){
@@ -27,8 +28,17 @@ public class Post {
         this.text= text;
     }
 
+    public Integer getUserId(){
+        return userId;
+    }
+
+    public void setUserId(Integer userId){
+        this.userId= userId;
+    }
+
     public String toString(){
         return " id: " + id 
-        + " text: " + text;
+        + " text: " + text
+        + " userId: " + userId;
     }
 }

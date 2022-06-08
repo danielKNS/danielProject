@@ -7,9 +7,11 @@ public class Comment {
     
 
     // all args Contructor
-    public Comment(Integer id, String text){
+    public Comment(Integer id, String text,Integer postId,Integer userId){
         this.id = id;
         this. text = text;
+        this.postId = postId;
+        this.userId = userId;
     }
 
     public Integer getId(){
@@ -26,6 +28,23 @@ public class Comment {
 
     public void setText(String text){
         this.text= text;
+    }
+
+    public Integer getPostId(){
+        return postId;
+    }
+
+    public void setPostId(Integer postId){
+        this.postId= postId;
+    }
+
+
+    public Integer getUserId(){
+        return userId;
+    }
+
+    public void setUserId(Integer userId){
+        this.userId= userId;
     }
 
     // Method Overwriting = OOP concept
