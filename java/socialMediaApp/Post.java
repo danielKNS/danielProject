@@ -37,8 +37,9 @@ public class Post {
     }
 
     public String toString(){
-        return " id: " + id 
-        + " text: " + text
-        + " userId: " + userId;
+        return "{ id: " + id 
+        + " | text: " + text
+        + " | userId: " + userId
+        + " }";
     }
 }

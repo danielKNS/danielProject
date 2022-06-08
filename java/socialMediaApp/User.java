@@ -48,9 +48,9 @@ public class User {
     public String toString(){
         return "{"
         + " id:" + id 
-        + " userName:" + userName
-        + " lastName:" + lastName
-        + " email:" + email
+        + " | userName:" + userName
+        + " | lastName:" + lastName
+        + " | email:" + email
         + " }";
     }
 }

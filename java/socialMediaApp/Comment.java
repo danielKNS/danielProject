@@ -49,7 +49,10 @@ public class Comment {
 
     // Method Overwriting = OOP concept
     public String toString(){
-        return " id: " + id 
-        + " comments: " + text;
+        return "{ id: " + id 
+        + " | comments: " + text
+        + " | postId: " + postId
+        + " | userId: " + userId
+        + " }";
     }
 }
