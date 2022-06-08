@@ -1,12 +1,12 @@
-public class Users { // TODO: rename the folders to User
+public class User {
 
-    private Integer id;
+    private Integer id;// primary key - unique id/ key of the object that should not be shared.
     private String userName;
     private String lastName;
     private String email;
 
     // all args Contructor
-    public Users(Integer id, String userName,String lastName, String email){
+    public User(Integer id, String userName,String lastName, String email){
         this.id = id;
         this.userName = userName;
         this.lastName = lastName;

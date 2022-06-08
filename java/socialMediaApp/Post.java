@@ -1,12 +1,13 @@
-public class Comments {
+public class Post {
 
-    private Integer id;
+    private Integer id;// primary key
     private String text;
+    private Integer userKey; // foreing key 
     
 
     // all args Contructor
-    public Comments(Integer id, String text){
-        this.id = id;
+    public Post(Integer id, String text){
+        this.id = id ;
         this. text = text;
     }
 
@@ -26,9 +27,8 @@ public class Comments {
         this.text= text;
     }
 
-    // Method Overwriting = OOP concept
     public String toString(){
         return " id: " + id 
-        + " comments: " + text;
+        + " text: " + text;
     }
 }

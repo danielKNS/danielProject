@@ -1,13 +1,16 @@
-public class Posts {
+import java.util.List;
 
-    private Integer id;
+public class Comment2 {
+    
+    private Integer id;// primary key
     private String text;
+   
     
 
     // all args Contructor
-    public Posts(Integer id, String text){
-        this.id = id ;
-        this. text = text;
+    public Comment2(Integer id, String text){
+        this.id = id;
+        this.text = text;
     }
 
     public Integer getId(){
@@ -26,8 +29,9 @@ public class Posts {
         this.text= text;
     }
 
+    // Method Overwriting = OOP concept
     public String toString(){
         return " id: " + id 
-        + " text: " + text;
+        + " comments: " + text;
     }
 }
