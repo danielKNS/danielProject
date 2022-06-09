@@ -207,9 +207,37 @@ public static void main(String[] args) {
 
 
     System.out.println("------------ALL the posts that each indivisual user comented on--------------");
+    
     System.out.println("-------------USER 1 POST HE COMMENTED -------------");
-    List<Post> user1PostCommented = getAllPostUsersCommented(user1.getId(), posts);
-    System.out.println("all the post user 1 commented on: " +user1PostCommented);
+    post1Comments.forEach(user -> {
+    List<Comment> user1PostCommented = getAllPostUsersCommented(user.getId(),comments);
+    System.out.println("User: "+ user.getId() +" commented on Post: " + user1PostCommented);
+    });
+
+    System.out.println("-------------USER 2 POST HE COMMENTED -------------");
+    post2Comments.forEach(user -> {
+    List<Comment> user2PostCommented = getAllPostUsersCommented(user.getId(),comments);
+    System.out.println("User: "+ user.getId() +" commented on Post: " + user2PostCommented);
+    });
+
+    System.out.println("-------------USER 3 POST HE COMMENTED -------------");
+    post3Comments.forEach(user -> {
+    List<Comment> user3PostCommented = getAllPostUsersCommented(user.getId(),comments);
+    System.out.println("User: "+ user.getId() +" commented on Post: " + user3PostCommented);
+    });
+
+    System.out.println("-------------USER 4 POST HE COMMENTED -------------");
+    post4Comments.forEach(user -> {
+    List<Comment> user4PostCommented = getAllPostUsersCommented(user.getId(),comments);
+    System.out.println("User: "+ user.getId() +" commented on Post: " + user4PostCommented);
+    });
+
+    System.out.println("-------------USER 5 POST HE COMMENTED -------------");
+    post5Comments.forEach(user -> {
+    List<Comment> user5PostCommented = getAllPostUsersCommented(user.getId(),comments);
+    System.out.println("User: "+ user.getId() +" commented on Post: " + user5PostCommented);
+    });
+
 
 
   }
@@ -243,8 +271,8 @@ public static void main(String[] args) {
       return usersPostsComments;
   }
 
-  private static List<Post> getAllPostUsersCommented(Integer userId ,List<Post> posts){
-      List<Post> allPostUsersCommented = posts.stream().filter(post -> post.getUserId() == userId)
+  private static List<Comment> getAllPostUsersCommented(Integer userId ,List<Comment> commets){
+      List<Comment> allPostUsersCommented = commets.stream().filter(commet -> commet.getUserId() == userId)
       .collect(Collectors.toList());
 
       return allPostUsersCommented;
