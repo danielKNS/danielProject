@@ -172,11 +172,67 @@ public static void main(String[] args) {
     System.out.println("These are User2 comments: " + totalUsersComments5 );
 
     System.out.println("------------ALL the comments a user has recieved on ANY of their posts--------------");
-    
+
+    System.out.println("-------------USER 1 RECIEVED COMMENTS-------------");
+    //i am getting postOfUser1(user1 posts) and i am checking for each user1 posts 
+    //and i am getting ALL commonts that is in ALL in his post
+    postOfUser1.forEach(post -> {
+      List<Comment> user1PostComments = getUsersPostsComments(post.getId(),comments);
+      System.out.println("These are the comments that User1 recieved in all of his posts: " + user1PostComments);
+    });
+
+    System.out.println("-------------USER 2 RECIEVED COMMENTS-------------");
+    postOfUser2.forEach(post -> {
+      List<Comment> user2PostComments = getUsersPostsComments(post.getId(),comments);
+      System.out.println("These are the comments that User2 recieved in all of his posts: " + user2PostComments);
+    });
+
+    System.out.println("-------------USER 3 RECIEVED COMMENTS-------------");
+    postOfUser3.forEach(post -> {
+      List<Comment> user3PostComments = getUsersPostsComments(post.getId(),comments);
+      System.out.println("These are the comments that User3 recieved in all of his posts: " + user3PostComments);
+    });
+
+    System.out.println("-------------USER 4 RECIEVED COMMENTS-------------");
+    postOfUser4.forEach(post -> {
+      List<Comment> user4PostComments = getUsersPostsComments(post.getId(),comments);
+      System.out.println("These are the comments that User4 recieved in all of his posts: " + user4PostComments);
+    });
+
+    System.out.println("-------------USER 5 RECIEVED COMMENTS-------------");
+    postOfUser5.forEach(post -> {
+      List<Comment> user5PostComments = getUsersPostsComments(post.getId(),comments);
+      System.out.println("These are the comments that User5 recieved in all of his posts: " + user5PostComments);
+    });
 
 
+    System.out.println("------------ALL the posts that each indivisual user comented on--------------");
+    System.out.println("-------------USER 1 POST HE COMMENTED -------------");
+    List<Comment> user1PostCommented = getAllPostUsersCommented(user1.getId(), comments);
+    Integer totalUser1PostsCommented = user1PostCommented.size();
+    System.out.println("Total User1 post commented: " + totalUser1PostsCommented );
 
-      
+    System.out.println("-------------USER 2 POST HE COMMENTED -------------");
+    List<Comment> user2PostCommented = getAllPostUsersCommented(user2.getId(), comments);
+    Integer totalUser2PostsCommented = user2PostCommented.size();
+    System.out.println("Total User1 post commented: " + totalUser2PostsCommented);
+
+    System.out.println("-------------USER 3 POST HE COMMENTED -------------");
+    List<Comment> user3PostCommented = getAllPostUsersCommented(user3.getId(), comments);
+    Integer totalUser3PostsCommented = user3PostCommented.size();
+    System.out.println("Total User1 post commented: " + totalUser3PostsCommented);
+
+    System.out.println("-------------USER 4 POST HE COMMENTED -------------");
+    List<Comment> user4PostCommented = getAllPostUsersCommented(user4.getId(), comments);
+    Integer totalUser4PostsCommented = user4PostCommented.size();
+    System.out.println("Total User1 post commented: " + totalUser4PostsCommented);
+
+    System.out.println("-------------USER 5 POST HE COMMENTED -------------");
+    List<Comment> user5PostCommented = getAllPostUsersCommented(user5.getId(), comments);
+    Integer totalUser5PostsCommented = user5PostCommented.size();
+    System.out.println("Total User1 post commented: " + totalUser5PostsCommented);
+
+
   }
 
   // i am using filter so that i am looking for each user to get their userId
@@ -197,7 +253,22 @@ public static void main(String[] args) {
   private static List<Comment> getUsersComments(Integer userId, List<Comment> comments){
     List<Comment> usersComments = comments.stream().filter(comment -> comment.getUserId() == userId)
       .collect(Collectors.toList());
+
     return usersComments;
+  }
+
+  private static List<Comment> getUsersPostsComments(Integer postId, List<Comment> comments){
+    List<Comment> usersPostsComments = comments.stream().filter(comment -> comment.getPostId() == postId)
+      .collect(Collectors.toList());
+
+      return usersPostsComments;
+  }
+
+  private static List<Comment> getAllPostUsersCommented(Integer userId,List<Comment> comments){
+      List<Comment> allPostUsersCommented = comments.stream().filter(comment -> comment.getUserId() == userId)
+      .collect(Collectors.toList());
+
+      return allPostUsersCommented;
   }
 
 
