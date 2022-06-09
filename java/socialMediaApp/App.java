@@ -82,60 +82,98 @@ public static void main(String[] args) {
 
     System.out.println("-----------------Gather individual data---------------");
 
-
+      //.size for each function
     System.out.println("----------How many posts each user had-------------");
     System.out.println("-------------USER 1-------------");
     List<Post> postOfUser1 = getPostOfUsers(user1.getId(),posts);
-    System.out.println("User1 posts: " + postOfUser1 );
+    Integer totalPost1 = postOfUser1.size();
+    System.out.println("User1 posts: " + totalPost1 );
 
     System.out.println("-------------USER 2-------------");
     List<Post> postOfUser2 = getPostOfUsers(user2.getId(),posts);
-    System.out.println("User2 posts: " + postOfUser2 );
+    Integer totalPost2 = postOfUser2.size();
+    System.out.println("User2 posts: " + totalPost2);
 
     System.out.println("-------------USER 3-------------");
     List<Post> postOfUser3 = getPostOfUsers(user3.getId(),posts);
-    System.out.println("User3 posts: " + postOfUser3 );
+    Integer totalPost3 = postOfUser3.size();
+    System.out.println("User3 posts: " + totalPost3 );
 
     System.out.println("-------------USER 4-------------");
     List<Post> postOfUser4 = getPostOfUsers(user4.getId(),posts);
-    System.out.println("User4 posts: " + postOfUser4 );
+    Integer totalPost4 = postOfUser4.size();
+    System.out.println("User4 posts: " + totalPost4 );
 
     System.out.println("-------------USER 5-------------");
     List<Post> postOfUser5 = getPostOfUsers(user5.getId(),posts);
-    System.out.println("User5 posts: " + postOfUser5 );
+    Integer totalPost5 = postOfUser5.size();
+    System.out.println("User5 posts: " + totalPost5 );
 
     System.out.println("----------All the comments by individual post-------------");
     System.out.println("-------------POST 1-------------");
     List<Comment> post1Comments = getPostsComments(post1.getId(),comments); 
-    System.out.println("Post1 has these comments: " + post1Comments );
+    Integer totalPostsComments1 = post1Comments.size();
+    System.out.println("Post1 has these comments: " + totalPostsComments1 );
 
     System.out.println("-------------POST 2-------------");
     List<Comment> post2Comments = getPostsComments(post2.getId(),comments); 
-    System.out.println("Post2 has these comments: " + post2Comments );
+    Integer totalPostsComments2 = post2Comments.size();
+    System.out.println("Post2 has these comments: " + totalPostsComments2 );
 
     System.out.println("-------------POST 3-------------");
-    List<Comment> post3Comments = getPostsComments(post3.getId(),comments); 
-    System.out.println("Post3 has these comments: " + post3Comments );
+    List<Comment> post3Comments = getPostsComments(post3.getId(),comments);
+    Integer totalPostsComments3 = post3Comments.size(); 
+    System.out.println("Post3 has these comments: " + totalPostsComments3 );
 
     System.out.println("-------------POST 4-------------");
     List<Comment> post4Comments = getPostsComments(post4.getId(),comments); 
-    System.out.println("Post4 has these comments: " + post4Comments );
+    Integer totalPostsComments4 = post4Comments.size();
+    System.out.println("Post4 has these comments: " + totalPostsComments4 );
 
     System.out.println("-------------POST 5-------------");
     List<Comment> post5Comments = getPostsComments(post5.getId(),comments); 
-    System.out.println("Post5 has these comments: " + post5Comments );
+    Integer totalPostsComments5 = post5Comments.size();
+    System.out.println("Post5 has these comments: " + totalPostsComments5 );
 
     System.out.println("-------------POST 6-------------");
     List<Comment> post6Comments = getPostsComments(post6.getId(),comments); 
-    System.out.println("Post6 has these comments: " + post6Comments );
+    Integer totalPostsComments6 = post6Comments.size();
+    System.out.println("Post6 has these comments: " + totalPostsComments6 );
 
     System.out.println("-------------POST 7-------------");
     List<Comment> post7Comments = getPostsComments(post7.getId(),comments); 
-    System.out.println("Post7 has these comments: " + post7Comments );
+    Integer totalPostsComments7 = post7Comments.size();
+    System.out.println("Post7 has these comments: " + totalPostsComments7 );
 
-    System.out.println("----------ALL comments that a user has recieved-------------");
+    System.out.println("----------ALL comments that a user has recieved on any post-------------");
+    System.out.println("-------------USER 1 COMMENTS-------------");
     List<Comment> user1Comments = getUsersComments(user1.getId(),comments);
-    System.out.println("Post7 has these comments: " + user1Comments );
+    Integer totalUsersComments1 = user1Comments.size();
+    System.out.println("These are User1 comments: " + totalUsersComments1 );
+
+    System.out.println("-------------USER 2 COMMENTS-------------");
+    List<Comment> user2Comments = getUsersComments(user2.getId(),comments);
+    Integer totalUsersComments2 = user2Comments.size();
+    System.out.println("These are User2 comments: " + totalUsersComments2 );
+
+    System.out.println("-------------USER 3 COMMENTS-------------");
+    List<Comment> user3Comments = getUsersComments(user3.getId(),comments);
+    Integer totalUsersComments3 = user3Comments.size();
+    System.out.println("These are User2 comments: " + totalUsersComments3 );
+
+    System.out.println("-------------USER 4 COMMENTS-------------");
+    List<Comment> user4Comments = getUsersComments(user3.getId(),comments);
+    Integer totalUsersComments4 = user4Comments.size();
+    System.out.println("These are User2 comments: " + totalUsersComments4 );
+
+    System.out.println("-------------USER 5 COMMENTS-------------");
+    List<Comment> user5Comments = getUsersComments(user3.getId(),comments);
+    Integer totalUsersComments5 = user5Comments.size();
+    System.out.println("These are User2 comments: " + totalUsersComments5 );
+
+    System.out.println("------------ALL the comments a user has recieved on ANY of their posts--------------");
+    
+
 
 
       
@@ -144,18 +182,21 @@ public static void main(String[] args) {
   // i am using filter so that i am looking for each user to get their userId
   // and looking for there post that they uploaded
   private static List<Post> getPostOfUsers(Integer userId, List<Post> posts){
-    List<Post> userPosts = posts.stream().filter(post -> post.getUserId() == userId).collect(Collectors.toList());
+    List<Post> userPosts = posts.stream().filter(post -> post.getUserId() == userId)
+      .collect(Collectors.toList());
   
     return userPosts;
   }
   private static List<Comment> getPostsComments(Integer postId, List<Comment> comments){
-    List<Comment> postsComments = comments.stream().filter(comment -> comment.getPostId() == postId).collect(Collectors.toList());
+    List<Comment> postsComments = comments.stream().filter(comment -> comment.getPostId() == postId)
+      .collect(Collectors.toList());
 
     return postsComments;
   }
 
   private static List<Comment> getUsersComments(Integer userId, List<Comment> comments){
-    List<Comment> usersComments = comments.stream().filter(comment -> comment.getUserId() == userId).collect(Collectors.toList());
+    List<Comment> usersComments = comments.stream().filter(comment -> comment.getUserId() == userId)
+      .collect(Collectors.toList());
     return usersComments;
   }
 
