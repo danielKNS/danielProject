@@ -6,7 +6,7 @@ public class StringSize {
        System.out.println("what is your word ? ");
 
        String userInput = scanner.nextLine();
-       System.out.println("hello " + userInput);
+       System.out.println(userInput);
 
        Integer charater = 0;
 
@@ -15,6 +15,6 @@ public class StringSize {
            if(userInput.charAt(c)!= ' ') // avoiding counting space.
            charater++; // increase the count of the characters in the given string.
        }
-       System.out.println("hello " + charater);
+       System.out.println("your word has: " + charater);
     }
 }
