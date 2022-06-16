@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+
+import javax.sound.sampled.SourceDataLine;
+
+public class SumOfEvenAndOddNumbers {
+    public static void main(String[] args) {
+        
+        ArrayList<Integer> myarray = new ArrayList<Integer>();
+        System.out.println("--------------list of array 0 to 100---------------- ");
+        for(Integer n = 0; n <= 100; n++){
+         myarray.add(n);
+         System.out.println("number: " + myarray.get(n));
+        }
+
+        System.out.println("--------------Even Numbers---------------- ");
+        myarray.stream().filter(n->n % 2 == 0).forEach(System.out::println);
+        System.out.println("---------------Odd Numbers---------------- ");
+        myarray.stream().filter(n->n % 2 == 1).forEach(System.out::println);
+
+        // int a[] ={1,2,3,4,5};
+
+        // for(int n =0; n<a.length;n++){
+        //     if(a[n]%2!=0){
+        //         System.out.println("Odd number "+a[n]);
+        //     }
+        // }
+        // for(int n =0; n<a.length;n++){
+        //     if(a[n]%2==0){
+        //         System.out.println("Even Number "+a[n]);
+        //     }
+        // }
+    }
+}
