@@ -1,14 +1,15 @@
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.sound.sampled.SourceDataLine;
 
 public class SumOfEvenAndOddNumbers {
     public static void main(String[] args) {
     
-        listOfArray();
+        sumOfEvenAndOdd();
     }
-    private static ArrayList<Integer> listOfArray(){
-        ArrayList<Integer> myarray = new ArrayList<Integer>();
+    private static List<Integer> sumOfEvenAndOdd(){
+        List<Integer> myarray = new ArrayList<Integer>();
         System.out.println("--------------list of array 0 to 100---------------- ");
         for(Integer n = 0; n <= 100; n++){
          myarray.add(n);

@@ -14,9 +14,9 @@ public class ReversingString {
     //    }
 
     //    System.out.println("Your word id reverse is: " + string);
-    word();
+    reversingString();
     }
-    private static String word(){
+    private static String reversingString(){
         Scanner scanner = new Scanner(System.in);
        System.out.println("what is your word ? :  ");
 
