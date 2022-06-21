@@ -5,10 +5,11 @@ import javax.sound.sampled.SourceDataLine;
 
 public class SumOfEvenAndOddNumbers {
     public static void main(String[] args) {
+        System.out.println("----Description: show the sum of all even and odd numbers in an array----");
     
         sumOfEvenAndOdd();
     }
-    private static List<Integer> sumOfEvenAndOdd(){
+    private static void sumOfEvenAndOdd(){
         List<Integer> myarray = new ArrayList<Integer>();
         System.out.println("--------------list of array 0 to 100---------------- ");
         for(Integer n = 0; n <= 100; n++){
@@ -21,6 +22,6 @@ public class SumOfEvenAndOddNumbers {
         System.out.println("---------------Odd Numbers---------------- ");
         myarray.stream().filter(n->n % 2 == 1).forEach(System.out::println);
 
-        return myarray;
+        // return myarray;
     }
 }

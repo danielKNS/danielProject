@@ -2,6 +2,11 @@ import java.util.Scanner;
 
 public class InterestRateCalculator {
     public static void main(String[] args) {
+        System.out.println("-----Description: Create a program that will figure out the total interest on a $ principal amount----");
+        
+        interestRateCalculator();
+    }
+    private static void interestRateCalculator(){
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Amount of Principal:  ");

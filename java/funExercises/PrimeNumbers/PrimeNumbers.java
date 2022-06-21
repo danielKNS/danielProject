@@ -3,7 +3,7 @@ import java.util.List;
 
 public class PrimeNumbers {
     public static void main(String[] args) {
-     System.out.println("Description: show all the prime numbers, and NON prime numbers in an array");
+     System.out.println("----Description: show all the prime numbers, and NON prime numbers in an array----");
         primeNumebers();
         
     }

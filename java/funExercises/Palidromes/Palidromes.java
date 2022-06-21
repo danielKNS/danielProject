@@ -5,26 +5,49 @@ import java.util.Scanner;
 
 public class Palidromes {
     public static void main(String[] args) {
-        palidromes();
+        String []myList = { "karan", "madam", "tom", "civic", "radar", "sexes", "jimmy", "kayak"
+        , "john", "refer", "billy","billy", "did"};
+        int myLength = myList.length;
+
+        // Print required answer
+        PalindromicStrings(myList, myLength);
     }
-    private static void palidromes(){
-        // List<String> myarray = new ArrayList<String>();
-        List<String> list = Arrays.asList("karan", "madam", "tom", "civic", "radar", "sexes", "jimmy", "kayak",
-         "john", "refer", "billy","billy", "did");
-        // String str, rev = "";
-        // Scanner sc = new Scanner(System.in);
-   
-        // System.out.println("Enter a string:");
-        // str = sc.nextLine();
-   
-        // int length = str.length();
-   
-        // for ( int i = length - 1; i >= 0; i-- )
-        //    rev = rev + str.charAt(i);
-   
-        // if (str.equals(rev))
-        //    System.out.println(str+" is a palindrome");
-        // else
-        //    System.out.println(str+" is not a palindrome");
+    private static ArrayList<String> PalindromicStrings(String []myList, int myLength){
+    ArrayList<String> palindromeArray = new ArrayList<String>();
+    ArrayList<String> notPalindromeArray = new ArrayList<>();
+    // Loop to find palindrome string
+    for (int i = 0; i < myLength; i++) {
+
+    // Checking if given string is
+    // palindrome or not
+    if (isPalindrome(myList[i])) {
+
+        // Update answer variable
+        palindromeArray.add(myList[i]);
+    }else{
+        notPalindromeArray.add(myList[i]);
     }
+
+    }
+    System.out.println("Theses are Palindrome: " + palindromeArray);
+    System.out.println("Theses are not Palindrome: " + notPalindromeArray);
+    return palindromeArray;
+  }
+
+  private static boolean isPalindrome(String str){
+    // Start from leftmost and rightmost corners of str
+    int l = 0;
+    int r = str.length() - 1;
+ 
+    // Keep comparing characters while they are same
+    while (r > l)
+    {
+      if (str.charAt(l++) != str.charAt(r--))
+      {
+        return false;
+      }
+    }
+    return true;
+  }
+
 }

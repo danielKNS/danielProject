@@ -1,4 +1,4 @@
-import java.lang.reflect.Array;
+// import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class SwitchCases {
     public static void main(String[] args) {
-        System.out.println("Description: create a program that lets user perform actions depending on input");
+        System.out.println("---Description: create a program that lets user perform actions depending on input----");
         options();
     }
 

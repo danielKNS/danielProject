@@ -2,11 +2,15 @@ import java.util.Scanner;
 
 public class StringSize {
     public static void main(String[] args) {
-       Scanner scanner = new Scanner(System.in);
+        System.out.println("----Description: find the number of characters in a string----");
+       stringSize();
+    }
+    private static void stringSize(){
+        Scanner scanner = new Scanner(System.in);
        System.out.println("what is your word ? ");
 
        String userInput = scanner.nextLine();
-       System.out.println(userInput);
+       System.out.println("User word: "+userInput);
 
        Integer charater = 0;
 

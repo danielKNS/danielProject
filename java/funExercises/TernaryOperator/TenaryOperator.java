@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class TenaryOperator {
     public static void main(String[] args) {
+        System.out.println("-----Description: finding the biggest number of 2 using a ternary----");
+        tenaryOperator();
+    }
+    private static void tenaryOperator(){
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Pick one numbers:  ");
