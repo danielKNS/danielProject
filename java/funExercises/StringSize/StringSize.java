@@ -10,15 +10,8 @@ public class StringSize {
        System.out.println("what is your word ? ");
 
        String userInput = scanner.nextLine();
-       System.out.println("User word: "+userInput);
+        //    System.out.println("User word: "+userInput);
 
-       Integer charater = 0;
-
-
-       for(Integer c = 0; c < userInput.length(); c++){
-           if(userInput.charAt(c)!= ' ') // avoiding counting space.
-           charater++; // increase the count of the characters in the given string.
-       }
-       System.out.println("your word has: " + charater);
+       System.out.println("your word: " +userInput + " has: "+ userInput.length() + " characters");
     }
 }

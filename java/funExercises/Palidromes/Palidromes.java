@@ -9,7 +9,6 @@ public class Palidromes {
         , "john", "refer", "billy","billy", "did"};
         int myLength = myList.length;
 
-        // Print required answer
         PalindromicStrings(myList, myLength);
     }
     private static ArrayList<String> PalindromicStrings(String []myList, int myLength){
@@ -21,7 +20,6 @@ public class Palidromes {
     // Checking if given string is
     // palindrome or not
     if (isPalindrome(myList[i])) {
-
         // Update answer variable
         palindromeArray.add(myList[i]);
     }else{
@@ -42,6 +40,7 @@ public class Palidromes {
     // Keep comparing characters while they are same
     while (r > l)
     {
+      // if the left side is not equal to the right side.
       if (str.charAt(l++) != str.charAt(r--))
       {
         return false;

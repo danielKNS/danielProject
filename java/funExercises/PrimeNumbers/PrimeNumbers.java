@@ -15,10 +15,10 @@ public class PrimeNumbers {
             Integer c = 0;
             //c is a varible that stores the count of proper divisors
             for(int i = 1;i<= n;i++) 
-            //we are looping over the range 1 to n and 
-            //incrementing the count if we found a proper divisor
+            //we are looping over the range 1 to number(n) and 
+            //incrementing the count if we found a proper divisor 
             if(n%i == 0)
-            c++;
+            c++; // increasing
             if(c==2)
             prime.add(n);
             // System.out.println(n + " is a Prime number");

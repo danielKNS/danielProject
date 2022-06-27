@@ -10,11 +10,15 @@ public class ReversingString {
        System.out.println("what is your word ? :  ");
 
        String userInput = scanner.nextLine();
-    //    System.out.println(userInput);
-       String string ="";
+        //    System.out.println(userInput);
 
-       for(Integer w = userInput.length()-1; w >= 0; w--){
-        string += userInput.charAt(w);
+       String string ="";
+        // l = userInput.length()-1 is going to the last letter of the string
+        // l-- = is going in the reverse For Example: 123 with l++, 321 with
+       for(Integer l = userInput.length()-1; l >= 0; l--){
+        string += userInput.charAt(l);
+        //.charAt returns a character at a specific index position in a string.
+        // i am adding the empty string with the reverse word
        }
 
        System.out.println("Your word id reverse is: " + string);

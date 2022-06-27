@@ -9,10 +9,11 @@ public class SortEmployee {
 public static void main(String[] args) {
     int n = 4;
         System.out.println("-----Employees-------");
-        OffsetDateTime offsetDT = OffsetDateTime.now();
-        System.out.println(offsetDT);
-        OffsetDateTime offsetDT1 = OffsetDateTime.of(1980,4,9,20,15,45,345875000,ZoneOffset.of("+07:00"));
-        System.out.println(offsetDT1);
+        // OffsetDateTime offsetDT = OffsetDateTime.now();
+        // System.out.println(offsetDT);
+        // OffsetDateTime offsetDT1 = OffsetDateTime.of(1980,4,9,20,15,45,345875000,ZoneOffset.of("+07:00"));
+        // System.out.println(offsetDT1);
+        //OffsetDateTime class is an immutable representation of a date-time with an offset. It inherits Object class and implements the Comparable interface.
         Employee employee1 = new Employee("Roberto", 10,OffsetDateTime.of(2005,7,9,8,56,25,185875098,ZoneOffset.of("+06:00")));
         Employee employee2 = new Employee("Pablo", 34,OffsetDateTime.of(1983,4,9,10,15,15,945875123,ZoneOffset.of("+03:00")));
         Employee employee3 = new Employee("Jonas", 20,OffsetDateTime.of(1999,3,9,12,35,55,517975316,ZoneOffset.of("+08:00")));
@@ -30,19 +31,20 @@ public static void main(String[] args) {
                 System.out.println("Employer: " + employee);
             });
         System.out.println("-----ORDER BY NAME------");
-       List<Employee> sortededByName = employees.stream().sorted((employee00,employee90) -> employee00.getName().compareTo(employee90.getName())).collect(Collectors.toList());
-       sortededByName.forEach(employee -> {
-        System.out.println("Employer: " + employee);
+       List<Employee> sortededByName = employees.stream().sorted((Employee0,employee1) -> Employee0.getName().compareTo(employee1.getName())).collect(Collectors.toList());
+        sortededByName.forEach(employee -> {
+            System.out.println("Employer: " + employee);
        });
-       System.out.println("------ORDER OF WHO IS THE YOUNGEST-----");
+        System.out.println("------ORDER OF WHO IS THE YOUNGEST-----");
+        //Comparator is a functional interface in Java that can be used to sort objects
        List<Employee> sortedeByAge = employees.stream().sorted(Comparator.comparingInt(Employee :: getAge)).collect(Collectors.toList());
-       sortedeByAge.forEach(employee -> {
-        System.out.println("Employer: " + employee);
+        sortedeByAge.forEach(employee -> {
+            System.out.println("Employer: " + employee);
        });
-       System.out.println("------ORDER OF WHO IS THE OLDEST-----");
+        System.out.println("------ORDER OF WHO IS THE OLDEST-----");
        List<Employee> sortedeByWhoIsTheOldest = employees.stream().sorted(Comparator.comparing(Employee :: getBirthDay)).collect(Collectors.toList());
-       sortedeByWhoIsTheOldest.forEach(employee -> {
-        System.out.println("Employer: " + employee);
+        sortedeByWhoIsTheOldest.forEach(employee -> {
+            System.out.println("Employer: " + employee);
        });
     }
 }
