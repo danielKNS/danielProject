@@ -1,20 +1,25 @@
 public class User {
-    private String firstName;
+    private String name;
     private String lastName;
     private Integer age;
     private String state;
-    public User(String firstName,String lastName,Integer age,String state){
-        this.firstName = firstName;
+
+    public User(){
+
+    }
+
+    public User(String name,String lastName,Integer age,String state){
+        this.name = name;
         this.lastName = lastName;
         this.age = age;
         this.state = state;
     }
     public String getFirstName(){
-        return firstName;
+        return name;
     }
 
-    public void setFirstName(String firstName){
-        this.firstName = firstName;
+    public void setFirstName(String name){
+        this.name = name;
     }
 
     public String getLastName(){
@@ -43,7 +48,7 @@ public class User {
 
     // Method Overwriting = OOP concept
     public String toString(){
-    return "{ firstname: " + firstName 
+    return "{ firstname: " + name 
     + " | lastName: " + lastName
     + " | age: " + age
     + " | state: " + state
