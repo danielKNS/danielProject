@@ -14,6 +14,8 @@ public class WordCasingConverter {
         String firstLetter = userInput.substring(0,1);
         //get the reamaining letters.
         String restOfLetters = userInput.substring(1);
+        //Substring in Java is a commonly used method of java.lang.String class that is used to create smaller strings from the bigger one.
+        //As strings are immutable in Java, the original string remains as it is, and the method returns a new string.
 
         firstLetter = firstLetter.toUpperCase();
 

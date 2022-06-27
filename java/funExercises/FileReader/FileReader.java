@@ -51,3 +51,7 @@ public class FileReader{
   // }
 
 }
+//FileInputStream class is useful to read data from a file in the form of sequence of bytes. FileInputStream is meant for reading streams of raw bytes such as image data. For reading streams of characters, consider using FileReader.
+// To SERIALIZE an object means to convert its state to a byte stream so that the byte stream can be reverted back into a copy of the object
+// Basically, the ObjectOutputStream converts Java objects into corresponding streams. This is known as serialization. Those converted streams can be stored in files or transferred through networks.
+// The method readObject() is used to read an object from the stream

@@ -18,7 +18,9 @@ public class TenaryOperator {
 
         
         //declaring my variable
-        Integer n1 = userInput1, n2 = userInput2, result;
+        Integer n1 = userInput1;
+        Integer n2 = userInput2;
+        Integer result;
 
         result = (n1 > n2) ? n1 : n2; // condional oporator
         // if n1 i greater then n2 then(?) we are going to return n1 otherwise(:) return n2
