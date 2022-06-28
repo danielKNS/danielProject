@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class SortEmployee {
 public static void main(String[] args) {
-    int n = 4;
+    // int n = 4;
         System.out.println("-----Employees-------");
         // OffsetDateTime offsetDT = OffsetDateTime.now();
         // System.out.println(offsetDT);
@@ -31,7 +31,7 @@ public static void main(String[] args) {
                 System.out.println("Employer: " + employee);
             });
         System.out.println("-----ORDER BY NAME------");
-       List<Employee> sortededByName = employees.stream().sorted((Employee0,employee1) -> Employee0.getName().compareTo(employee1.getName())).collect(Collectors.toList());
+       List<Employee> sortededByName = employees.stream().sorted((Employee0,employee00) -> Employee0.getName().compareTo(employee00.getName())).collect(Collectors.toList());
         sortededByName.forEach(employee -> {
             System.out.println("Employer: " + employee);
        });

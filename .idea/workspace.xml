@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7361331f-bf98-43be-813d-5bfbbe6040dd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/java/socialMediaApp/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/socialMediaApp/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/socialMediaApp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/socialMediaApp/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/funExercises/SortEmployees/SortEmployee.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/funExercises/SortEmployees/SortEmployee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/funExercises/SortEmployees/SortEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/funExercises/SortEmployees/SortEmployee.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +30,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "/Users/owner/Desktop/danielProject",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
