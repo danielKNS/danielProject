@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7361331f-bf98-43be-813d-5bfbbe6040dd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/danielProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/danielProject.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/.idea/java.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/adventure/Adventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/adventure/Adventure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/adventure/Treasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/adventure/Treasure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/funExercises/StringSize/StringSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/funExercises/StringSize/StringSize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/myFirstSpringProject/out/production/myFirstSpringProject/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/myFirstSpringProject/src/Test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,29 +28,47 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2AJuQZLfxfIck2qmQNmDhtadMDs" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/owner/Desktop/danielProject&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/Users/owner/Desktop/danielProject",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
-  <component name="RunManager" selected="Application.StringSize">
-    <configuration name="Adventure" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Adventure" />
-      <module name="danielProject" />
+}]]></component>
+  <component name="RunManager" selected="Application.FirstSpringBootServiceApplication">
+    <configuration name="FirstSpringBootServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.my.firstSpringBootService.FirstSpringBootServiceApplication" />
+      <module name="firstSpringBootService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.firstSpringBootService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -88,12 +111,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FirstSpringBootServiceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="firstSpringBootService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.firstSpringBootService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.my.firstSpringBootService" />
+      <option name="MAIN_CLASS_NAME" value="com.my.firstSpringBootService.FirstSpringBootServiceApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FirstSpringBootServiceApplication" />
+        <item itemvalue="JUnit.FirstSpringBootServiceApplicationTests" />
         <item itemvalue="Application.StringSize" />
         <item itemvalue="Application.java.adventure.Adventure" />
         <item itemvalue="Application.java.adventure.Adventure (1)" />
-        <item itemvalue="Application.Adventure" />
       </list>
     </recent_temporary>
   </component>
@@ -118,5 +157,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

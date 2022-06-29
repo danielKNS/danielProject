@@ -1,6 +1,3 @@
-.DS_Store
-*.class
-
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
