@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7361331f-bf98-43be-813d-5bfbbe6040dd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/danielProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/danielProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/funExercises/SortEmployees/SortEmployee.class" beforeDir="false" afterPath="$PROJECT_DIR$/java/funExercises/SortEmployees/SortEmployee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/funExercises/SortEmployees/SortEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/funExercises/SortEmployees/SortEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/adventure/Adventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/adventure/Adventure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/adventure/Treasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/adventure/Treasure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/funExercises/StringSize/StringSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/funExercises/StringSize/StringSize.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,22 +23,80 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2AJuQZLfxfIck2qmQNmDhtadMDs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/owner/Desktop/danielProject",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/owner/Desktop/danielProject&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="Application.StringSize">
+    <configuration name="Adventure" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Adventure" />
+      <module name="danielProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringSize" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="java.funExercises.StringSize.StringSize" />
+      <module name="danielProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="java.funExercises.StringSize.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java.adventure.Adventure (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="java.adventure.Adventure" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="java.adventure.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java.adventure.Adventure" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="java.adventure.Adventure" />
+      <module name="danielProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="java.adventure.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StringSize" />
+        <item itemvalue="Application.java.adventure.Adventure" />
+        <item itemvalue="Application.java.adventure.Adventure (1)" />
+        <item itemvalue="Application.Adventure" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -46,5 +107,16 @@
       <updated>1654739998377</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

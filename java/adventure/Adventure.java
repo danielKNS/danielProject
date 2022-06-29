@@ -1,3 +1,5 @@
+package java.adventure;
+
 import java.util.List;
 import java.util.Scanner;
 //java Adventure  javac Adventure.java 

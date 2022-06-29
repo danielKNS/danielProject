@@ -1,3 +1,5 @@
+package java.funExercises.StringSize;
+
 import java.util.Scanner;
 
 public class StringSize {

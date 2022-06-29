@@ -1,3 +1,5 @@
+package java.adventure;
+
 import java.util.Scanner;
 
 public class Treasure {
