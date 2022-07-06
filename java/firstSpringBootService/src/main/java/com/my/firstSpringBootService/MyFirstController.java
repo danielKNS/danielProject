@@ -50,17 +50,28 @@ public class MyFirstController {
         return isTomatoesAVegetables;
     }
 
-    @GetMapping("/myCar")
+    @GetMapping("/listMyCars")
     public List<Car> listOfCar() {
         System.out.println("List of Cars: ");
+//        Car car1 = new Car("Elandra", "Hyndai", 2013, "Black");
+//        Car car2 =  new Car("Elandra", "Hyndai", 2020, "Red");
+//        List<Car> cars = List.of(car1,car2);
+//        return  cars;
         return Arrays.asList(
                 new Car("Elandra", "Hyndai", 2013, "Black"),
                 new Car("Elandra", "Hyndai", 2020, "Red")
         );
     }
 
+    @GetMapping("/myCar")
+    public Car myCar() {
+        System.out.println("List of Cars: ");
+        return  new Car("Elandra", "Hyndai", 2013, "Black");
+    }
+
     @GetMapping("/myNameIs/{Daniel}")
     public String myNameIs(@PathVariable("Daniel")String name ){
+        System.out.println("getting name: " + name);
         name = "Daniel";
         return "Sup " + name  ;
     }
@@ -106,5 +117,12 @@ public class MyFirstController {
         System.out.println("My favorite number is " + favoriteNumber);
         return favoriteNumber;
     }
-    
+
+    //@RequestBody annotation allows us to retrieve the requests body.We can then return it as a String or other.
+    @PostMapping("/request")
+    public String  postBody(@RequestBody String fullName){
+        System.out.println(fullName);
+        return "Hello " + fullName;
+    }
+    //i am passing through the postman to intelliJ
 }
