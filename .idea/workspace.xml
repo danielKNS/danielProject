@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7361331f-bf98-43be-813d-5bfbbe6040dd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/AppetizerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/FoodTruck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/FoodTruckAppApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/FoodTruckRequestBody.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/test/java/com/my/FoodTruckApp/FoodTruckAppApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/danielProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/danielProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/firstSpringBootService/src/main/java/com/my/firstSpringBootService/MyFirstController.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/firstSpringBootService/src/main/java/com/my/firstSpringBootService/MyFirstController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +70,20 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.com.my.firstSpringBootService.FirstSpringBootServiceApplication">
+  <component name="RunManager" selected="Application.FoodTruckAppApplication">
+    <configuration name="FoodTruckAppApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.my.FoodTruckApp.FoodTruckAppApplication" />
+      <module name="FoodTruckApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.my.FoodTruckApp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StringSize" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="java.funExercises.StringSize.StringSize" />
       <module name="danielProject" />
@@ -76,18 +103,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.my.firstSpringBootService.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="java.adventure.Adventure (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="java.adventure.Adventure" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="java.adventure.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -125,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FoodTruckAppApplication" />
         <item itemvalue="Application.com.my.firstSpringBootService.FirstSpringBootServiceApplication" />
         <item itemvalue="JUnit.FirstSpringBootServiceApplicationTests" />
         <item itemvalue="Application.StringSize" />
         <item itemvalue="Application.java.adventure.Adventure" />
-        <item itemvalue="Application.java.adventure.Adventure (1)" />
       </list>
     </recent_temporary>
   </component>

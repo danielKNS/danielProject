@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/java/FoodTruckApp/FoodTruckApp.iml" filepath="$PROJECT_DIR$/java/FoodTruckApp/FoodTruckApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/danielProject.iml" filepath="$PROJECT_DIR$/.idea/danielProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/java/firstSpringBootService/firstSpringBootService.iml" filepath="$PROJECT_DIR$/java/firstSpringBootService/firstSpringBootService.iml" />
     </modules>
