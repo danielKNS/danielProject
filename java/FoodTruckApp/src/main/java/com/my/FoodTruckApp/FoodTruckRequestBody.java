@@ -11,5 +11,5 @@ public class FoodTruckRequestBody {
     private String foodName;
     private String foodDate;
     private String foodExpireDate;
-    private Double foodPrice;
+    private Integer foodPrice;
 }

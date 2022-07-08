@@ -5,22 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7361331f-bf98-43be-813d-5bfbbe6040dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/AppetizerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/FoodTruck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/FoodTruckAppApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/FoodTruckRequestBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/test/java/com/my/FoodTruckApp/FoodTruckAppApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/danielProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/danielProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/AppetizerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/AppetizerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/FoodTruck.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/FoodTruck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/FoodTruckRequestBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/FoodTruckRequestBody.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

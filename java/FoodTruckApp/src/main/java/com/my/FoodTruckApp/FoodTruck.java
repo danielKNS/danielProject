@@ -12,5 +12,5 @@ public class FoodTruck {
     private String name;
     private String date;
     private String expireDate;
-    private Double price;
+    private Integer price;
 }
