@@ -1,5 +1,4 @@
-package com.my.FoodTruckApp;
-
+package com.my.FoodTruckApp2;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class FoodTruckRequestBody {
+public class FoodTruckRequestBody2 {
     private String foodName;
     private String foodDate;
     private String foodExpireDate;
