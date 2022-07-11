@@ -90,10 +90,21 @@ public class AppetizerService {
 
         if(optionalAppetizer.isPresent()){
             FoodTruck2 foundAppetizer = optionalAppetizer.get();
+            if(foodTruckRequestBody.getDate() == null){
+                System.out.println("Last update: " + foundAppetizer);
+                return foundAppetizer;
+            }
             foundAppetizer.setDate(foodTruckRequestBody.getDate());
+            System.out.println("After the update: " + foundAppetizer);
+            if(foodTruckRequestBody.getExpireDate() == null){
+                System.out.println("Last update: " + foundAppetizer);
+                return foundAppetizer;
+            }
             foundAppetizer.setExpireDate(foodTruckRequestBody.getExpireDate());
+            System.out.println("After the update: " + foundAppetizer);
             return foundAppetizer;
         }
         throw  new ResponseStatusException(HttpStatus.NOT_FOUND);
+
     }
 }
