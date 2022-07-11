@@ -14,11 +14,12 @@ import java.util.Optional;
 public class AppetizerControler2 {
     @Autowired
     private AppetizerService appetizerService;//INSTANCE
+    //autowired make a loose connection between appetizerController
+    // and appetizerService.
     //if you want  an instance of the service, we ask spring for
     // it through the private variable
     // we can use this to tell spring to INJECT IT/
-
-//if the method has an argument you should add it.
+    //if the method has an argument you should add it.
 
    @GetMapping("/menus")
    public List<FoodTruck2> menu(){
