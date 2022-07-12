@@ -1,33 +1,37 @@
 package com.my.FoodTruckApp2;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-
-@Data
 @Service
+@RequiredArgsConstructor
 public class AppetizerService {
-    private final FoodTruck2 appetizer1 = new FoodTruck2(1,"Garlic bread","18/22","21/22",3);
-    private final FoodTruck2 appetizer2 = new FoodTruck2(2,"Breadsticks ","11/22","28/22",2);
-    ArrayList<FoodTruck2> appetizers = new ArrayList<>(Arrays.asList(appetizer1,appetizer2));
+//    private final FoodTruck2 appetizer1 = new FoodTruck2(1,"Garlic bread","18/22","21/22",3);
+//    private final FoodTruck2 appetizer2 = new FoodTruck2(2,"Breadsticks ","11/22","28/22",2);
+//    ArrayList<FoodTruck2> appetizers = new ArrayList<>(Arrays.asList(appetizer1,appetizer2));
+    private final AppetizerRepository appetizerRepository;
 
-    @GetMapping("/menus")
+//    public AppetizerService(AppetizerRepository appetizerRepository){
+//        this.appetizerRepository = appetizerRepository;
+//        //Assigning what i recieved from contructor
+//        //Service now requires appetizerRepository.
+//    }
+
+
     public List<FoodTruck2> menu(){
+        List<FoodTruck2> appetizers = appetizerRepository.getAllAppetizers();
         System.out.println("this is the menu: " + appetizers);
         return appetizers;
     }
     //EndPoint API
-    @PostMapping("/foodTrucks")
+
     public FoodTruck2 foods(@RequestBody FoodTruckRequestBody2 foodTruckRequestBody){
+        List<FoodTruck2> appetizers = appetizerRepository.getAllAppetizers();
         System.out.println("Creating my FoodTruck: " + foodTruckRequestBody);
         // incrimating the id by one.
         Integer id = appetizers.get(appetizers.size() - 1).getId() + 1;
@@ -46,16 +50,18 @@ public class AppetizerService {
         return foodTruck;
     }
 
-    @GetMapping("/foodTrucks/{id}")
-    public FoodTruck2 getAppetizerById(@PathVariable Integer id){
+
+    public Optional<FoodTruck2> getAppetizerById(@PathVariable Integer id){
+        List<FoodTruck2> appetizers = appetizerRepository.getAllAppetizers();
         System.out.println("getting my appetizer by id: " + id);
 
         Optional<FoodTruck2> foodTruckById = appetizers.stream().filter(foodTruck -> foodTruck.getId().equals(id)).findFirst();
-        return  foodTruckById.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return  foodTruckById;
     }
 
-    @PutMapping("/menu-Updates/{id}")
+
     public FoodTruck2 menuUpdate(@RequestBody FoodTruck2 foodTruckRequestBody, @PathVariable Integer id ){
+        List<FoodTruck2> appetizers = appetizerRepository.getAllAppetizers();
         Optional<FoodTruck2> optionalAppetizer = appetizers.stream().filter(foodTruck -> foodTruck.getId().equals(id)).findFirst();
 
         if(optionalAppetizer.isPresent()){
@@ -84,8 +90,9 @@ public class AppetizerService {
         throw  new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
-    @PatchMapping("/menu-Updates/{id}")
+
     public FoodTruck2 menuUpdate2(@RequestBody FoodTruck2 foodTruckRequestBody, @PathVariable Integer id ){
+        List<FoodTruck2> appetizers = appetizerRepository.getAllAppetizers();
         Optional<FoodTruck2> optionalAppetizer = appetizers.stream().filter(foodTruck -> foodTruck.getId().equals(id)).findFirst();
 
         if(optionalAppetizer.isPresent()){
