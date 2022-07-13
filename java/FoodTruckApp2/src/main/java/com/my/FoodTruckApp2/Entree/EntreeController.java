@@ -1,13 +1,10 @@
 package com.my.FoodTruckApp2.Entree;
 
-import com.my.FoodTruckApp2.Appetizer.FoodTruck2;
-import com.my.FoodTruckApp2.Appetizer.FoodTruckRequestBody2;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.List;
 
 @RestController
@@ -23,8 +20,8 @@ public class EntreeController {
     //-------------WORK!!!-------------//
 
     //-----------GETTING THE LIST OF ENTREE-------------//
-    @GetMapping("/menus")
-    public List<EntreePlate> menu(){
+    @GetMapping("/menus-Entree")
+    public List<EntreePlate> menuEntree(){
         return entreeService.menu();
     }// this API isn't return an array. it is returning a HTTP response.
     // who's BODY is an arraylist of entree.

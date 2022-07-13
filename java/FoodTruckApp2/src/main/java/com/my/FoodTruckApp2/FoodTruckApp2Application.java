@@ -1,4 +1,5 @@
-package com.my.FoodTruckApp2.Appetizer;
+package com.my.FoodTruckApp2;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +9,7 @@ public class FoodTruckApp2Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FoodTruckApp2Application.class, args);
+
 
 		System.out.println("Its working");
 	}

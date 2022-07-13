@@ -24,12 +24,12 @@ public class AppetizerControler2 {
 //    }
 
 
-   @GetMapping("/menus")
-   public List<FoodTruck2> menu(){
+   @GetMapping("/menus-Appetizer")
+   public List<FoodTruck2> menuAppetizer(){
        return appetizerService.menu();
    }
    @PostMapping("/foodTrucks")
-public FoodTruck2 foods(@RequestBody FoodTruckRequestBody2 foodTruckRequestBody){
+    public FoodTruck2 foods(@RequestBody FoodTruckRequestBody2 foodTruckRequestBody){
        return appetizerService.foods(foodTruckRequestBody);
 }
     @GetMapping("/foodTrucks/{id}")

@@ -73,8 +73,8 @@ public class EntreeService {
     public void deleteEntreById(@PathVariable Integer id){
         List<EntreePlate> entreePlates = entreeRepository.getAllEntrePlates();
         System.out.println("Deleting id: " + id);
-         entreePlates.removeIf(entreePlate -> entreePlate.getId().equals(id));
-         //if the id is the same that i asked for then Entree will be deleted.
+        entreePlates.removeIf(entreePlate -> entreePlate.getId().equals(id));
+        //if the id is the same that i asked for then Entree will be deleted.
     }
 
 }
