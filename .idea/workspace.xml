@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7361331f-bf98-43be-813d-5bfbbe6040dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Entree/EntreeApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Entree/EntreeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Entree/EntreePlate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Entree/EntreeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Entree/EntreeRequestBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Entree/EntreeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/FoodTruckApp/src/main/java/com/my/FoodTruckApp/AppetizerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/AppetizerControler2.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Appetizer/AppetizerControler2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/AppetizerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Appetizer/AppetizerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/AppetizerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Appetizer/AppetizerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/FoodTruck2.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Appetizer/FoodTruck2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/FoodTruckApp2Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Appetizer/FoodTruckApp2Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/FoodTruckRequestBody2.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Appetizer/FoodTruckRequestBody2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Entree/EntreeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Entree/EntreeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Entree/EntreeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Entree/EntreeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Entree/EntreeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/FoodTruckApp2/src/main/java/com/my/FoodTruckApp2/Entree/EntreeService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +134,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.EntreeApplication" />
-        <item itemvalue="Application.com.my.FoodTruckApp2.Appetizer.FoodTruckApp2Application" />
         <item itemvalue="Application.FoodTruckAppApplication" />
         <item itemvalue="Application.com.my.firstSpringBootService.FirstSpringBootServiceApplication" />
         <item itemvalue="JUnit.FirstSpringBootServiceApplicationTests" />

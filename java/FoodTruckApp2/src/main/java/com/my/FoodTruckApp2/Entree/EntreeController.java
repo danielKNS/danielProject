@@ -4,6 +4,7 @@ import com.my.FoodTruckApp2.Appetizer.FoodTruck2;
 import com.my.FoodTruckApp2.Appetizer.FoodTruckRequestBody2;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -14,18 +15,25 @@ import java.util.List;
 public class EntreeController {
     private final EntreeService entreeService;
 //-----------TESTING----------------//
-    @GetMapping("/Helloit")
-    public String hello(){
-        System.out.println("hello");
-        return "hi";
-    }
+//    @GetMapping("/Helloit")
+//    public String hello(){
+//        System.out.println("hello");
+//        return "hi";
+//    }
     //-------------WORK!!!-------------//
 
     //-----------GETTING THE LIST OF ENTREE-------------//
     @GetMapping("/menus")
     public List<EntreePlate> menu(){
         return entreeService.menu();
-    }
+    }// this API isn't return an array. it is returning a HTTP response.
+    // who's BODY is an arraylist of entree.
+    // Manually below.
+//    @GetMapping("/menu")
+//    public ResponseEntity<List<EntreePlate>> menu(){
+//        List<EntreePlate> entreePlates = entreeService.menu();
+//        return new ResponseEntity<>(entreePlates,HttpStatus.OK);
+//        }
     //-----------GETTING THE ENTREE-------------//
     @GetMapping("/EntrePlate/{id}")
     public EntreePlate getEntrePlateById(@PathVariable Integer id){
