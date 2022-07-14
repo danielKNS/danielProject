@@ -40,10 +40,10 @@ public class AppetizerService {
 
         FoodTruck2 foodTruck = new FoodTruck2(
                 id,
-                foodTruckRequestBody.getFoodName(),
-                foodTruckRequestBody.getFoodDate(),
-                foodTruckRequestBody.getFoodExpireDate(),
-                foodTruckRequestBody.getFoodPrice()
+                foodTruckRequestBody.getAppetizerName(),
+                foodTruckRequestBody.getAppetizerDate(),
+                foodTruckRequestBody.getAppetizerExpireDate(),
+                foodTruckRequestBody.getAppetizerPrice()
         );
         appetizers.add(foodTruck);
         //adding the new appetizer

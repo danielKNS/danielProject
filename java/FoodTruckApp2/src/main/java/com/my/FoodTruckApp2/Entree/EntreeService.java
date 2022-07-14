@@ -32,8 +32,8 @@ public class EntreeService {
 
         EntreePlate entreePlateList = new EntreePlate(
                 id,
-                entreeRequestBody.getFoodName(),
-                entreeRequestBody.getFoodPrice()
+                entreeRequestBody.getEntreeName(),
+                entreeRequestBody.getEntreePrice()
         );
         entreePlates.add(entreePlateList);
         //adding the new appetizer

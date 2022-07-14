@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class FoodTruckRequestBody2 {
-    private String foodName;
-    private String foodDate;
-    private String foodExpireDate;
-    private Integer foodPrice;
+    private String appetizerName;
+    private String appetizerDate;
+    private String appetizerExpireDate;
+    private Integer appetizerPrice;
 }
