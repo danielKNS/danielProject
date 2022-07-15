@@ -25,7 +25,7 @@ public class OrderService {
         return ordersList;
     }
     //------------ADDING MORE ORDERS-----------//
-    public Orders ordersMealsList(@RequestBody OrdersRequestBody orderRequestBody){
+    public Orders ordersMealsList(OrdersRequestBody orderRequestBody){
         List<Orders> ordersList = ordersRepository.getAllOrders();
         System.out.println("Creating my EntreePlate: " + orderRequestBody);
         // incrimating the id by one.
@@ -44,17 +44,17 @@ public class OrderService {
     }
 
     //------------FINDING MY ORDERS-----------//
-    public Optional<Orders> getOrderById(@PathVariable Integer id){
+    public Optional<Orders> getOrderById(Integer id){
         List<Orders> ordersList = ordersRepository.getAllOrders();
         System.out.println("getting my order by id: " + id);
 
-        Optional<Orders> OrdersById = ordersList.stream().filter(entreePlate -> entreePlate.getId().equals(id)).findFirst();
+        Optional<Orders> OrdersById = ordersList.stream().filter(orders -> orders.getId().equals(id)).findFirst();
         return  OrdersById;
     }
     //------------UPDATE MY ORDERS-----------//
-    public Orders updateOrderMenu(@RequestBody OrdersRequestBody ordersRequestBody,@PathVariable Integer id){
+    public Orders updateOrderMenu(OrdersRequestBody ordersRequestBody,Integer id){
         List<Orders> ordersList = ordersRepository.getAllOrders();
-        Optional<Orders> opitionalOrder = ordersList.stream().filter(entreePlate -> entreePlate.getId().equals(id)).findFirst();
+        Optional<Orders> opitionalOrder = ordersList.stream().filter(orders -> orders.getId().equals(id)).findFirst();
 
         if(opitionalOrder.isPresent()){
             Orders foundOrder = opitionalOrder.get();
@@ -73,10 +73,36 @@ public class OrderService {
     }
 
     //------------DELETING MY ORDERS-----------//
-    public void deletingOrderById(@PathVariable Integer id){
+    public void deletingOrderById(Integer id){
         List<Orders> ordersList = ordersRepository.getAllOrders();
         System.out.println("Deleting Order: " + id);
-        ordersList.removeIf(orders -> orders.getId().equals(id));
+        if (ordersList.removeIf(orders -> orders.getId().equals(id))){
+            System.out.println("id Found!!!");
+        }else{
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
     }
+    //------------UPDATING MY ORDERS(TWO -THREE FIELDS)-----------//
+    public  Orders updateFewOrderMenu(Orders orderRequestBody,Integer id){
+        List<Orders> ordersList = ordersRepository.getAllOrders();
+        Optional<Orders> opitionalOrder = ordersList.stream().filter(orders -> orders.getId().equals(id)).findFirst();
 
+        if(opitionalOrder.isPresent()){
+            Orders foundOrder = opitionalOrder.get();
+            if(foundOrder.getEntreePlateOrders() == null){
+                System.out.println("Order NOT! Update: " + foundOrder);
+                return foundOrder;
+            }
+            foundOrder.setEntreePlateOrders(orderRequestBody.getEntreePlateOrders());
+            System.out.println("Order UPDATED!!");
+
+            if(foundOrder.getAppetizerOrders() == null){
+                System.out.println("Order NOT! Update: " + foundOrder);
+                return foundOrder;
+            }
+            foundOrder.setAppetizerOrders(orderRequestBody.getAppetizerOrders());
+            System.out.println("Order UPDATED!!");
+        }
+    throw  new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
 }
