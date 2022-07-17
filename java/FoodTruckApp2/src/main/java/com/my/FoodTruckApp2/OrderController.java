@@ -16,18 +16,20 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class OrderController {
-    private final AppetizerControler2 appetizerControler;
-    private final EntreeController entreeController;
+    private final AppetizerService appetizerService;
+    private final EntreeService entreeService;
     private final OrderService orderService;
 
+    //------------LIST ONLY OF APPETIZER-----------//
     @GetMapping("/appetizer")
     public List<FoodTruck2> menuAppetizer(){
-        return appetizerControler.menuAppetizer();
+        return appetizerService.menu();
     }
 
+    //------------LIST ONLY OF ENTREE-----------//
     @GetMapping("/entree")
     public List<EntreePlate> menuEntree(){
-        return entreeController.menuEntree();
+        return entreeService.menu();
     }
 
     //------------LIST OF MY ORDERS-----------//
@@ -38,14 +40,19 @@ public class OrderController {
 
     //------------ADDING MORE ORDERS-----------//
     @PostMapping("/orders")
-    public Orders addNewOrder(@RequestBody OrdersRequestBody OrderRequestBody){
-        return orderService.ordersMealsList(OrderRequestBody);
+    public Orders addNewOrder(@RequestBody OrdersRequestBody orderRequestBody){
+        return orderService.ordersMealsList(orderRequestBody);
     }
 
     //------------FINDING MY ORDERS-----------//
     @GetMapping("/orders/{id}")
     public Orders ordersById(@PathVariable Integer id){
         return orderService.getOrderById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
+    @PostMapping("/orders/{id1}/{id2}")
+    public Orders creatingNewOrder(@RequestBody OrdersRequestBody orderRequestBody,@PathVariable Integer id1,@PathVariable Integer id2){
+        return orderService.orders(orderRequestBody,id1,id2);
     }
 
     //------------UPDATE MY ORDERS-----------//
