@@ -50,10 +50,10 @@ public class OrderController {
         return orderService.getOrderById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping("/orders/{id1}/{id2}")
-    public Orders creatingNewOrder(@RequestBody OrdersRequestBody orderRequestBody,@PathVariable Integer id1,@PathVariable Integer id2){
-        return orderService.orders(orderRequestBody,id1,id2);
-    }
+//    @PostMapping("/orders")
+//    public Orders creatingNewOrder(@RequestBody NewOrderRequestBody newOrderRequestBody){
+//        return orderService.orders(newOrderRequestBody);
+//    }
 
     //------------UPDATE MY ORDERS-----------//
 //    @PutMapping("/orders/{id}")

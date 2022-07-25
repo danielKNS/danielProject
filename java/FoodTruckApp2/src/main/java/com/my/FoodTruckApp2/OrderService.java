@@ -61,36 +61,38 @@ public class OrderService {
     //------------CREATED A NEW ORDER AND GOING THROUGH THE ENTREE/APPETIZER LOOKING FOR THE ID USER ASK FOR ----------//
     //TODO: figure out how to have multiple entrees and appetizer.
     // you could add new ids(maybe it will give me an idea)
-    public Orders orders(OrdersRequestBody orderRequestBody,Integer id1,Integer id2){
-        List<Orders> ordersList = ordersRepository.getAllOrders();
-        System.out.println("Creating my Order: " + orderRequestBody);
-        // incrimating the id by one.
-        Integer id = ordersList.get(ordersList.size() - 1).getId() + 1;
-        //getting the orderList by the index, get the id and add one(+1) to it.
-        //so that when we add new order the id won't be the same and the id number will only increase
-        // getting the entree/appetizer by their ids
-        Optional<EntreePlate> entreById = entreeService.getEntrePlateById(id1);
-        Optional<FoodTruck2> appetizerById = appetizerService.getAppetizerById(id2);
-        //Optional class is used to find out if there is a value present in this Optional instance.
-        //If there is no value present in this Optional instance, then this method returns false, else true.
-       if(entreById.isPresent() && appetizerById.isPresent()) {
-           EntreePlate foundEntreeById = entreById.get();
-           FoodTruck2 foundAppetizerById = appetizerById.get();
-           //getting the appetizer/entree and assigning to found.
-           ArrayList<EntreePlate> foundEntree = new ArrayList<>(Arrays.asList(foundEntreeById));
-           ArrayList<FoodTruck2> foundAppetizer = new ArrayList<>(Arrays.asList(foundAppetizerById));
-           //Created two list one for entrees and other for appetizer.
-           Orders order = new Orders(
-                   id,
-                   foundEntree,
-                   foundAppetizer
-           );
-           ordersList.add(order);
-           //adding the new appetizer/entree that the user choose in the list of appetizer/entre .
-           return order;
-       }
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-    }
+    // fix the ids
+//    public Orders orders(NewOrderRequestBody newOrderRequestBody){
+//        List<Orders> ordersList = ordersRepository.getAllOrders();
+//        System.out.println("Creating my Order: " + newOrderRequestBody);
+//        // incrimating the id by one.
+//        Integer id = ordersList.get(ordersList.size() - 1).getId() + 1;
+//        //getting the orderList by the index, get the id and add one(+1) to it.
+//        //so that when we add new order the id won't be the same and the id number will only increase
+//        // getting the entree/appetizer by their ids.
+//        Optional<EntreePlate> entreById = entreeService.getEntrePlateById(id1);
+//        Optional<FoodTruck2> appetizerById = appetizerService.getAppetizerById(id2);
+//        newOrderRequestBody.getAppetizerIds();
+//        //Optional class is used to find out if there is a value present in this Optional instance.
+//        //If there is no value present in this Optional instance, then this method returns false, else true.
+//       if(entreById.isPresent() && appetizerById.isPresent()) {
+//           EntreePlate foundEntreeById = entreById.get();
+//           FoodTruck2 foundAppetizerById = appetizerById.get();
+//           //getting the appetizer/entree and assigning to found.
+//           ArrayList<EntreePlate> foundEntree = new ArrayList<>(Arrays.asList(foundEntreeById));
+//           ArrayList<FoodTruck2> foundAppetizer = new ArrayList<>(Arrays.asList(foundAppetizerById));
+//           //Created two list one for entrees and other for appetizer.
+//           Orders order = new Orders(
+//                   id,
+//                   foundEntree,
+//                   foundAppetizer
+//           );
+//           ordersList.add(order);
+//           //adding the new appetizer/entree that the user choose in the list of appetizer/entre .
+//           return order;
+//       }
+//        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+//    }
     //------------UPDATE MY ORDERS-----------//
     public Orders updateOrderMenu(OrdersRequestBody ordersRequestBody,Integer id){
         List<Orders> ordersList = ordersRepository.getAllOrders();

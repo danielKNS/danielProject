@@ -1,11 +1,16 @@
 package com.my.FoodTruckApp2.Appetizer;
 
+import com.my.FoodTruckApp2.Entree.EntreePlate;
+import com.my.FoodTruckApp2.Orders;
+import com.my.FoodTruckApp2.OrdersRequestBody;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 @Service
@@ -114,4 +119,10 @@ public class AppetizerService {
         throw  new ResponseStatusException(HttpStatus.NOT_FOUND);
 
     }
+//    public ArrayList<FoodTruck2> orderListOfAppetizers(@PathVariable Integer id1){
+//        List<FoodTruck2> appetizers = appetizerRepository.getAllAppetizers();
+//        Optional<FoodTruck2> optionalAppetizer = appetizers.stream().filter(foodTruck -> foodTruck.getId().equals(id1)).findFirst();
+//        Integer id = appetizers.get(appetizers.size() - 1).getId() + 1;
+//
+//    }
 }
