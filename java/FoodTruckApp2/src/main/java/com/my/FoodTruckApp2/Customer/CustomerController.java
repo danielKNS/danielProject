@@ -1,6 +1,5 @@
 package com.my.FoodTruckApp2.Customer;
 
-import com.my.FoodTruckApp2.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class CustomerController {
 
-    private final CustomerRepository customerRepository;
+    private final CustomerService customerService;
 
     @PostMapping("/customers")
     public void createNewCustomer(){
         log.info("Creating new Customer");
-        customerRepository.createNewCustomer();
+        customerService.createNewCustomer();
     }
 
 }
