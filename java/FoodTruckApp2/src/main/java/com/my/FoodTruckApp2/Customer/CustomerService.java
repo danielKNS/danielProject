@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -19,6 +20,17 @@ public class CustomerService {
     }
 
 // -----------INSERTING A NEW CUSTOMER (HARDCODE)---------  //
+public String createNewCustomer(@RequestBody CustomerRequestBody customerRequestBody){
+    String sql = "INSERT INTO customer(first_name,last_name) VALUES(?,?)";
+    Integer rows = jdbcTemplate.update(sql,customerRequestBody.getCustomerFirstName(),customerRequestBody.getCustomerLastName());
+    if(rows > 0){
+        System.out.println(sql + " SERVICE");
+        System.out.println("A new customer was CREATED!!!(has been inserted)");
+    }
+    return sql;
+    // the return goes straight to postman
+    // then goes to customerController line 41
+}
     @Autowired
     JdbcTemplate jdbcTemplate;
 
