@@ -2,10 +2,12 @@ package com.my.FoodTruckApp2.Customer;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -28,5 +30,12 @@ public class CustomerService {
         if(rows > 0){
             System.out.println("A new row has been inserted!!!");
         }
+    }
+// -----------GETTING ALL CUSTOMER (DATABASE)------------ //
+    public List<Customer> gettingAllCustomers(){
+        String sql = "SELECT * FROM customer";
+        //query means searching for something
+        List<Customer> customersList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Customer.class));
+        return  customersList;
     }
 }
