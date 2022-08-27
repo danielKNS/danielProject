@@ -22,7 +22,6 @@ public class CustomerController {
     @PostMapping("/customers")
     public String createNewCustomer(@RequestBody CustomerRequestBody customerRequestBody){
         log.info("Creating new Customer");
-        System.out.println(customerRequestBody + "CONTROLLER");
         return customerService.createNewCustomer(customerRequestBody);
     }
 }

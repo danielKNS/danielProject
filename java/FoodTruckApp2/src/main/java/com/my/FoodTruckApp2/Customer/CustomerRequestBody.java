@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class CustomerRequestBody {
-    private String customerFirstName;
-    private String customerLastName;
+    private String firstName;
+    private String lastName;
 }
