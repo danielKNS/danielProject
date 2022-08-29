@@ -1,14 +1,17 @@
 package com.my.FoodTruckApp2.Customer;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CustomerService {
     private final CustomerRepository customerRepository;
 
@@ -18,7 +21,17 @@ public class CustomerService {
         return customers;
     }
 
-// -----------INSERTING A NEW CUSTOMER (HARDCODE)---------  //
+// ----------- INSERTING A NEW CUSTOMER -----------  //
+public String createNewCustomer(@RequestBody CustomerRequestBody customerRequestBody){
+    String sql = "INSERT INTO customer(first_name,last_name) VALUES(?,?)";
+    Integer rows = jdbcTemplate.update(sql,customerRequestBody.getFirstName(),customerRequestBody.getLastName());
+    if(rows > 0){
+        log.info("A new customer was CREATED!!!(has been inserted)");
+    }
+    return sql;
+    // the return goes straight to postman
+    // then goes to customerController line 41
+}
     @Autowired
     JdbcTemplate jdbcTemplate;
 
@@ -26,7 +39,7 @@ public class CustomerService {
         String sql = "INSERT INTO customer(first_name,last_name) VALUES('Lucas','Sasha')";
         Integer rows = jdbcTemplate.update(sql);
         if(rows > 0){
-            System.out.println("A new row has been inserted!!!");
+            log.info("A new row has been inserted!!!");
         }
     }
 }
