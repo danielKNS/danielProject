@@ -1,6 +1,7 @@
 package com.my.FoodTruckApp2.Customer;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CustomerService {
     private final CustomerRepository customerRepository;
 
@@ -44,7 +46,8 @@ public class CustomerService {
             // queryForObject return the whole object(A specific object)
             return customerId;
         }catch (EmptyResultDataAccessException emptyResultDataAccessException){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            log.error("There is no customer that have this id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, id + " NOT FOUND/EXIST");
         }
     }
 }
