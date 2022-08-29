@@ -21,9 +21,9 @@ public class CustomerController {
         customerService.createNewCustomer();
     }
 
-    @GetMapping("/customersList")
+    @GetMapping("/customers")
     public List<Customer> allCustomers(){
-        System.out.println("Getting ALL Customers");
+        log.info("Getting ALL Customers");
         return customerService.gettingAllCustomers();
     }
 
