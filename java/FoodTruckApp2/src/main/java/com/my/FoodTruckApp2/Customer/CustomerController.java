@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -31,4 +33,10 @@ public class CustomerController {
         log.info("getting a customer by " + id + " !!");
         return customerService.gettingCustomerById(id);
     }
+    @GetMapping("/customers")
+    public List<Customer> allCustomers(){
+        log.info("Getting ALL Customers");
+        return customerService.gettingAllCustomers();
+    }
+
 }

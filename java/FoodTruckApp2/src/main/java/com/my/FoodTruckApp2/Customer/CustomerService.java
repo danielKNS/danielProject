@@ -13,6 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -60,5 +61,12 @@ public String createNewCustomer(@RequestBody CustomerRequestBody customerRequest
             log.error("There is no customer that have this id: " + id);
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, id + " NOT FOUND/EXIST");
         }
+    }
+// -----------GETTING ALL CUSTOMER (DATABASE)------------ //
+    public List<Customer> gettingAllCustomers(){
+        String sql = "SELECT * FROM customer";
+        //query means searching for something
+        List<Customer> customersList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Customer.class));
+        return  customersList;
     }
 }
