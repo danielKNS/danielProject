@@ -17,12 +17,11 @@ public class CustomerController {
 
     private final CustomerService customerService;
 
-//    @PostMapping("/customers")
-//    public void createNewCustomer(){
-//        log.info("Creating new Customer");
-//        customerService.createNewCustomer();
-//    }
-
+    @PostMapping("/customers")
+    public void createNewCustomer(){
+        log.info("Creating new Customer");
+        customerService.createNewCustomer();
+    }
     @PostMapping("/customers")
     public String createNewCustomer(@RequestBody CustomerRequestBody customerRequestBody){
         log.info("Creating new Customer");
