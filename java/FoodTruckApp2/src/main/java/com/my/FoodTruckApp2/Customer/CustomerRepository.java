@@ -38,6 +38,8 @@ public class CustomerRepository {
 //            log.info("A new row has been inserted!!!");
 //        }
 //    }
+
+  // ----------- INSERTING A NEW CUSTOMER -----------  //
 public String createNewCustomer(@RequestBody CustomerRequestBody customerRequestBody){
   String sql = "INSERT INTO customer(first_name,last_name) VALUES(?,?)";
   Integer rows = jdbcTemplate.update(sql,customerRequestBody.getFirstName(),customerRequestBody.getLastName());
@@ -49,6 +51,7 @@ public String createNewCustomer(@RequestBody CustomerRequestBody customerRequest
   // then goes to customerController line 41
   }
 
+  // ---------GETTING CUSTOMER BY THEIR ID----------//
   public Customer gettingCustomerById(@PathVariable Integer id){
     String sql = "SELECT * FROM customer WHERE id = ?";
     try{
@@ -62,6 +65,7 @@ public String createNewCustomer(@RequestBody CustomerRequestBody customerRequest
     }
   }
 
+  // -----------GETTING ALL CUSTOMER (DATABASE)------------ //
   public List<Customer> gettingAllCustomers(){
     String sql = "SELECT * FROM customer";
     //query means searching for something
