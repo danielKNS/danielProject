@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -25,7 +26,17 @@ public class CustomerService {
         return customers;
     }
 
-// -----------INSERTING A NEW CUSTOMER (HARDCODE)---------  //
+// ----------- INSERTING A NEW CUSTOMER -----------  //
+public String createNewCustomer(@RequestBody CustomerRequestBody customerRequestBody){
+    String sql = "INSERT INTO customer(first_name,last_name) VALUES(?,?)";
+    Integer rows = jdbcTemplate.update(sql,customerRequestBody.getFirstName(),customerRequestBody.getLastName());
+    if(rows > 0){
+        log.info("A new customer was CREATED!!!(has been inserted)");
+    }
+    return sql;
+    // the return goes straight to postman
+    // then goes to customerController line 41
+}
     @Autowired
     JdbcTemplate jdbcTemplate;
 
@@ -33,7 +44,7 @@ public class CustomerService {
         String sql = "INSERT INTO customer(first_name,last_name) VALUES('Lucas','Sasha')";
         Integer rows = jdbcTemplate.update(sql);
         if(rows > 0){
-            System.out.println("A new row has been inserted!!!");
+            log.info("A new row has been inserted!!!");
         }
     }
 // ---------GETTING CUSTOMER BY THEIR ID----------//
