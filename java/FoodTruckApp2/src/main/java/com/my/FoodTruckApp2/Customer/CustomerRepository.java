@@ -28,7 +28,7 @@ public class CustomerRepository {
     if(rows > 0){
       log.info("A new customer was CREATED!!!(has been inserted)");
     }
-    return sql;
+    return "Welcome "+ customerRequestBody.getFirstName() + "" + customerRequestBody.getLastName();
     // the return goes straight to postman
     // then goes to customerController line 41
   }
