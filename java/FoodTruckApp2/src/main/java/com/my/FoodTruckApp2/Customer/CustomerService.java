@@ -21,7 +21,7 @@ import java.util.Map;
 public class CustomerService {
     private final CustomerRepository customerRepository;
 // ----------- INSERTING A NEW CUSTOMER -----------  //
-public String createNewCustomer(@RequestBody CustomerRequestBody customerRequestBody){
+public Customer createNewCustomer(@RequestBody CustomerRequestBody customerRequestBody){
     return customerRepository.createNewCustomer(customerRequestBody);
 }
 // ---------GETTING CUSTOMER BY THEIR ID----------//
