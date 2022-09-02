@@ -22,20 +22,11 @@ public class CustomerRepository {
   @Autowired
   JdbcTemplate jdbcTemplate;
 //   ----------- INSERTING A NEW CUSTOMER -----------  //
-  public Customer createNewCustomer(@RequestBody CustomerRequestBody customerRequestBody){
-    String sql = "INSERT INTO customer(first_name,last_name) VALUES(?, ?)";
-    Integer rows = jdbcTemplate.update(sql,customerRequestBody.getFirstName(),customerRequestBody.getLastName());
-    String customer = "SELECT * FROM customer WHERE first_name = ? AND last_name = ?";
-    Customer newCustomer = jdbcTemplate.queryForObject(customer,
-        new BeanPropertyRowMapper<>(Customer.class),
-        customerRequestBody.getFirstName(),
-        customerRequestBody.getLastName());
-    // queryForObject lets the sql know the rows that is looking for will be put into an object
-    // the BeanPropertyRowMapper is shortcut because it will match the fields if its identical or close enough
-    if(rows > 0){
-      log.info("A new customer was CREATED!!!(has been inserted)" + newCustomer );
-    }
-    return newCustomer;
+public Customer createNewCustomer(CustomerRequestBody customerRequestBody) {
+  String sql = "INSERT INTO customer(first_name,last_name) VALUES(?, ?) RETURNING *";
+  Customer newCustomer = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Customer.class),
+          customerRequestBody.getFirstName(), customerRequestBody.getLastName());
+  return newCustomer;
 //     the return goes straight to postman
 //     then goes to customerController line 41
   }
