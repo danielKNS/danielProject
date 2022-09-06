@@ -64,7 +64,6 @@ public class CustomerRepository {
       // Searching for the id
       jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<>(Customer.class),id);
       log.info("Customer has been Deleted!! USER ID: " + id);
-      System.out.println("Found Customer!!");
       // if the id does not exist it will go through catch and send a Http response.
     } catch (EmptyResultDataAccessException emptyResultDataAccessException){
       log.error("THIS ID:" + id + "DOES NOT EXIST");
