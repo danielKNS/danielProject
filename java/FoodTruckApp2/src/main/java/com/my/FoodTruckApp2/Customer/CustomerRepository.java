@@ -21,17 +21,16 @@ import java.util.List;
 public class CustomerRepository {
   @Autowired
   JdbcTemplate jdbcTemplate;
-  // ----------- INSERTING A NEW CUSTOMER -----------  //
-  public String createNewCustomer(@RequestBody CustomerRequestBody customerRequestBody){
-    String sql = "INSERT INTO customer(first_name,last_name) VALUES(?,?)";
-    Integer rows = jdbcTemplate.update(sql,customerRequestBody.getFirstName(),customerRequestBody.getLastName());
-    if(rows > 0){
-      log.info("A new customer was CREATED!!!(has been inserted)");
-    }
-    return sql;
-    // the return goes straight to postman
-    // then goes to customerController line 41
+//   ----------- INSERTING A NEW CUSTOMER -----------  //
+public Customer createNewCustomer(CustomerRequestBody customerRequestBody) {
+  String sql = "INSERT INTO customer(first_name,last_name) VALUES(?, ?) RETURNING *";
+  Customer newCustomer = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Customer.class),
+          customerRequestBody.getFirstName(), customerRequestBody.getLastName());
+  return newCustomer;
+//     the return goes straight to postman
+//     then goes to customerController line 41
   }
+
 
   // ---------GETTING CUSTOMER BY THEIR ID----------//
   public Customer gettingCustomerById(@PathVariable Integer id){
