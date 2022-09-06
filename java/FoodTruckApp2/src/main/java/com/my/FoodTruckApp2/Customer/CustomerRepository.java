@@ -54,4 +54,24 @@ public class CustomerRepository {
     List<Customer> customersList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Customer.class));
     return  customersList;
   }
+
+  // ----------- DELETING CUSTOMERS BY THEIR ID -------------//
+
+  public void deleteCustomerById(@PathVariable Integer id ){
+    String sql = "SELECT * FROM customer WHERE id = ?";
+    String sqlDelete = "DELETE FROM customer WHERE id = ?";
+    try {
+      // Searching for the id
+      jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<>(Customer.class),id);
+      log.info("Customer has been Deleted!! USER ID: " + id);
+      System.out.println("Found Customer!!");
+      // if the id does not exist it will go through catch and send a Http response.
+    } catch (EmptyResultDataAccessException emptyResultDataAccessException){
+      log.error("THIS ID:" + id + "DOES NOT EXIST");
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+    // But if it does exist it will skip the catch and goes to jdbcTemplate.update
+    // to delete the customer.
+    jdbcTemplate.update(sqlDelete,id);
+  }
 }

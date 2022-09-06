@@ -33,4 +33,7 @@ public String createNewCustomer(@RequestBody CustomerRequestBody customerRequest
 public List<Customer> gettingAllCustomers(){
    return customerRepository.gettingAllCustomers();
 }
+    public void deletingCustomerById(@PathVariable Integer id){
+        customerRepository.deleteCustomerById(id);
+    }
 }
