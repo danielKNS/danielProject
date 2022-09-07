@@ -27,10 +27,10 @@ public class OrderController {
     }
 
     //------------LIST ONLY OF ENTREE-----------//
-    @GetMapping("/entree")
-    public List<EntreePlate> menuEntree(){
-        return entreeService.menu();
-    }
+//    @GetMapping("/entree")
+//    public List<EntreePlate> menuEntree(){
+//        return entreeService.menu();
+//    }
 
     //------------LIST OF MY ORDERS-----------//
     @GetMapping("/orders")
