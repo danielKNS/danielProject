@@ -1,21 +1,12 @@
 package com.my.FoodTruckApp2;
 
 import com.my.FoodTruckApp2.Appetizer.AppetizerService;
-import com.my.FoodTruckApp2.Appetizer.FoodTruck2;
-import com.my.FoodTruckApp2.Entree.EntreePlate;
-import com.my.FoodTruckApp2.Entree.EntreeRepository;
-import com.my.FoodTruckApp2.Entree.EntreeRequestBody;
 import com.my.FoodTruckApp2.Entree.EntreeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,7 +32,7 @@ public class OrderService {
         //so that when we add new appetizers the id won't be the same and the id number will only increase
         Orders ordersMealList = new Orders(
                 id,
-                orderRequestBody.getEntreePlateOrders(),
+                orderRequestBody.getEntreeOrders(),
                 orderRequestBody.getAppetizerOrders()
         );
         ordersList.add(ordersMealList);
@@ -101,11 +92,11 @@ public class OrderService {
         if(opitionalOrder.isPresent()){
             Orders foundOrder = opitionalOrder.get();
             foundOrder.setAppetizerOrders(ordersRequestBody.getAppetizerOrders());
-            foundOrder.setEntreePlateOrders(ordersRequestBody.getEntreePlateOrders());
+            foundOrder.setEntreeOrders(ordersRequestBody.getEntreeOrders());
             if(ordersRequestBody.getAppetizerOrders() == null){
                 System.out.println("the price is null please try again!");
                 throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
-            }if (ordersRequestBody.getEntreePlateOrders() == null){
+            }if (ordersRequestBody.getEntreeOrders() == null){
                 System.out.println("the name is null please try again!");
                 throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
             }
@@ -131,11 +122,11 @@ public class OrderService {
 
         if(opitionalOrder.isPresent()){
             Orders foundOrder = opitionalOrder.get();
-            if(foundOrder.getEntreePlateOrders() == null){
+            if(foundOrder.getEntreeOrders() == null){
                 System.out.println("Order NOT! Update: " + foundOrder);
                 return foundOrder;
             }
-            foundOrder.setEntreePlateOrders(orderRequestBody.getEntreePlateOrders());
+            foundOrder.setEntreeOrders(orderRequestBody.getEntreeOrders());
             System.out.println("Order UPDATED!!");
 
             if(foundOrder.getAppetizerOrders() == null){

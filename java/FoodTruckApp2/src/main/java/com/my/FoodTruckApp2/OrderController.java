@@ -1,10 +1,7 @@
 package com.my.FoodTruckApp2;
 
-import com.my.FoodTruckApp2.Appetizer.AppetizerControler2;
 import com.my.FoodTruckApp2.Appetizer.AppetizerService;
 import com.my.FoodTruckApp2.Appetizer.FoodTruck2;
-import com.my.FoodTruckApp2.Entree.EntreeController;
-import com.my.FoodTruckApp2.Entree.EntreePlate;
 import com.my.FoodTruckApp2.Entree.EntreeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

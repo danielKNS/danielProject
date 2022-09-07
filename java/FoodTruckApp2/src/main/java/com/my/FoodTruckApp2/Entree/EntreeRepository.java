@@ -21,10 +21,10 @@ public class EntreeRepository {
     JdbcTemplate jdbcTemplate;
 
     //   ----------- INSERTING A NEW ENTREE -----------  //
-    public EntreePlate createNewEntree(@RequestBody EntreeRequestBody entreeRequestBody){
+    public Entree createNewEntree(@RequestBody EntreeRequestBody entreeRequestBody){
         String sql = "INSERT INTO entree(name,price) VALUES (?,?) RETURNING *";
-        EntreePlate entree = jdbcTemplate.queryForObject(sql,
-                new BeanPropertyRowMapper<>(EntreePlate.class),
+        Entree entree = jdbcTemplate.queryForObject(sql,
+                new BeanPropertyRowMapper<>(Entree.class),
                 entreeRequestBody.getEntreeName(),
                 entreeRequestBody.getEntreePrice());
         log.info("New entree is AVAILABLE!!!");
@@ -32,10 +32,10 @@ public class EntreeRepository {
     }
 
     // ---------GETTING ENTREE BY THEIR ID----------//
-    public EntreePlate gettingEntreeById(@PathVariable Integer id){
+    public Entree gettingEntreeById(@PathVariable Integer id){
         String sql ="SELECT * FROM entree WHERE id = ?";
         try{
-           EntreePlate entree = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(EntreePlate.class),id);
+           Entree entree = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Entree.class),id);
            log.info("Found the entree with the id: " + id);
            return entree;
         } catch (EmptyResultDataAccessException emptyResultDataAccessException){
@@ -44,9 +44,9 @@ public class EntreeRepository {
         }
     }
     // -----------GETTING ALL ENTREE(DATABASE)------------ //
-    public List<EntreePlate> gettingAllEntree(){
+    public List<Entree> gettingAllEntree(){
         String sql = "SELECT * FROM entree";
-        List<EntreePlate> entreList = jdbcTemplate.query(sql,new BeanPropertyRowMapper<>(EntreePlate.class));
+        List<Entree> entreList = jdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Entree.class));
         log.info("ALL entrees are AVAILABLE!!!");
         return entreList;
     }
@@ -55,7 +55,7 @@ public class EntreeRepository {
         String sql = "SELECT * FROM entree WHERE id = ?";
         String deleteSql = "DELETE FROM entree WHERE id = ?";
         try {
-            jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(EntreePlate.class),id);
+            jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Entree.class),id);
         }catch (EmptyResultDataAccessException emptyResultDataAccessException){
             log.error("this entree id: " + id + " does NOT EXIST!!!");
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);

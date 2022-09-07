@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class EntreePlate {
+public class Entree {
     private Integer id;
     private String name;
     private Integer price;
