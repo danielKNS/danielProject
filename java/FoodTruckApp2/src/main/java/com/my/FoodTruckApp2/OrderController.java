@@ -25,13 +25,6 @@ public class OrderController {
     public List<FoodTruck2> menuAppetizer(){
         return appetizerService.menu();
     }
-
-    //------------LIST ONLY OF ENTREE-----------//
-//    @GetMapping("/entree")
-//    public List<EntreePlate> menuEntree(){
-//        return entreeService.menu();
-//    }
-
     //------------LIST OF MY ORDERS-----------//
     @GetMapping("/orders")
     public List<Orders>menuOfFullOrders(){
