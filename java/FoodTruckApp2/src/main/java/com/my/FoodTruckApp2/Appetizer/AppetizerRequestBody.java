@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class AppetizerRequestBody {
     private String appetizerName;
-    private String appetizerDate;
-    private String appetizerExpireDate;
-    private Integer appetizerPrice;
+    private String date;
+    private String expireDate;
+    private Integer price;
 }
