@@ -28,9 +28,9 @@ public class AppetizerRepository {
         String sql = "INSERT INTO appetizer(name,date,expire_date,price) VALUES(?,?,?,?) RETURNING *";
         Appetizer appetizer = jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<>(Appetizer.class),
                 appetizerRequestBody.getAppetizerName(),
-                appetizerRequestBody.getAppetizerDate(),
-                appetizerRequestBody.getAppetizerExpireDate(),
-                appetizerRequestBody.getAppetizerPrice());
+                appetizerRequestBody.getDate(),
+                appetizerRequestBody.getExpireDate(),
+                appetizerRequestBody.getPrice());
         log.info("new appetizer AVAILABLE!!!! ");
         return appetizer;
     }
