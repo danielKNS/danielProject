@@ -34,7 +34,7 @@ public class AppetizerService {
         return appetizerRepository.gettingALlAppetizer();
     }
 
-    // ----------- DELETING CUSTOMERS BY THEIR ID -------------//
+    // ----------- DELETING APPETIZER BY THEIR ID -------------//
     public void deletingAppetizerById(@PathVariable Integer id){
         log.info("DELETING id: " + id);
         appetizerRepository.deleteAppetizerById(id);

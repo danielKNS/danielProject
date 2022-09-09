@@ -40,7 +40,7 @@ public class AppetizerControler2 {
         return appetizerService.gettingALLAppetizer();
     }
 
-    // ----------- DELETING CUSTOMERS BY THEIR ID -------------//
+    // ----------- DELETING APPETIZER BY THEIR ID -------------//
     @DeleteMapping("/appetizers/{id}")
     public void deleteAppetizerById(@PathVariable Integer id){
         log.info("DELETING id: " + id);
