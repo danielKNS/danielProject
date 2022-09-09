@@ -1,7 +1,7 @@
 package com.my.FoodTruckApp2;
 
 import com.my.FoodTruckApp2.Appetizer.AppetizerService;
-import com.my.FoodTruckApp2.Appetizer.FoodTruck2;
+import com.my.FoodTruckApp2.Appetizer.Appetizer;
 import com.my.FoodTruckApp2.Entree.Entree;
 import com.my.FoodTruckApp2.Entree.EntreeService;
 import lombok.RequiredArgsConstructor;
@@ -24,10 +24,10 @@ public class OrdersRepository {
         return entrees;
     }
     //-----------------------APPETIZERS------------------------//
-    private final FoodTruck2 appetizer1 = new FoodTruck2(1,"Garlic bread","18/22","21/22",3);
-    private final FoodTruck2 appetizer2 = new FoodTruck2(2,"Breadsticks ","11/22","28/22",2);
-    ArrayList<FoodTruck2> appetizers = new ArrayList<>(Arrays.asList(appetizer1,appetizer2));
-    public ArrayList<FoodTruck2> getAllAppetizersPlates() {
+    private final Appetizer appetizer1 = new Appetizer(1,"Garlic bread","18/22","21/22",3);
+    private final Appetizer appetizer2 = new Appetizer(2,"Breadsticks ","11/22","28/22",2);
+    ArrayList<Appetizer> appetizers = new ArrayList<>(Arrays.asList(appetizer1,appetizer2));
+    public ArrayList<Appetizer> getAllAppetizersPlates() {
         return appetizers;
     }
     //-----------------------ORDERS--------------------------//

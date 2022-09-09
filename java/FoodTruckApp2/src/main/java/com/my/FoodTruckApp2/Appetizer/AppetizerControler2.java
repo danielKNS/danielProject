@@ -1,6 +1,7 @@
 package com.my.FoodTruckApp2.Appetizer;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -9,9 +10,8 @@ import java.util.List;
 //import AppetizerService.class;
 @RestController
 @RequiredArgsConstructor// looks for all fields but only uses final REQUIRED fields.
+@Slf4j
 public class AppetizerControler2 {
-//    @Autowired
-//   //private AppetizerRepository appetizerRepository = new AppetizerRepository();
     private final AppetizerService appetizerService; //INSTANCE
     //autowired make a loose coupled between appetizerController
     // and appetizerService.
@@ -19,32 +19,32 @@ public class AppetizerControler2 {
     // it through the private variable
     // we can use this to tell spring to INJECT IT/
     //if the method has an argument you should add it.
-//    public  AppetizerControler2(AppetizerService appetizerService){
-//        this.appetizerService = appetizerService;
-//    }
-
-
-   @GetMapping("/menus-Appetizer")
-   public List<FoodTruck2> menuAppetizer(){
-       return appetizerService.menu();
-   }
-   @PostMapping("/foodTrucks")
-    public FoodTruck2 foods(@RequestBody FoodTruckRequestBody2 foodTruckRequestBody){
-       return appetizerService.foods(foodTruckRequestBody);
-}
-    @GetMapping("/foodTrucks/{id}")
-    public FoodTruck2 getAppetizerById(@PathVariable Integer id){
-    return appetizerService.getAppetizerById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    //   ----------- INSERTING A NEW APPETIZER -----------  //
+    @PostMapping("/appetizers")
+    public Appetizer createNewAppetizer(@RequestBody AppetizerRequestBody appetizerRequestBody){
+        log.info("Creating a new Appetizer");
+        return appetizerService.createNewApptizer(appetizerRequestBody);
     }
-//
-    @PutMapping("/menu-Updates/{id}")
-    public FoodTruck2 menuUpdate(@RequestBody FoodTruck2 foodTruckRequestBody, @PathVariable Integer id ){
-    return appetizerService.menuUpdate(foodTruckRequestBody,id);
+
+    // ---------GETTING APPETIZER BY THEIR ID----------//
+    @GetMapping("/appetizers/{id}")
+    public Appetizer getAppetizerById(@PathVariable Integer id){
+        log.info("Looking for the id: " + id);
+        return appetizerService.gettingAppetizerById(id);
     }
-//
-    @PatchMapping("/menu-Updates/{id}")
-    public FoodTruck2 menuUpdate2(@RequestBody FoodTruck2 foodTruckRequestBody, @PathVariable Integer id ){
-       return appetizerService.menuUpdate2(foodTruckRequestBody,id);
+
+    // -----------GETTING ALL APPETIZER------------ //
+    @GetMapping("/appetizers")
+    public List<Appetizer> getALLAppetizer(){
+        log.info("Looking for the id: " );
+        return appetizerService.gettingALLAppetizer();
+    }
+
+    // ----------- DELETING APPETIZER BY THEIR ID -------------//
+    @DeleteMapping("/appetizers/{id}")
+    public void deleteAppetizerById(@PathVariable Integer id){
+        log.info("DELETING id: " + id);
+        appetizerService.deletingAppetizerById(id);
     }
 }
 
