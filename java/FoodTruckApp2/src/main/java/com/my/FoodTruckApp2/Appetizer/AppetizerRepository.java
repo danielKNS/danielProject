@@ -58,7 +58,7 @@ public class AppetizerRepository {
         String sqlDelete = "DELETE FROM appetizer WHERE id = ?";
         try {
             jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<>(Appetizer.class),id);
-            log.info("Appetizer has been Deleted!! USER ID: " + id);
+            log.info("Appetizer has been Deleted!! ID: " + id);
         } catch (EmptyResultDataAccessException emptyResultDataAccessException){
             log.error("THIS ID:" + id + "DOES NOT EXIST");
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"This ID: " + id + "does NOT EXIST!!!!!");
