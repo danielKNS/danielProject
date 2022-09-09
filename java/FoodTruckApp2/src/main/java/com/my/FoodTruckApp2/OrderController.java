@@ -1,7 +1,7 @@
 package com.my.FoodTruckApp2;
 
 import com.my.FoodTruckApp2.Appetizer.AppetizerService;
-import com.my.FoodTruckApp2.Appetizer.FoodTruck2;
+import com.my.FoodTruckApp2.Appetizer.Appetizer;
 import com.my.FoodTruckApp2.Entree.EntreeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,11 +17,6 @@ public class OrderController {
     private final EntreeService entreeService;
     private final OrderService orderService;
 
-    //------------LIST ONLY OF APPETIZER-----------//
-    @GetMapping("/appetizer")
-    public List<FoodTruck2> menuAppetizer(){
-        return appetizerService.menu();
-    }
     //------------LIST OF MY ORDERS-----------//
     @GetMapping("/orders")
     public List<Orders>menuOfFullOrders(){

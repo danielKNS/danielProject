@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class FoodTruckRequestBody2 {
+public class AppetizerRequestBody {
     private String appetizerName;
     private String appetizerDate;
     private String appetizerExpireDate;
