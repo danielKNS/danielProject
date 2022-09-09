@@ -21,8 +21,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class AppetizerRepository {
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+   private final JdbcTemplate jdbcTemplate;
 
     //   ----------- INSERTING A NEW APPETIZER -----------  //
     public Appetizer creatingNewAppetizer(@RequestBody AppetizerRequestBody appetizerRequestBody){
@@ -58,11 +57,11 @@ public class AppetizerRepository {
         String sql = "SELECT * FROM appetizer WHERE id = ?";
         String sqlDelete = "DELETE FROM appetizer WHERE id = ?";
         try {
-            jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<>(Customer.class),id);
+            jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<>(Appetizer.class),id);
             log.info("Appetizer has been Deleted!! USER ID: " + id);
         } catch (EmptyResultDataAccessException emptyResultDataAccessException){
             log.error("THIS ID:" + id + "DOES NOT EXIST");
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"This ID: " + id + "does NOT EXIST!!!!!");
         }
         jdbcTemplate.update(sqlDelete,id);
     }
