@@ -52,7 +52,7 @@ public class AppetizerRepository {
         List<Appetizer> appetizerList = jdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Appetizer.class));
         return appetizerList;
     }
-    // ----------- DELETING CUSTOMERS BY THEIR ID -------------//
+    // ----------- DELETING APPETIZER BY THEIR ID -------------//
     public void deleteAppetizerById(@PathVariable Integer id ){
         String sql = "SELECT * FROM appetizer WHERE id = ?";
         String sqlDelete = "DELETE FROM appetizer WHERE id = ?";
