@@ -1,6 +1,7 @@
-package com.my.FoodTruckApp2;
+package com.my.FoodTruckApp2.Order;
 
 import com.my.FoodTruckApp2.Appetizer.Appetizer;
+import com.my.FoodTruckApp2.Customer.Customer;
 import com.my.FoodTruckApp2.Entree.Entree;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,13 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-
-public class Orders {
-    private Integer id;
+public class OrdersRequestBody {
+    private Integer customerId;
     private List<Entree> entreeOrders;
     private List<Appetizer> appetizerOrders;
-//    private String name;
-//    private String appetizer;
-//    private String entree;
-//    private Integer totalPrice;
 }

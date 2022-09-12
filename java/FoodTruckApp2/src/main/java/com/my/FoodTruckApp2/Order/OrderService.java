@@ -1,12 +1,18 @@
-package com.my.FoodTruckApp2;
+package com.my.FoodTruckApp2.Order;
 
+import com.my.FoodTruckApp2.Appetizer.Appetizer;
 import com.my.FoodTruckApp2.Appetizer.AppetizerService;
+import com.my.FoodTruckApp2.Entree.Entree;
 import com.my.FoodTruckApp2.Entree.EntreeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,25 +59,25 @@ public class OrderService {
     //TODO: figure out how to have multiple entrees and appetizer.
     // you could add new ids(maybe it will give me an idea)
     // fix the ids
-//    public Orders orders(NewOrderRequestBody newOrderRequestBody){
-//        List<Orders> ordersList = ordersRepository.getAllOrders();
-//        System.out.println("Creating my Order: " + newOrderRequestBody);
-//        // incrimating the id by one.
-//        Integer id = ordersList.get(ordersList.size() - 1).getId() + 1;
-//        //getting the orderList by the index, get the id and add one(+1) to it.
-//        //so that when we add new order the id won't be the same and the id number will only increase
-//        // getting the entree/appetizer by their ids.
-//        Optional<EntreePlate> entreById = entreeService.getEntrePlateById(id1);
-//        Optional<FoodTruck2> appetizerById = appetizerService.getAppetizerById(id2);
-//        newOrderRequestBody.getAppetizerIds();
+    public Orders orders(NewOrderRequestBody newOrderRequestBody){
+        List<Orders> ordersList = ordersRepository.getAllOrders();
+        System.out.println("Creating my Order: " + newOrderRequestBody);
+        // incrimating the id by one.
+        Integer id = ordersList.get(ordersList.size() - 1).getId() + 1;
+        //getting the orderList by the index, get the id and add one(+1) to it.
+        //so that when we add new order the id won't be the same and the id number will only increase
+        // getting the entree/appetizer by their ids.
+//        Optional<Entree> entreById = entreeService.gettingEntreeById(id1);
+//        Optional<Appetizer> appetizerById = appetizerService.gettingAppetizerById(id2);
+//
 //        //Optional class is used to find out if there is a value present in this Optional instance.
 //        //If there is no value present in this Optional instance, then this method returns false, else true.
 //       if(entreById.isPresent() && appetizerById.isPresent()) {
-//           EntreePlate foundEntreeById = entreById.get();
-//           FoodTruck2 foundAppetizerById = appetizerById.get();
+//           Entree foundEntreeById = entreById.get();
+//           Appetizer foundAppetizerById = appetizerById.get();
 //           //getting the appetizer/entree and assigning to found.
-//           ArrayList<EntreePlate> foundEntree = new ArrayList<>(Arrays.asList(foundEntreeById));
-//           ArrayList<FoodTruck2> foundAppetizer = new ArrayList<>(Arrays.asList(foundAppetizerById));
+//           ArrayList<Entree> foundEntree = new ArrayList<>(Arrays.asList(foundEntreeById));
+//           ArrayList<Appetizer> foundAppetizer = new ArrayList<>(Arrays.asList(foundAppetizerById));
 //           //Created two list one for entrees and other for appetizer.
 //           Orders order = new Orders(
 //                   id,
@@ -82,8 +88,8 @@ public class OrderService {
 //           //adding the new appetizer/entree that the user choose in the list of appetizer/entre .
 //           return order;
 //       }
-//        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//    }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
     //------------UPDATE MY ORDERS-----------//
     public Orders updateOrderMenu(OrdersRequestBody ordersRequestBody,Integer id){
         List<Orders> ordersList = ordersRepository.getAllOrders();
@@ -138,4 +144,12 @@ public class OrderService {
         }
     throw  new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
+
+    public Orders createNewOrder(@RequestBody NewOrderRequestBody ordersRequestBody){
+        return ordersRepository.CreateNewOrder(ordersRequestBody);
+    }
+//    public Orders gettingOrderById(@PathVariable Integer id){
+//        return ordersRepository.gettingOrderById(id);
+//    }
+
 }

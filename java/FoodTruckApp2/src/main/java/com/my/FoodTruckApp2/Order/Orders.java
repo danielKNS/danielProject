@@ -1,4 +1,4 @@
-package com.my.FoodTruckApp2;
+package com.my.FoodTruckApp2.Order;
 
 import com.my.FoodTruckApp2.Appetizer.Appetizer;
 import com.my.FoodTruckApp2.Entree.Entree;
@@ -11,12 +11,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class OrdersRequestBody {
 
+public class Orders {
+    private Integer id;
     private List<Entree> entreeOrders;
     private List<Appetizer> appetizerOrders;
-//    private String mealName;
-//    private String mealAppetizer;
-//    private String mealEntree;
-//    private Integer mealTotalPrice;
 }
