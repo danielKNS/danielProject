@@ -24,7 +24,7 @@ public class AppetizerRepository {
    private final JdbcTemplate jdbcTemplate;
 
     //   ----------- INSERTING A NEW APPETIZER -----------  //
-    public Appetizer creatingNewAppetizer(@RequestBody AppetizerRequestBody appetizerRequestBody){
+    public Appetizer creatingNewAppetizer(AppetizerRequestBody appetizerRequestBody){
         String sql = "INSERT INTO appetizer(name,date,expire_date,price) VALUES(?,?,?,?) RETURNING *";
         Appetizer appetizer = jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<>(Appetizer.class),
                 appetizerRequestBody.getAppetizerName(),
@@ -35,7 +35,7 @@ public class AppetizerRepository {
         return appetizer;
     }
     // ---------GETTING APPETIZER BY THEIR ID----------//
-    public Appetizer gettingAppetizerById(@PathVariable Integer id){
+    public Appetizer gettingAppetizerById (Integer id){
         String sql = "SELECT * FROM appetizer WHERE id = ?";
         try {
             Appetizer appetizer = jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<>(Appetizer.class),id);
@@ -53,7 +53,7 @@ public class AppetizerRepository {
         return appetizerList;
     }
     // ----------- DELETING APPETIZER BY THEIR ID -------------//
-    public void deleteAppetizerById(@PathVariable Integer id ){
+    public void deleteAppetizerById(Integer id ){
         String sql = "SELECT * FROM appetizer WHERE id = ?";
         String sqlDelete = "DELETE FROM appetizer WHERE id = ?";
         try {

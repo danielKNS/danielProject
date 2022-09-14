@@ -14,6 +14,8 @@ import java.util.List;
 
 public class Orders {
     private Integer id;
-    private List<Entree> entreeOrders;
-    private List<Appetizer> appetizerOrders;
+    private Integer customerId;
+    private Integer appetizerIds;
+//    private List<Entree> entreeOrders;
+//    private List<Appetizer> appetizerOrders;
 }
