@@ -20,6 +20,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
@@ -54,25 +56,94 @@ public class OrdersRepository {
 //    public ArrayList<Orders> getAllOrders(){
 //        return orders;
 //    }
-    //Create Order :
-    // the RequestBody needs three fields customerId, List of appetizerIds & entreeIds
-    // the PK is not necessary because is  autoIncreameting.
-    // to create a order we will need which customer is making a order
-    // and we need to know which appetizers & entree the customer want.
-    // the SQL query will INSERT  customerId and the first variable for the fields
-    // the JdbcTemplate.queryForObject will map and through the DataBase then
-    // the second variable will be the list of integers for entree ids to find which entree id
-    // that matches with the entree the customers wants by using a method we made in entreeRepository
-    // to find which entree the customer wants and will return a list of entrees. Same for the appetizer
-    // the final variable is for the list of integers of appetizers ids to find which appetizer id
-    // that matches with the appetizer the customers wants by using a method we made in appetizerRepository
-    // to find which appetizer the customer wants and will return a list of appetizer.
-    // at the end if an id does not exist or is not found
-    // we will return a HTTP NOT FOUND.
+
+    //Make an order:
+    // to create a order we will need which customer is making a order ?
+//Find out who placed the order:
+    // so i need the customerId(taking the customerId from the requestBody)
+    // to identify which customer i am serving.
+    // For Example:
+    // String sql = "INSERT INTO \"order\" (customer_id) VALUES (?) RETURNING *";
+    // Orders order = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Orders.class),
+    //  ordersRequestBody.getCustomerId());
+//Find the appetizer:
+    // By using the method that is created in AppetizerRepository to find the ids that
+    // we took in the requestBody.When we found the id we will get the appetizer id and insert
+    // For Example:
+    //  Appetizer appetizers = appetizerRepository.gettingAppetizerById(ordersRequestBody.getAppetizerIds());
+//Put appetizer on Receipt(database):
+    // and we need to know which appetizers the customer want how
+    // into appetizer_ordered.( we are using the appetizer_ordered as a receipt
+    // to remind ourselves which appetizer it is and which order it is from).
+    // For Example:
+    // String sqlAppetizer = "INSERT INTO appetizer_ordered(order_id ,appetizer_id) VALUES (?,?) RETURNING *";
+    //   AppetizerOrdered appetizerOrdered = jdbcTemplate.queryForObject(sqlAppetizer,
+    //   new BeanPropertyRowMapper<>(AppetizerOrdered.class),
+    //   order.getId(),ordersRequestBody.getAppetizerIds());
+//Find the entree:
+    // By using the method that is created in EntreeRepository to find the ids that
+    // we took in the requestBody.When we found the id we will get the entree id and insert
+    // For Example:
+    // Entree entree = entreeRepository.gettingEntreeById(ordersRequestBody.getEntreeIds());
+//Put entree on Receipt(database):
+    // and we need to know which entree the customer want how
+    // into entree _ordered.( we are using the entree _ordered as a receipt
+    // to remind ourselves which entree it is and which order it is from).
+    // For Example:
+    // String sqlEntree = " INSERT INTO entree_ordered(order_id ,entree_id) VALUES (?,?) RETURNING *";
+    // EntreeOrdered entreeOrdered = jdbcTemplate.queryForObject(sqlEntree,
+    //   new BeanPropertyRowMapper<>(EntreeOrdered.class),
+    //   order.getId(),ordersRequestBody.getEntreeIds());
+
+//----- figure out the list of appetizers & entrees
+// Find the appetizers:
+    // we are only getting one appetizer for now...
+    // what if the customer order more than one appetizer ?.A List of appetizers .
+    // first we need to change the requestBody so that we can get a LIST of appetizerId.
+    // Then we need to check for EACH appetizerIds in the requestBody(we need to check
+    // EACH appetizers the customer wants) and then find the appetizer
+    // by using the method that is created in AppetizerRepository.
+    // For Example:
+    // change private Integer appetizerIds TO private List<Integer> appetizerIds
+    // List<Integer> listOfAppetizerIds = ordersRequestBody.getAppetizerIds();
+    //listOfAppetizerIds.forEach(appetizerId -> { Appetizer appetizers =
+    // appetizerRepository.gettingAppetizerById(appetizerId)};
+//Put appetizers on Receipt(database):
+    // we need to know which appetizers the customer want, how
+    // into appetizer_ordered.( we are using the appetizer_ordered as a receipt
+    // to remind ourselves which appetizer it is and which order it is from).
+    // String sqlAppetizer = "INSERT INTO appetizer_ordered(order_id ,appetizer_id) VALUES (?,?) RETURNING *";
+    //   AppetizerOrdered appetizerOrdered = jdbcTemplate.queryForObject(sqlAppetizer,
+    //   new BeanPropertyRowMapper<>(AppetizerOrdered.class),
+    //   order.getId(),appetizers.getId());
+//Find the entrees:
+    // we are only getting one entree for now ...
+    // what if the customer order more than one entree ?. A list of entrees
+    // first we need to change the requestBody so that we can get the LIST of entreeIds.
+    // then we need to check for EACH entreeIds in the requestBody(Making sure that
+    // EACH entree is the entree that the customer ordered) and then find the entree by
+    // using the method that is created in the EntreeRepository.
+    // For Example:
+    //changing Integer entreeIds TO List<Integer> entreeIds
+    //List<Integer> listOfEntreeIds = orderRequestBody.getEntreeIds();
+    //listOfEntreeIds.forEach(entreeId -> {Entree entrees =
+    // entreeRepository.gettingEntreeById(entreeIds)};
+//Put entrees on Receipt(database):
+    // We need to know which entrees the customer wants. and how
+    // is entree_ordered is going to help ?.( we are using the entree_ordered as
+    // a receipt to remind ourselves which entree it is and which order it is from).
+    // For Example:
+    // String sqlEntree = " INSERT INTO entree_ordered(order_id ,entree_id) VALUES (?,?) RETURNING *";
+    // EntreeOrdered entreeOrdered = jdbcTemplate.queryForObject(sqlEntree,
+    //   new BeanPropertyRowMapper<>(EntreeOrdered.class),
+    //   order.getId(),ordersRequestBody.getEntreeIds());
+
+
 
     // How to find all the appetizer with the ids
     //
     // by passing in the ids and using the method gettingAppetizerById in AppetizerRepository
+    // Collections.singletonList: is used to return an immutable list containing only the specified object
 
     public Orders CreateNewOrder(NewOrderRequestBody ordersRequestBody){
         // first when the order is created (Inserted into order) we need to find the appetizers
@@ -82,17 +153,27 @@ public class OrdersRepository {
         log.info("Order is Created");
         // the order is inserted now we take the appetizerId from the requestBody
         // now we need to find the id by using the method in AppetizerRepository
-        Appetizer appetizer = appetizerRepository.gettingAppetizerById(ordersRequestBody.getAppetizerIds());
-        System.out.println("Found appetizer " + appetizer);
         log.info("Looking for the appetizer...");
-        // now we use the appetizer_ordered
-        // Insert into the appetizer_ordered because we are using the table as a receipt
-        // (to remind ourselves which appetizer it is and which order it is from)
+        // todo Now How do i check for each appetizerId in the list ?
+        List<Integer> listOfAppetizerIds = ordersRequestBody.getAppetizerIds();
+        System.out.println("List of appetizersIds: " + listOfAppetizerIds);
+        listOfAppetizerIds.forEach(appetizerId -> { Appetizer appetizers =
+            appetizerRepository.gettingAppetizerById(appetizerId);
+            System.out.println("Found appetizer " + appetizers);
         String sqlAppetizer = " INSERT INTO appetizer_ordered(order_id ,appetizer_id) VALUES (?,?) RETURNING *";
-        AppetizerOrdered appetizerOrdered = jdbcTemplate.queryForObject(sqlAppetizer,
+            AppetizerOrdered appetizerOrdered = jdbcTemplate.queryForObject(sqlAppetizer,
                 new BeanPropertyRowMapper<>(AppetizerOrdered.class),
-                order.getId(),ordersRequestBody.getAppetizerIds());
-        log.info("Appetizer receipt: "+ appetizerOrdered);
+                order.getId(),appetizers.getId());
+            log.info("Appetizer receipt: "+ appetizerOrdered);
+        });
+
+        Entree entree = entreeRepository.gettingEntreeById(ordersRequestBody.getEntreeIds());
+        System.out.println("Found Entree " + entree);
+        String sqlEntree = " INSERT INTO entree_ordered(order_id ,entree_id) VALUES (?,?) RETURNING *";
+        EntreeOrdered entreeOrdered = jdbcTemplate.queryForObject(sqlEntree,
+                new BeanPropertyRowMapper<>(EntreeOrdered.class),
+                order.getId(),ordersRequestBody.getEntreeIds());
+        log.info("Entree receipt: "+ entreeOrdered);
 
         return order;
     }

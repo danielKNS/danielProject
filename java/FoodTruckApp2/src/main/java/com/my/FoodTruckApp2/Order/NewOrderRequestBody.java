@@ -10,6 +10,6 @@ import java.util.List;
 @Data
 public class NewOrderRequestBody {
     private Integer customerId;
-//    private List<Integer> entreeIds;
-    private Integer appetizerIds;
+    private Integer entreeIds;
+    private List<Integer> appetizerIds;
 }
