@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 
-public class Orders {
+public class Order {
     private Integer id;
     private Integer customerId;
 }

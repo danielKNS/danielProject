@@ -132,10 +132,10 @@ public class OrdersRepository {
     //OrderDto orderDto = new OrderDto(order.getId(), ordersRequestBody.getCustomerId(),
     // appetizerOrders, entreeOrders);
 //
-    public OrderDto CreateNewOrder(NewOrderRequestBody ordersRequestBody) {
+    public OrderDto createNewOrder(NewOrderRequestBody ordersRequestBody) {
         // first when the order is created (Inserted into order) we need to find the appetizers
         String sql = "INSERT INTO \"order\" (customer_id) VALUES (?) RETURNING *";
-        Orders order = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Orders.class),
+        Order order = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Order.class),
                 ordersRequestBody.getCustomerId());
         log.info("Order is Created");
         // the order is inserted now we take the appetizerId from the requestBody
@@ -143,18 +143,12 @@ public class OrdersRepository {
         log.info("Looking for the appetizers...");
         List<Appetizer> appetizerOrders = new ArrayList<>();
         List<Integer> listOfAppetizerIds = ordersRequestBody.getAppetizerIds();
-        System.out.println("List of appetizersIds: " + listOfAppetizerIds);
         listOfAppetizerIds.forEach(appetizerId -> {
-            Appetizer appetizers =
+            Appetizer appetizer =
                     appetizerRepository.gettingAppetizerById(appetizerId);
-            System.out.println("Found appetizer " + appetizers);
-            String sqlAppetizer = " INSERT INTO appetizer_ordered(order_id ,appetizer_id) VALUES (?,?) RETURNING *";
-            AppetizerOrdered appetizerOrdered = jdbcTemplate.queryForObject(sqlAppetizer,
-                    new BeanPropertyRowMapper<>(AppetizerOrdered.class),
-                    order.getId(), appetizers.getId());
-            log.info("Appetizer receipt: " + appetizerOrdered);
-            appetizerOrders.add(appetizers);
-            System.out.println("The list of appetizers the customer ordered: " + appetizerOrders);
+            log.info("Found appetizer " + appetizer);
+            appetizerOrders.add(appetizer);
+            log.info("The list of appetizers the customer ordered: " + appetizerOrders);
         });
         log.info("Looking for the entrees...");
         List<Entree> entreeOrders = new ArrayList<>();
@@ -162,16 +156,12 @@ public class OrdersRepository {
         listOfEntreeIds.forEach(entreeId -> {
             Entree entree =
                     entreeRepository.gettingEntreeById((entreeId));
-            System.out.println("Found Entree " + entree);
-            String sqlEntree = " INSERT INTO entree_ordered(order_id ,entree_id) VALUES (?,?) RETURNING *";
-            EntreeOrdered entreeOrdered = jdbcTemplate.queryForObject(sqlEntree,
-                    new BeanPropertyRowMapper<>(EntreeOrdered.class),
-                    order.getId(), entree.getId());
-            log.info("Entree receipt: " + entreeOrdered);
+            log.info("Found Entree " + entree);
             entreeOrders.add(entree);
-            System.out.println("The list of entrees the customer ordered: " + entreeOrders);
+            log.info("The list of entrees the customer ordered: " + entreeOrders);
         });
-        OrderDto orderDto = new OrderDto(order.getId(), ordersRequestBody.getCustomerId(), appetizerOrders, entreeOrders);
+        OrderDto orderDto = new OrderDto(order.getId(),
+                ordersRequestBody.getCustomerId(), appetizerOrders, entreeOrders);
         return orderDto;
     }
 
