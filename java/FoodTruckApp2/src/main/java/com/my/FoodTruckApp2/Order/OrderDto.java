@@ -12,8 +12,9 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class OrderDto {
-    private Integer id;
+    private Integer orderId;
     private Integer customerId;
     private List<Appetizer> appetizers;
     private List<Entree> entrees;
+
 }

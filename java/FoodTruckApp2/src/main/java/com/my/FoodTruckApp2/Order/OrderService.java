@@ -12,7 +12,7 @@ public class OrderService {
 
     public OrderDto createNewOrder(NewOrderRequestBody ordersRequestBody) {
         log.info("Looking for Appetizers & Entrees....");
-        return ordersRepository.createNewOrder(ordersRequestBody);
+        return ordersRepository.createOrderDTO(ordersRequestBody);
     }
 
 

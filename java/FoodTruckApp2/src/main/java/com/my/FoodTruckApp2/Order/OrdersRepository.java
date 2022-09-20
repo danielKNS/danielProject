@@ -132,27 +132,40 @@ public class OrdersRepository {
     //OrderDto orderDto = new OrderDto(order.getId(), ordersRequestBody.getCustomerId(),
     // appetizerOrders, entreeOrders);
 //
-    public OrderDto createNewOrder(NewOrderRequestBody ordersRequestBody) {
+    public Order createNewOrder(NewOrderRequestBody ordersRequestBody) {
         // first when the order is created (Inserted into order) we need to find the appetizers
         String sql = "INSERT INTO \"order\" (customer_id) VALUES (?) RETURNING *";
         Order order = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Order.class),
                 ordersRequestBody.getCustomerId());
+        order.getId();
         log.info("Order is Created");
-        // the order is inserted now we take the appetizerId from the requestBody
-        // now we need to find the id by using the method in AppetizerRepository
+        return order;
+    }
+
+    // the order is inserted now we take the appetizerId from the requestBody
+    // now we need to find the id by using the method in AppetizerRepository
+    public List<Appetizer> createAppetizersReceipt(NewOrderRequestBody orderRequestBody) {
         log.info("Looking for the appetizers...");
         List<Appetizer> appetizerOrders = new ArrayList<>();
-        List<Integer> listOfAppetizerIds = ordersRequestBody.getAppetizerIds();
+        List<Integer> listOfAppetizerIds = orderRequestBody.getAppetizerIds();
         listOfAppetizerIds.forEach(appetizerId -> {
             Appetizer appetizer =
                     appetizerRepository.gettingAppetizerById(appetizerId);
             log.info("Found appetizer " + appetizer);
+            String sqlAppetizer = " INSERT INTO appetizer_ordered(order_id ,appetizer_id) VALUES (?,?) RETURNING *";
+            jdbcTemplate.queryForObject(sqlAppetizer,
+                    new BeanPropertyRowMapper<>(Appetizer.class),
+                    createNewOrder(orderRequestBody).getId(), appetizer.getId());
             appetizerOrders.add(appetizer);
             log.info("The list of appetizers the customer ordered: " + appetizerOrders);
         });
+        return appetizerOrders;
+    }
+
+    public List<Entree> createEntreeReceipts(NewOrderRequestBody orderRequestBody) {
         log.info("Looking for the entrees...");
         List<Entree> entreeOrders = new ArrayList<>();
-        List<Integer> listOfEntreeIds = ordersRequestBody.getEntreeIds();
+        List<Integer> listOfEntreeIds = orderRequestBody.getEntreeIds();
         listOfEntreeIds.forEach(entreeId -> {
             Entree entree =
                     entreeRepository.gettingEntreeById((entreeId));
@@ -160,9 +173,15 @@ public class OrdersRepository {
             entreeOrders.add(entree);
             log.info("The list of entrees the customer ordered: " + entreeOrders);
         });
-        OrderDto orderDto = new OrderDto(order.getId(),
-                ordersRequestBody.getCustomerId(), appetizerOrders, entreeOrders);
-        return orderDto;
+        return entreeOrders;
     }
 
+    public OrderDto createOrderDTO(NewOrderRequestBody orderRequestBody) {
+        OrderDto orderDto = new OrderDto(
+                createNewOrder(orderRequestBody).getId(),
+                orderRequestBody.getCustomerId(),
+                createAppetizersReceipt(orderRequestBody),
+                createEntreeReceipts(orderRequestBody));
+        return orderDto;
+    }
 }
