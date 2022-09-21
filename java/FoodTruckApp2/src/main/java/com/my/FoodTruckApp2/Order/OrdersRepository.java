@@ -1,24 +1,15 @@
 package com.my.FoodTruckApp2.Order;
 
-import com.my.FoodTruckApp2.Appetizer.Appetizer;
-import com.my.FoodTruckApp2.Appetizer.AppetizerRepository;
-import com.my.FoodTruckApp2.Entree.Entree;
-import com.my.FoodTruckApp2.Entree.EntreeRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Repository
 @RequiredArgsConstructor
 @Slf4j
 public class OrdersRepository {
-    private final AppetizerRepository appetizerRepository;
-    private final EntreeRepository entreeRepository;
     private final JdbcTemplate jdbcTemplate;
 
     //    ArrayList<Orders> orders = new ArrayList<>(Arrays.asList(order1,order2));
@@ -138,50 +129,7 @@ public class OrdersRepository {
         Order order = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Order.class),
                 ordersRequestBody.getCustomerId());
         order.getId();
-        log.info("Order is Created");
+        log.info("Order is Created!!:  " + order);
         return order;
-    }
-
-    // the order is inserted now we take the appetizerId from the requestBody
-    // now we need to find the id by using the method in AppetizerRepository
-    public List<Appetizer> createAppetizersReceipt(NewOrderRequestBody orderRequestBody) {
-        log.info("Looking for the appetizers...");
-        List<Appetizer> appetizerOrders = new ArrayList<>();
-        List<Integer> listOfAppetizerIds = orderRequestBody.getAppetizerIds();
-        listOfAppetizerIds.forEach(appetizerId -> {
-            Appetizer appetizer =
-                    appetizerRepository.gettingAppetizerById(appetizerId);
-            log.info("Found appetizer " + appetizer);
-            String sqlAppetizer = " INSERT INTO appetizer_ordered(order_id ,appetizer_id) VALUES (?,?) RETURNING *";
-            jdbcTemplate.queryForObject(sqlAppetizer,
-                    new BeanPropertyRowMapper<>(Appetizer.class),
-                    createNewOrder(orderRequestBody).getId(), appetizer.getId());
-            appetizerOrders.add(appetizer);
-            log.info("The list of appetizers the customer ordered: " + appetizerOrders);
-        });
-        return appetizerOrders;
-    }
-
-    public List<Entree> createEntreeReceipts(NewOrderRequestBody orderRequestBody) {
-        log.info("Looking for the entrees...");
-        List<Entree> entreeOrders = new ArrayList<>();
-        List<Integer> listOfEntreeIds = orderRequestBody.getEntreeIds();
-        listOfEntreeIds.forEach(entreeId -> {
-            Entree entree =
-                    entreeRepository.gettingEntreeById((entreeId));
-            log.info("Found Entree " + entree);
-            entreeOrders.add(entree);
-            log.info("The list of entrees the customer ordered: " + entreeOrders);
-        });
-        return entreeOrders;
-    }
-
-    public OrderDto createOrderDTO(NewOrderRequestBody orderRequestBody) {
-        OrderDto orderDto = new OrderDto(
-                createNewOrder(orderRequestBody).getId(),
-                orderRequestBody.getCustomerId(),
-                createAppetizersReceipt(orderRequestBody),
-                createEntreeReceipts(orderRequestBody));
-        return orderDto;
     }
 }
