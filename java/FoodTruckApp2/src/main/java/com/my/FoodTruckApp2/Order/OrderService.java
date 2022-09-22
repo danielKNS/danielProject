@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -128,15 +127,11 @@ public class OrderService {
     public OrderDto createNewOrder(NewOrderRequestBody ordersRequestBody) {
         Order order = orderRepository.createNewOrder(ordersRequestBody);
 
-        List<Appetizer> appetizers = ordersRequestBody.getAppetizerIds().stream().map(appetizerId -> {
-            appetizerRepository.createAppetizerOrdered(order.getId(), appetizerId);
-            return appetizerRepository.gettingAppetizerById(appetizerId);
-        }).collect(Collectors.toList());
+        appetizerRepository.createAppetizerOrder(order.getId(), ordersRequestBody.getAppetizerIds());
+        List<Appetizer> appetizers = appetizerRepository.gettingAllAppetizerById(ordersRequestBody.getAppetizerIds());
 
-        List<Entree> entrees = ordersRequestBody.getEntreeIds().stream().map(entreeId -> {
-            entreeRepository.createEntreeOrdered(order.getId(), entreeId);
-            return entreeRepository.gettingEntreeById(entreeId);
-        }).collect(Collectors.toList());
+        entreeRepository.createEntreeOrder(order.getId(), ordersRequestBody.getEntreeIds());
+        List<Entree> entrees = entreeRepository.gettingAllEntreeById(ordersRequestBody.getEntreeIds());
 
         OrderDto orderDto = new OrderDto(
                 order.getId(),

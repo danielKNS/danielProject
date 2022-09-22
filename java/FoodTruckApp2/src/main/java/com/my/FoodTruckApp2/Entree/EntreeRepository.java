@@ -5,11 +5,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -18,6 +23,7 @@ import java.util.List;
 public class EntreeRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
+    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     /**
      * ----------- INSERTING A NEW ENTREE -----------
@@ -77,15 +83,38 @@ public class EntreeRepository {
     /**
      * ----------- CREATE ENTREE ORDERED -------------
      **/
-    public EntreeOrdered createEntreeOrdered(Integer orderId, Integer entreeId) {
-        String sqlEntree = " INSERT INTO entree_ordered(order_id ,entree_id) VALUES (?,?) RETURNING *";
-        EntreeOrdered entreeOrdered = jdbcTemplate.queryForObject(
+    public void createEntreeOrder(Integer orderId, List<Integer> entreeId) {
+
+        String sqlEntree = "INSERT INTO entree_ordered(order_id ,entree_id) VALUES (?,?)";
+
+        jdbcTemplate.batchUpdate(
                 sqlEntree,
-                new BeanPropertyRowMapper<>(EntreeOrdered.class),
-                orderId,
-                entreeId
+                new BatchPreparedStatementSetter() {
+                    @Override
+                    public void setValues(PreparedStatement ps, int i) throws SQLException {
+                        ps.setInt(1, orderId);
+                        ps.setInt(2, entreeId.get(i));
+
+                    }
+
+                    @Override
+                    public int getBatchSize() {
+                        return entreeId.size();
+                    }
+                }
         );
-        log.info("The entrees that the customer ordered: " + entreeOrdered);
-        return entreeOrdered;
+    }
+
+    public List<Entree> gettingAllEntreeById(List<Integer> entreeId) {
+        String sql = "SELECT * FROM entree WHERE id in (:ids)";
+        MapSqlParameterSource parameter = new MapSqlParameterSource();
+
+        parameter.addValue("ids", entreeId);
+
+        List<Entree> entrees = namedParameterJdbcTemplate.query(sql, parameter, new BeanPropertyRowMapper<>(Entree.class));
+        log.info("Found the entree with the id: " + entreeId);
+
+        return entrees;
+
     }
 }
