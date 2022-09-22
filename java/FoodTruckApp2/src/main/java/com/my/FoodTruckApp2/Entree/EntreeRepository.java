@@ -82,7 +82,9 @@ public class EntreeRepository {
         EntreeOrdered entreeOrdered = jdbcTemplate.queryForObject(
                 sqlEntree,
                 new BeanPropertyRowMapper<>(EntreeOrdered.class),
-                orderId, entreeId);
+                orderId,
+                entreeId
+        );
         log.info("The entrees that the customer ordered: " + entreeOrdered);
         return entreeOrdered;
     }

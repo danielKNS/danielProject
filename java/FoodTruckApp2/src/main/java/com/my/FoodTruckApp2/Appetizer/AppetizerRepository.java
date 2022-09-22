@@ -79,7 +79,9 @@ public class AppetizerRepository {
         AppetizerOrdered appetizerOrdered = jdbcTemplate.queryForObject(
                 sqlAppetizer,
                 new BeanPropertyRowMapper<>(AppetizerOrdered.class),
-                orderId, appetizerId);
+                orderId,
+                appetizerId
+        );
         log.info("The appetizers that the customer ordered: " + appetizerOrdered);
         return appetizerOrdered;
     }
