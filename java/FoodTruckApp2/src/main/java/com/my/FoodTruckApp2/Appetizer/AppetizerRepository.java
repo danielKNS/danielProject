@@ -17,7 +17,9 @@ import java.util.List;
 public class AppetizerRepository {
     private final JdbcTemplate jdbcTemplate;
 
-    //   ----------- INSERTING A NEW APPETIZER -----------  //
+    /**
+     * ----------- INSERTING A NEW APPETIZER -----------
+     **/
     public Appetizer creatingNewAppetizer(AppetizerRequestBody appetizerRequestBody) {
         String sql = "INSERT INTO appetizer(name,date,expire_date,price) VALUES(?,?,?,?) RETURNING *";
         Appetizer appetizer = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Appetizer.class),
@@ -29,7 +31,9 @@ public class AppetizerRepository {
         return appetizer;
     }
 
-    // ---------GETTING APPETIZER BY THEIR ID----------//
+    /**
+     * ---------GETTING APPETIZER BY THEIR ID----------
+     **/
     public Appetizer gettingAppetizerById(Integer id) {
         String sql = "SELECT * FROM appetizer WHERE id = ?";
         try {
@@ -42,14 +46,18 @@ public class AppetizerRepository {
         }
     }
 
-    // -----------GETTING ALL APPETIZER------------ //
+    /**
+     * -----------GETTING ALL APPETIZER------------
+     **/
     public List<Appetizer> gettingALlAppetizer() {
         String sql = "Select * FROM appetizer";
         List<Appetizer> appetizerList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Appetizer.class));
         return appetizerList;
     }
 
-    // ----------- DELETING APPETIZER BY THEIR ID -------------//
+    /**
+     * ----------- DELETING APPETIZER BY THEIR ID -------------
+     **/
     public void deleteAppetizerById(Integer id) {
         String sql = "SELECT * FROM appetizer WHERE id = ?";
         String sqlDelete = "DELETE FROM appetizer WHERE id = ?";
@@ -63,9 +71,13 @@ public class AppetizerRepository {
         jdbcTemplate.update(sqlDelete, id);
     }
 
-    public AppetizerOrdered createAppetizersReceipt(Integer orderId, Integer appetizerId) {
+    /**
+     * ----------- CREATE APPETIZER ORDERED -------------
+     **/
+    public AppetizerOrdered createAppetizerOrdered(Integer orderId, Integer appetizerId) {
         String sqlAppetizer = " INSERT INTO appetizer_ordered(order_id ,appetizer_id) VALUES (?,?) RETURNING *";
-        AppetizerOrdered appetizerOrdered = jdbcTemplate.queryForObject(sqlAppetizer,
+        AppetizerOrdered appetizerOrdered = jdbcTemplate.queryForObject(
+                sqlAppetizer,
                 new BeanPropertyRowMapper<>(AppetizerOrdered.class),
                 orderId, appetizerId);
         log.info("The appetizers that the customer ordered: " + appetizerOrdered);

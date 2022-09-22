@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class EntreOrdered {
+public class EntreeOrdered {
     private Integer orderId;
     private Integer entreeId;
 }

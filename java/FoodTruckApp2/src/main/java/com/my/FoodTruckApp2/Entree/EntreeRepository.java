@@ -8,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -21,8 +19,10 @@ public class EntreeRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    //   ----------- INSERTING A NEW ENTREE -----------  //
-    public Entree createNewEntree(@RequestBody EntreeRequestBody entreeRequestBody) {
+    /**
+     * ----------- INSERTING A NEW ENTREE -----------
+     **/
+    public Entree createNewEntree(EntreeRequestBody entreeRequestBody) {
         String sql = "INSERT INTO entree(name,price) VALUES (?,?) RETURNING *";
         Entree entree = jdbcTemplate.queryForObject(sql,
                 new BeanPropertyRowMapper<>(Entree.class),
@@ -32,8 +32,10 @@ public class EntreeRepository {
         return entree;
     }
 
-    // ---------GETTING ENTREE BY THEIR ID----------//
-    public Entree gettingEntreeById(@PathVariable Integer id) {
+    /**
+     * ---------GETTING ENTREE BY THEIR ID----------
+     **/
+    public Entree gettingEntreeById(Integer id) {
         String sql = "SELECT * FROM entree WHERE id = ?";
         try {
             Entree entree = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Entree.class), id);
@@ -45,7 +47,9 @@ public class EntreeRepository {
         }
     }
 
-    // -----------GETTING ALL ENTREE(DATABASE)------------ //
+    /**
+     * -----------GETTING ALL ENTREE(DATABASE)------------
+     **/
     public List<Entree> gettingAllEntree() {
         String sql = "SELECT * FROM entree";
         List<Entree> entreList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Entree.class));
@@ -53,8 +57,10 @@ public class EntreeRepository {
         return entreList;
     }
 
-    // ----------- DELETING ENTREE BY THEIR ID -------------//
-    public void deleteEntreeById(@PathVariable Integer id) {
+    /**
+     * ----------- DELETING ENTREE BY THEIR ID -------------
+     **/
+    public void deleteEntreeById(Integer id) {
         String sql = "SELECT * FROM entree WHERE id = ?";
         String deleteSql = "DELETE FROM entree WHERE id = ?";
         try {
@@ -67,10 +73,15 @@ public class EntreeRepository {
         jdbcTemplate.update(deleteSql, id);
     }
 
-    public EntreOrdered createEntreeReceipt(Integer orderId, Integer entreeId) {
+
+    /**
+     * ----------- CREATE ENTREE ORDERED -------------
+     **/
+    public EntreeOrdered createEntreeOrdered(Integer orderId, Integer entreeId) {
         String sqlEntree = " INSERT INTO entree_ordered(order_id ,entree_id) VALUES (?,?) RETURNING *";
-        EntreOrdered entreeOrdered = jdbcTemplate.queryForObject(sqlEntree,
-                new BeanPropertyRowMapper<>(EntreOrdered.class),
+        EntreeOrdered entreeOrdered = jdbcTemplate.queryForObject(
+                sqlEntree,
+                new BeanPropertyRowMapper<>(EntreeOrdered.class),
                 orderId, entreeId);
         log.info("The entrees that the customer ordered: " + entreeOrdered);
         return entreeOrdered;
