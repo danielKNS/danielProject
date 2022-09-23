@@ -81,9 +81,9 @@ public class EntreeRepository {
 
 
     /**
-     * ----------- CREATE ENTREE ORDERED -------------
+     * ----------- CREATE ENTREE ORDERS -------------
      **/
-    public void createEntreeOrder(Integer orderId, List<Integer> entreeId) {
+    public void createEntreeOrders(Integer orderId, List<Integer> entreeIds) {
 
         String sqlEntree = "INSERT INTO entree_ordered(order_id ,entree_id) VALUES (?,?)";
 
@@ -93,26 +93,26 @@ public class EntreeRepository {
                     @Override
                     public void setValues(PreparedStatement ps, int i) throws SQLException {
                         ps.setInt(1, orderId);
-                        ps.setInt(2, entreeId.get(i));
+                        ps.setInt(2, entreeIds.get(i));
 
                     }
 
                     @Override
                     public int getBatchSize() {
-                        return entreeId.size();
+                        return entreeIds.size();
                     }
                 }
         );
     }
 
-    public List<Entree> gettingAllEntreeById(List<Integer> entreeId) {
+    public List<Entree> gettingAllEntreesByIds(List<Integer> entreeIds) {
         String sql = "SELECT * FROM entree WHERE id in (:ids)";
         MapSqlParameterSource parameter = new MapSqlParameterSource();
 
-        parameter.addValue("ids", entreeId);
+        parameter.addValue("ids", entreeIds);
 
         List<Entree> entrees = namedParameterJdbcTemplate.query(sql, parameter, new BeanPropertyRowMapper<>(Entree.class));
-        log.info("Found the entree with the id: " + entreeId);
+        log.info("Found the entrees: " + entrees);
 
         return entrees;
 

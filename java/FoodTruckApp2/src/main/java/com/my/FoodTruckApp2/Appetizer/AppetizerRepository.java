@@ -78,9 +78,9 @@ public class AppetizerRepository {
     }
 
     /**
-     * ----------- CREATE APPETIZER ORDERED -------------
+     * ----------- CREATE APPETIZER ORDERS -------------
      **/
-    public void createAppetizerOrder(Integer orderId, List<Integer> appetizerId) {
+    public void createAppetizerOrders(Integer orderId, List<Integer> appetizerIds) {
 
         String sqlAppetizer = " INSERT INTO appetizer_ordered(order_id ,appetizer_id) VALUES (?,?)";
 
@@ -90,28 +90,28 @@ public class AppetizerRepository {
                     @Override
                     public void setValues(PreparedStatement ps, int i) throws SQLException {
                         ps.setInt(1, orderId);
-                        ps.setInt(2, appetizerId.get(i));
+                        ps.setInt(2, appetizerIds.get(i));
 
                     }
 
                     @Override
                     public int getBatchSize() {
-                        return appetizerId.size();
+                        return appetizerIds.size();
                     }
                 }
         );
     }
 
-    public List<Appetizer> gettingAllAppetizerById(List<Integer> appetizerIds) {
+    public List<Appetizer> gettingAllAppetizersByIds(List<Integer> appetizerIds) {
         String sql = "SELECT * FROM appetizer WHERE id in (:ids)";
         MapSqlParameterSource parameter = new MapSqlParameterSource();
 
         parameter.addValue("ids", appetizerIds);
 
-        List<Appetizer> appetizer = namedParameterJdbcTemplate.query(sql, parameter, new BeanPropertyRowMapper<>(Appetizer.class));
-        log.info("Found the appetizer with the id: " + appetizerIds);
+        List<Appetizer> appetizers = namedParameterJdbcTemplate.query(sql, parameter, new BeanPropertyRowMapper<>(Appetizer.class));
+        log.info("Found the appetizers: " + appetizers);
 
-        return appetizer;
+        return appetizers;
 
     }
 }

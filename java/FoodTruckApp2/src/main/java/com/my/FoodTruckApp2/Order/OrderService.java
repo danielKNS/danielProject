@@ -127,11 +127,11 @@ public class OrderService {
     public OrderDto createNewOrder(NewOrderRequestBody ordersRequestBody) {
         Order order = orderRepository.createNewOrder(ordersRequestBody);
 
-        appetizerRepository.createAppetizerOrder(order.getId(), ordersRequestBody.getAppetizerIds());
-        List<Appetizer> appetizers = appetizerRepository.gettingAllAppetizerById(ordersRequestBody.getAppetizerIds());
+        appetizerRepository.createAppetizerOrders(order.getId(), ordersRequestBody.getAppetizerIds());
+        List<Appetizer> appetizers = appetizerRepository.gettingAllAppetizersByIds(ordersRequestBody.getAppetizerIds());
 
-        entreeRepository.createEntreeOrder(order.getId(), ordersRequestBody.getEntreeIds());
-        List<Entree> entrees = entreeRepository.gettingAllEntreeById(ordersRequestBody.getEntreeIds());
+        entreeRepository.createEntreeOrders(order.getId(), ordersRequestBody.getEntreeIds());
+        List<Entree> entrees = entreeRepository.gettingAllEntreesByIds(ordersRequestBody.getEntreeIds());
 
         OrderDto orderDto = new OrderDto(
                 order.getId(),
