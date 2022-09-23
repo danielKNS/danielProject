@@ -4,11 +4,16 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -16,6 +21,7 @@ import java.util.List;
 @Slf4j
 public class AppetizerRepository {
     private final JdbcTemplate jdbcTemplate;
+    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     /**
      * ----------- INSERTING A NEW APPETIZER -----------
@@ -72,17 +78,40 @@ public class AppetizerRepository {
     }
 
     /**
-     * ----------- CREATE APPETIZER ORDERED -------------
+     * ----------- CREATE APPETIZER ORDERS -------------
      **/
-    public AppetizerOrdered createAppetizerOrdered(Integer orderId, Integer appetizerId) {
-        String sqlAppetizer = " INSERT INTO appetizer_ordered(order_id ,appetizer_id) VALUES (?,?) RETURNING *";
-        AppetizerOrdered appetizerOrdered = jdbcTemplate.queryForObject(
+    public void createAppetizerOrders(Integer orderId, List<Integer> appetizerIds) {
+
+        String sqlAppetizer = " INSERT INTO appetizer_ordered(order_id ,appetizer_id) VALUES (?,?)";
+
+        jdbcTemplate.batchUpdate(
                 sqlAppetizer,
-                new BeanPropertyRowMapper<>(AppetizerOrdered.class),
-                orderId,
-                appetizerId
+                new BatchPreparedStatementSetter() {
+                    @Override
+                    public void setValues(PreparedStatement ps, int i) throws SQLException {
+                        ps.setInt(1, orderId);
+                        ps.setInt(2, appetizerIds.get(i));
+
+                    }
+
+                    @Override
+                    public int getBatchSize() {
+                        return appetizerIds.size();
+                    }
+                }
         );
-        log.info("The appetizers that the customer ordered: " + appetizerOrdered);
-        return appetizerOrdered;
+    }
+
+    public List<Appetizer> gettingAllAppetizersByIds(List<Integer> appetizerIds) {
+        String sql = "SELECT * FROM appetizer WHERE id in (:ids)";
+        MapSqlParameterSource parameter = new MapSqlParameterSource();
+
+        parameter.addValue("ids", appetizerIds);
+
+        List<Appetizer> appetizers = namedParameterJdbcTemplate.query(sql, parameter, new BeanPropertyRowMapper<>(Appetizer.class));
+        log.info("Found the appetizers: " + appetizers);
+
+        return appetizers;
+
     }
 }
