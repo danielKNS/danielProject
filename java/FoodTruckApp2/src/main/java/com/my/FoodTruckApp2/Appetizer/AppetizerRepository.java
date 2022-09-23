@@ -114,4 +114,16 @@ public class AppetizerRepository {
         return appetizers;
 
     }
+
+    public AppetizerOrdered findAppetizerOrders(Integer orderId) {
+        String sqlAppetizer = "SELECT appetizer_id FROM appetizer_ordered WHERE order_id = ?";
+        try {
+            return jdbcTemplate.queryForObject(
+                    sqlAppetizer,
+                    new BeanPropertyRowMapper<>(AppetizerOrdered.class),
+                    orderId);
+        } catch (EmptyResultDataAccessException emptyResultDataAccessException) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "This Id: " + orderId + " Does not exist");
+        }
+    }
 }

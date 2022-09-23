@@ -142,4 +142,44 @@ public class OrderService {
         return orderDto;
     }
 
+    /**
+     * find the order by its id AND return
+     * OrderDTO(order_id,customer_id,List<Appetizer,List<Entree>)
+     * first we need to find the order by using its id from the url
+     * For Example:
+     * String sql = "SELECT * FROM \"order\" WHERE id = ? ";
+     * Order order = jdbcTemplate.queryForObject(sql,
+     * new BeanPropertyRowMapper<>(Order.class),id)
+     * We found the order_id, now we need to get the order id and the customerId to
+     * return to the employer. OrderDto orderDto = new OrderDto(
+     * order.getId() order.getCustomerId()..)
+     * But we are still missing the appetizers and entrees from the order that we are
+     * looking for.now we need to get the appetizers so first we need to get appetizer id.
+     * -Appetizer:
+     * Using appetizersOrdered, we use the order_id from order and use it to find
+     * the appetizer_id,from the order we are looking for.We get the appetizer_id
+     * and look for which appetizer it is by using the method gettingAppetizerById
+     * and return it in the  orderDto
+     */
+    public OrderDto gettingOrderById(Integer id) {
+        log.info("getting the order with id:" + id);
+        Order order = orderRepository.gettingOrderById(id);
+
+        log.info("looking for the list of appetizers & entrees");
+
+
+//        appetizerRepository.findAppetizerOrders(id);
+//        Appetizer appetizers = appetizerRepository.gettingAppetizerById(id);
+        List<Entree> entrees = entreeRepository.gettingAllEntree();
+        List<Appetizer> appetizers = appetizerRepository.gettingALlAppetizer();
+
+
+        OrderDto orderDto = new OrderDto(
+                order.getId(),
+                order.getCustomerId(),
+                appetizers,
+                entrees
+        );
+        return orderDto;
+    }
 }

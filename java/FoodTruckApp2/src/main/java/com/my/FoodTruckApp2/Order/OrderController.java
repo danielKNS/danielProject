@@ -2,9 +2,7 @@ package com.my.FoodTruckApp2.Order;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,4 +16,11 @@ public class OrderController {
         log.info("Creating a new Order.....");
         return orderService.createNewOrder(ordersRequestBody);
     }
+
+    @GetMapping("/orders/{id}")
+    public OrderDto getOrderById(@PathVariable Integer id) {
+        log.info("Looking for order with id: " + id);
+        return orderService.gettingOrderById(id);
+    }
+
 }
