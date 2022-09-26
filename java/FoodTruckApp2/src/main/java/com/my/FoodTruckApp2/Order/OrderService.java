@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -159,7 +160,8 @@ public class OrderService {
      * Using appetizersOrdered, we use the order_id from order and use it to find
      * the appetizer_id,from the order we are looking for.We get the appetizer_id
      * and look for which appetizer it is by using the method gettingAppetizerById
-     * and return it in the  orderDto
+     * and return it in the orderDto
+     * try join
      */
     public OrderDto gettingOrderById(Integer id) {
         log.info("getting the order with id:" + id);
@@ -170,9 +172,10 @@ public class OrderService {
 
 //        appetizerRepository.findAppetizerOrders(id);
 //        Appetizer appetizers = appetizerRepository.gettingAppetizerById(id);
-        List<Entree> entrees = entreeRepository.gettingAllEntree();
-        List<Appetizer> appetizers = appetizerRepository.gettingALlAppetizer();
-
+//        List<Entree> entrees = entreeRepository.gettingAllEntree();
+//        List<Appetizer> appetizers = appetizerRepository.gettingALlAppetizer();
+        List<Entree> entrees = new ArrayList<>();
+        List<Appetizer> appetizers = new ArrayList<>();
 
         OrderDto orderDto = new OrderDto(
                 order.getId(),
