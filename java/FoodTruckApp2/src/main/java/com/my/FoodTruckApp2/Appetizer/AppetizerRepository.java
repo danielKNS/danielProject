@@ -1,6 +1,5 @@
 package com.my.FoodTruckApp2.Appetizer;
 
-import com.my.FoodTruckApp2.Entree.Entree;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -116,24 +115,12 @@ public class AppetizerRepository {
 
     }
 
-    //    public AppetizerOrdered findAppetizerOrders(Integer orderId) {
-//        String sqlAppetizer = "SELECT appetizer_id FROM appetizer_ordered WHERE order_id = ?";
-//        try {
-//            return jdbcTemplate.queryForObject(
-//                    sqlAppetizer,
-//                    new BeanPropertyRowMapper<>(AppetizerOrdered.class),
-//                    orderId);
-//        } catch (EmptyResultDataAccessException emptyResultDataAccessException) {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "This Id: " + orderId + " Does not exist");
-//        }
-//    }
-    public List<Entree> findEntree(Integer id) {
+    public List<Appetizer> findAppetizersOrderById(Integer id) {
         log.info("looking getting order by id: " + id);
-        String sql = "SELECT entree.*, \"order\".id\" +\n" +
-                " FROM entree\" +\n" +
-                " JOIN entree_ordered ON entree.id = entree_ordered.entree_id\" +\n" +
-                " JOIN \"order\" ON \"order\".id = entree_ordered.order_id\" +\n" +
-                " WHERE \"order\".id = ?\";";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Entree.class), id);
+        String sql = "SELECT appetizer.*\n" +
+                "FROM appetizer\n" +
+                "JOIN appetizer_ordered ON appetizer.\"id\" = appetizer_ordered.appetizer_id \n" +
+                "WHERE appetizer_ordered.order_id = ?";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Appetizer.class), id);
     }
 }
