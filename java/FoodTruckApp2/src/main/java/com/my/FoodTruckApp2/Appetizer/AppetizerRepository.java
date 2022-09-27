@@ -117,9 +117,9 @@ public class AppetizerRepository {
 
     public List<Appetizer> findAppetizersOrderById(Integer id) {
         log.info("looking getting order by id: " + id);
-        String sql = "SELECT appetizer.*\n" +
-                "FROM appetizer\n" +
-                "JOIN appetizer_ordered ON appetizer.\"id\" = appetizer_ordered.appetizer_id \n" +
+        String sql = "SELECT appetizer.* " +
+                "FROM appetizer " +
+                "JOIN appetizer_ordered ON appetizer.id = appetizer_ordered.appetizer_id " +
                 "WHERE appetizer_ordered.order_id = ?";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Appetizer.class), id);
     }

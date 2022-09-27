@@ -120,9 +120,9 @@ public class EntreeRepository {
 
     public List<Entree> findEntreesOrderById(Integer id) {
         log.info("looking getting order by id: " + id);
-        String sql = "SELECT entree.*\n" +
-                "FROM entree\n" +
-                "JOIN entree_ordered ON entree.\"id\" = entree_ordered.entree_id\n" +
+        String sql = "SELECT entree.* " +
+                "FROM entree " +
+                "JOIN entree_ordered ON entree.id = entree_ordered.entree_id " +
                 "WHERE entree_ordered.order_id = ? ";
 
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Entree.class), id);
