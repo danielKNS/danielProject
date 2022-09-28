@@ -9,6 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @Repository
 @RequiredArgsConstructor
 @Slf4j
@@ -39,5 +41,18 @@ public class OrderRepository {
         } catch (EmptyResultDataAccessException emptyResultDataAccessException) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "This id: " + id + " was not found");
         }
+    }
+
+    /*
+    We want to get ALl orders(List<Order>)
+     */
+    public List<Order> gettingAllOrders() {
+        String sql = "SELECT * FROM \"order\"  ";
+        List<Order> orders = jdbcTemplate.query(
+                sql,
+                new BeanPropertyRowMapper<>(Order.class)
+        );
+
+        return orders;
     }
 }

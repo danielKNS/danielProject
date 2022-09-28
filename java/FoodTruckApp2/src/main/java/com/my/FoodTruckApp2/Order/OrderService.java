@@ -187,4 +187,64 @@ public class OrderService {
         );
         return orderDto;
     }
+
+    /**
+     * Get ALL order,We want ALL orders and their info.
+     * so i need to get ALL orders(a list of orders)and return a list of
+     * OrderDto to get their fields.
+     * order id
+     * customer_id
+     * appetizers(List<Appetizer>)
+     * entrees(List<Entree>
+     * We need to check for each Order(we should try using
+     * mapping to help us to look for each order).
+     * when we are mapping/forEach we should use the method
+     * getOrderById to find the order and its fields
+     * GO BACK AND WATCH THE VIDEO.
+     * code that might help me :
+     * code-
+     * List<Entree> entrees = ordersRequestBody.getEntreeIds().stream().map(entreeId -> {
+     * entreeRepository.createEntreeOrdered(order.getId(), entreeId);
+     * return entreeRepository.gettingEntreeById(entreeId);
+     * }).collect(Collectors.toList());
+     * <p>
+     * code-
+     * orderRequestBody.getAppetizerIds().forEach(appetizerId -> {
+     * appetizerRepository.createAppetizerOrdered(appetizerId,newOrder.getId));
+     * Appetizer appetizer = appetizerRepository.findById(appetizerId);
+     * <p>
+     * first we need to get All the orders
+     * For example:
+     * String sql = "SELECT * FROM \"order\"  ";
+     * List<Order> orders = jdbcTemplate.query(
+     * sql,
+     * new BeanPropertyRowMapper<>(Order.class));
+     * then we need to get which order and find them by their id
+     * For Example, something like this:
+     * orders.forEach(order -> {
+     * gettingOrderById(order.getId());
+     * });
+     * using the method gettingOrderById from there i think we should also be able to get
+     * the list of appetizers & entrees by using the method findAppetizersOrderById
+     */
+
+    public String gettingAllOrders() {
+        List<Order> orders = orderRepository.gettingAllOrders();
+        System.out.println("List of orders: " + orders);
+//        orders.stream().map(order -> {
+//           return gettingOrderById(order.getId());
+//        });
+        orders.forEach(order -> {
+            gettingOrderById(order.getId());
+        });
+        // found the orders and their appetizers and entrees
+        // when is finished with an order it goes to the next iteration
+
+        return "gettingAllOrders SERVICE";
+    }
+
+//    public List<OrderDto> getAllOrders(){
+//        List<Order> orders = orderRepository.gettingAllOrders();
+//
+//    }
 }

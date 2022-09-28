@@ -22,5 +22,10 @@ public class OrderController {
         log.info("Looking for order with id: " + id);
         return orderService.gettingOrderById(id);
     }
-
+    
+    @GetMapping("/orders")
+    public String getAllOrders() {
+        log.info("looking for ALL orders ");
+        return orderService.gettingAllOrders();
+    }
 }
