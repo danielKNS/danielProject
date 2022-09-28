@@ -142,4 +142,49 @@ public class OrderService {
         return orderDto;
     }
 
+    /**
+     * find the order by its id AND return
+     * OrderDTO(order_id,customer_id,List<Appetizer,List<Entree>)
+     * first we need to find the order by using its id from the url
+     * For Example:
+     * String sql = "SELECT * FROM \"order\" WHERE id = ? ";
+     * Order order = jdbcTemplate.queryForObject(sql,
+     * new BeanPropertyRowMapper<>(Order.class),id)
+     * We found the order_id, now we need to get the order id and the customerId to
+     * return to the employer. OrderDto orderDto = new OrderDto(
+     * order.getId() order.getCustomerId()..)
+     * But we are still missing the appetizers and entrees from the order that we are
+     * looking for.now we need to get the appetizers so first we need to get appetizer id.
+     * -Appetizer:
+     * Using appetizersOrdered, we use the order_id from order and use it to find
+     * the appetizer_id,from the order we are looking for.We get the appetizer_id
+     * and look for which appetizer it is by using the method gettingAppetizerById
+     * and return it in the orderDto
+     * try join query
+     * we need to find the appetizer with the order_id
+     * Select the appetizer and join with the appetizer_ordered and then we need
+     * to match the id of the appetizer with the appetizerOrdered(appetizer_id)
+     * then we use the appetizerOrdered(order_id) to find the appetizers with the same
+     * order_id
+     */
+    public OrderDto gettingOrderById(Integer id) {
+        log.info("getting the order with id:" + id);
+        Order order = orderRepository.gettingOrderById(id);
+
+        log.info("looking for the list of appetizers & entrees with the order id: " + id);
+
+        List<Appetizer> appetizers = appetizerRepository.findAppetizersOrderById(id);
+        log.info("The appetizers from order with id: " + id + " " + appetizers);
+
+        List<Entree> entrees = entreeRepository.findEntreesOrderById(id);
+        log.info("The entrees from order with id: " + id + " " + entrees);
+
+        OrderDto orderDto = new OrderDto(
+                order.getId(),
+                order.getCustomerId(),
+                appetizers,
+                entrees
+        );
+        return orderDto;
+    }
 }

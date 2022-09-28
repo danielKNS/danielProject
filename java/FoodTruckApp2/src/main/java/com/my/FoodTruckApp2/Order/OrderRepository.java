@@ -2,9 +2,12 @@ package com.my.FoodTruckApp2.Order;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.server.ResponseStatusException;
 
 @Repository
 @RequiredArgsConstructor
@@ -21,5 +24,20 @@ public class OrderRepository {
                 ordersRequestBody.getCustomerId());
         log.info("Order is Created!!:  " + order);
         return order;
+    }
+
+    public Order gettingOrderById(Integer id) {
+        log.info("looking getting order by id: " + id);
+        String sql = "SELECT * FROM \"order\" WHERE id = ? ";
+        try {
+            Order order = jdbcTemplate.queryForObject(
+                    sql,
+                    new BeanPropertyRowMapper<>(Order.class),
+                    id
+            );
+            return order;
+        } catch (EmptyResultDataAccessException emptyResultDataAccessException) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "This id: " + id + " was not found");
+        }
     }
 }
