@@ -47,6 +47,7 @@ public class OrderRepository {
     We want to get ALl orders(List<Order>)
      */
     public List<Order> gettingAllOrders() {
+        log.info("SELECTING the orders...");
         String sql = "SELECT * FROM \"order\"  ";
         List<Order> orders = jdbcTemplate.query(
                 sql,

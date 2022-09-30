@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -189,17 +190,6 @@ public class OrderService {
     }
 
     /**
-     * Get ALL order,We want ALL orders and their info.
-     * so i need to get ALL orders(a list of orders)and return a list of
-     * OrderDto to get their fields.
-     * order id
-     * customer_id
-     * appetizers(List<Appetizer>)
-     * entrees(List<Entree>
-     * We need to check for each Order(we should try using
-     * mapping to help us to look for each order).
-     * when we are mapping/forEach we should use the method
-     * getOrderById to find the order and its fields
      * GO BACK AND WATCH THE VIDEO.
      * code that might help me :
      * code-
@@ -207,44 +197,88 @@ public class OrderService {
      * entreeRepository.createEntreeOrdered(order.getId(), entreeId);
      * return entreeRepository.gettingEntreeById(entreeId);
      * }).collect(Collectors.toList());
+     * Get All orders:
+     * AC(Acceptance criteria) -> we MUST return as a List<OrderDto>.
      * <p>
-     * code-
-     * orderRequestBody.getAppetizerIds().forEach(appetizerId -> {
-     * appetizerRepository.createAppetizerOrdered(appetizerId,newOrder.getId));
-     * Appetizer appetizer = appetizerRepository.findById(appetizerId);
-     * <p>
-     * first we need to get All the orders
+     * First we need to select all Orders
+     * For Example:
+     * String sql = "SELECT * FROM order ";
+     * return JDBCTemplate.query(sql, new BeanRowMapper<>(Order.class));
+     * Now that we have all the orders, we need to go for each order and
+     * find their fields(order_id,customer_id,List<Appetizer>,List<Entree>).
      * For example:
-     * String sql = "SELECT * FROM \"order\"  ";
-     * List<Order> orders = jdbcTemplate.query(
-     * sql,
-     * new BeanPropertyRowMapper<>(Order.class));
-     * then we need to get which order and find them by their id
-     * For Example, something like this:
-     * orders.forEach(order -> {
-     * gettingOrderById(order.getId());
-     * });
-     * using the method gettingOrderById from there i think we should also be able to get
-     * the list of appetizers & entrees by using the method findAppetizersOrderById
+     * List<OrderDto> orderDtos = orders.stream.map(order -> {}
+     * Now that we are mapping throgh each order we need to get their fields.
+     * first lets try to get the appetizers. to find the appetizers Forexample for order_id: 1
+     * we can use the method findAppetizersOrderById using the id of the order
+     * List<Appetizer> appetizers = appetizerRepository.findAppetizersOrderById(order.getId());
+     * we found the appetizers for order_id: 1. Now lets find it for the entrees.
+     * But we need to use the method in entreeRepository called findEntreeOrderByI
+     * to get the entrees for order_id: 1.
+     * List<Entree> entrees= entreeRepository.findEntreesOrderById(order.getId());
+     * Now that we got the appetizers and the entrees for order_id: 1,
+     * WE MUST return them as a OrderDto (For the employer).
+     * For Example:
+     * OrderDto orderDto = new OrderDto(
+     * order.getId(),
+     * order.getCustomerId(),
+     * appetizers,
+     * entrees
+     * );
+     * and put them into a list
+     * For example:
+     * .collect(Collectors.toList());
+     * then it goes to the next iteration(order)
+     * <p>
+     * i think that i have a similiar problem like a N + 1 issue because when
+     * i am looking for each appetizer of the order when i find one
+     * i go back and iterate to find the next one
+     * Is there is anyway to make it better ?
      */
 
-    public String gettingAllOrders() {
-        List<Order> orders = orderRepository.gettingAllOrders();
-        System.out.println("List of orders: " + orders);
-//        orders.stream().map(order -> {
-//           return gettingOrderById(order.getId());
-//        });
-        orders.forEach(order -> {
-            gettingOrderById(order.getId());
-        });
-        // found the orders and their appetizers and entrees
-        // when is finished with an order it goes to the next iteration
-
-        return "gettingAllOrders SERVICE";
-    }
-
-//    public List<OrderDto> getAllOrders(){
+//    public List<OrderDto> gettingAllOrders() {
 //        List<Order> orders = orderRepository.gettingAllOrders();
 //
+//        List<Appetizer> appetizers = appetizerRepository.gettingALlAppetizer();
+//        log.info("Appetizers: " + appetizers);
+//        List<Entree> entrees = entreeRepository.gettingAllEntree();
+//        log.info("Entrees: " + entrees);
+//
+//        List<OrderDto> orderDtos = orders.stream().map(order -> {
+//
+//            OrderDto orderDto = new OrderDto(
+//                    order.getId(),
+//                    order.getCustomerId(),
+//                    appetizers,
+//                    entrees
+//            );
+//            return orderDto;
+//        }).collect(Collectors.toList());
+//
+//
+//        return orderDtos;
 //    }
+    public List<OrderDto> getAllOrders() {
+        List<Order> orders = orderRepository.gettingAllOrders();
+        log.info("All orders: " + orders);
+
+        List<OrderDto> orderDtos = orders.stream().map(order -> {
+
+            List<Appetizer> appetizers = appetizerRepository.findAppetizersOrderById(order.getId());
+            log.info("Appetizers: " + appetizers);
+
+            List<Entree> entrees = entreeRepository.findEntreesOrderById(order.getId());
+            log.info("Entrees: " + entrees);
+
+            OrderDto orderDto = new OrderDto(
+                    order.getId(),
+                    order.getCustomerId(),
+                    appetizers,
+                    entrees
+            );
+            return orderDto;
+        }).collect(Collectors.toList());
+        return orderDtos;
+    }
+
 }
