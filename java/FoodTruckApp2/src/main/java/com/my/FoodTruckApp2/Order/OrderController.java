@@ -30,4 +30,10 @@ public class OrderController {
         log.info("looking for ALL orders...");
         return orderService.getAllOrders();
     }
+
+    @GetMapping("/orderss")
+    public List<OrderDto> getAllOrder() {
+        log.info("looking for ALL orders...");
+        return orderService.gettingAllOrders();
+    }
 }

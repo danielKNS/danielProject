@@ -234,30 +234,49 @@ public class OrderService {
      * i am looking for each appetizer of the order when i find one
      * i go back and iterate to find the next one
      * Is there is anyway to make it better ?
+     * <p>
+     * Fix our getAllOrder:
+     * we should NOT loop in repo calls.
+     * In another words the appetizers and entrees should NOT be in the iteration.
+     * STEP 1:  first we need to get all the orders (/)Done
+     * How do i go to the restaurant once ?
+     * BIG Hint:
+     * I need to find a way to go to the restaurant once to find all the appetizers &
+     * then going to the restaurant for the second time to find all the entrees
+     * (instead go there for each order to get the appetizer/entree)
+     * we should find all the appetizers(we should get all the appetizers by using the
+     * method gettingAllAppetizer so that we could go to the restaurant once)
+     * we need to check for each appetizer by using the appetizerOrdered table
+     * using the order_id and appetizer_id
+     * maybe i should do that in the Database(Build a query)
      */
 
-//    public List<OrderDto> gettingAllOrders() {
-//        List<Order> orders = orderRepository.gettingAllOrders();
+    public List<OrderDto> gettingAllOrders() {
+//     We are getting all the orders:
+        List<Order> orders = orderRepository.gettingAllOrders();
+
+        List<Appetizer> appetizers = appetizerRepository.gettingALlAppetizer();
+//        List<Appetizer> appetizerss = appetizers.stream().map(appetizer -> {
 //
-//        List<Appetizer> appetizers = appetizerRepository.gettingALlAppetizer();
-//        log.info("Appetizers: " + appetizers);
-//        List<Entree> entrees = entreeRepository.gettingAllEntree();
-//        log.info("Entrees: " + entrees);
-//
-//        List<OrderDto> orderDtos = orders.stream().map(order -> {
-//
-//            OrderDto orderDto = new OrderDto(
-//                    order.getId(),
-//                    order.getCustomerId(),
-//                    appetizers,
-//                    entrees
-//            );
-//            return orderDto;
-//        }).collect(Collectors.toList());
-//
-//
-//        return orderDtos;
-//    }
+//        });
+
+        List<Entree> entrees = entreeRepository.gettingAllEntree();
+
+        List<OrderDto> orderDtos = orders.stream().map(order -> {
+
+            OrderDto orderDto = new OrderDto(
+                    order.getId(),
+                    order.getCustomerId(),
+                    appetizers,
+                    entrees
+            );
+            return orderDto;
+        }).collect(Collectors.toList());
+
+
+        return orderDtos;
+    }
+
     public List<OrderDto> getAllOrders() {
         List<Order> orders = orderRepository.gettingAllOrders();
         log.info("All orders: " + orders);
