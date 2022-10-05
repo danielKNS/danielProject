@@ -123,4 +123,14 @@ public class AppetizerRepository {
                 "WHERE appetizer_ordered.order_id = ?";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Appetizer.class), id);
     }
+
+    public void findAppetizers(Integer appetizerId) {
+
+        String sql = "SELECT appetizer.*,\"order\".*\n" +
+                "FROM appetizer\n" +
+                "JOIN appetizer_ordered ON appetizer.\"id\" = appetizer_ordered.appetizer_id\n" +
+                "JOIN \"order\" ON \"order\".\"id\" = appetizer_ordered.order_id\n" +
+                "WHERE appetizer.\"id\" = ?";
+
+    }
 }

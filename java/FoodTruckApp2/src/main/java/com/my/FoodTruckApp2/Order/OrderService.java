@@ -249,16 +249,19 @@ public class OrderService {
      * we need to check for each appetizer by using the appetizerOrdered table
      * using the order_id and appetizer_id
      * maybe i should do that in the Database(Build a query)
+     * getting the list of appetizers (ALL) then
+     * we should try matching them to the order by using appetizerOrdered
      */
 
     public List<OrderDto> gettingAllOrders() {
 //     We are getting all the orders:
         List<Order> orders = orderRepository.gettingAllOrders();
 
-        List<Appetizer> appetizers = appetizerRepository.gettingALlAppetizer();
-//        List<Appetizer> appetizerss = appetizers.stream().map(appetizer -> {
-//
-//        });
+        List<Appetizer> allAppetizers = appetizerRepository.gettingALlAppetizer();
+        List<Appetizer> appetizers = allAppetizers.stream().map(appetizer -> {
+            appetizerRepository.findAppetizers(appetizer.getId());
+        }).collect(Collectors.toList());
+
 
         List<Entree> entrees = entreeRepository.gettingAllEntree();
 
