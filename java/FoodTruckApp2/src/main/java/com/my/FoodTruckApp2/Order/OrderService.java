@@ -1,14 +1,17 @@
 package com.my.FoodTruckApp2.Order;
 
 import com.my.FoodTruckApp2.Appetizer.Appetizer;
+import com.my.FoodTruckApp2.Appetizer.AppetizerOrdered;
 import com.my.FoodTruckApp2.Appetizer.AppetizerRepository;
 import com.my.FoodTruckApp2.Entree.Entree;
+import com.my.FoodTruckApp2.Entree.EntreeAndOrderId;
 import com.my.FoodTruckApp2.Entree.EntreeRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -258,49 +261,51 @@ public class OrderService {
         List<Order> orders = orderRepository.gettingAllOrders();
 
         List<Appetizer> allAppetizers = appetizerRepository.gettingALlAppetizer();
-        List<Appetizer> appetizers = allAppetizers.stream().map(appetizer -> {
-            appetizerRepository.findAppetizers(appetizer.getId());
-        }).collect(Collectors.toList());
+        log.info("allAppetizers: ", allAppetizers);
 
+        List<AppetizerOrdered> appetizerOrders = appetizerRepository.findALLAppetizersOrdered();
+        log.info("appetizerOrdereds: ", appetizerOrders);
 
-        List<Entree> entrees = entreeRepository.gettingAllEntree();
+        List<Integer> orderIds = orders.stream().map(order -> order.getId()).toList();
+        List<EntreeAndOrderId> entreeAndOrderIds = entreeRepository.findAllByOrderIds(orderIds);
 
         List<OrderDto> orderDtos = orders.stream().map(order -> {
 
-            OrderDto orderDto = new OrderDto(
+            List<AppetizerOrdered> appetizerOrdersForThisOrder = appetizerOrders.stream()
+                    .filter(appetizerOrdered -> appetizerOrdered.getOrderId() == order.getId())
+                    .toList();
+            log.info("appetizerOrdersForThisOrder: " + appetizerOrdersForThisOrder);
+
+
+            List<Appetizer> appetizers = appetizerOrdersForThisOrder.stream().map(appetizerOrder -> {
+                Optional<Appetizer> appetizerForThisOrder = allAppetizers.stream()
+                        .filter(appetizer -> appetizer.getId() == appetizerOrder.getAppetizerId())
+                        .findFirst();
+                return appetizerForThisOrder.get();
+            }).toList();
+
+            List<EntreeAndOrderId> entreeAndOrderIdsForTHISOrder = entreeAndOrderIds.stream()
+                    .filter(entreeAndOrderId -> entreeAndOrderId.getOrderId() == order.getId())
+                    .toList();
+
+            List<Entree> entrees = entreeAndOrderIdsForTHISOrder.stream().map(entreeAndOrderId ->
+                    new Entree(
+                            entreeAndOrderId.getId(),
+                            entreeAndOrderId.getName(),
+                            entreeAndOrderId.getPrice()
+                    )).toList();
+
+            return new OrderDto(
                     order.getId(),
                     order.getCustomerId(),
                     appetizers,
                     entrees
             );
-            return orderDto;
+
+
         }).collect(Collectors.toList());
 
 
         return orderDtos;
     }
-
-    public List<OrderDto> getAllOrders() {
-        List<Order> orders = orderRepository.gettingAllOrders();
-        log.info("All orders: " + orders);
-
-        List<OrderDto> orderDtos = orders.stream().map(order -> {
-
-            List<Appetizer> appetizers = appetizerRepository.findAppetizersOrderById(order.getId());
-            log.info("Appetizers: " + appetizers);
-
-            List<Entree> entrees = entreeRepository.findEntreesOrderById(order.getId());
-            log.info("Entrees: " + entrees);
-
-            OrderDto orderDto = new OrderDto(
-                    order.getId(),
-                    order.getCustomerId(),
-                    appetizers,
-                    entrees
-            );
-            return orderDto;
-        }).collect(Collectors.toList());
-        return orderDtos;
-    }
-
 }

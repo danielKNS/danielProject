@@ -26,12 +26,6 @@ public class OrderController {
     }
 
     @GetMapping("/orders")
-    public List<OrderDto> getAllOrders() {
-        log.info("looking for ALL orders...");
-        return orderService.getAllOrders();
-    }
-
-    @GetMapping("/orderss")
     public List<OrderDto> getAllOrder() {
         log.info("looking for ALL orders...");
         return orderService.gettingAllOrders();
