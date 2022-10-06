@@ -127,4 +127,23 @@ public class EntreeRepository {
 
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Entree.class), id);
     }
+
+    public List<EntreeAndOrderId> findAllByOrderIds(List<Integer> orderIds) {
+        log.info("Finding ALL entrees by orderIds: " + orderIds);
+
+        String sql = "SELECT entree.*, entree_ordered.order_id " +
+                "FROM entree_ordered " +
+                "JOIN entree on entree.id = entree_ordered.entree_id " +
+                "WHERE order_id IN (:orderIds) ";
+        MapSqlParameterSource parameters = new MapSqlParameterSource();
+        parameters.addValue("orderIds", orderIds);
+
+        List<EntreeAndOrderId> entreeAndOrderIds = namedParameterJdbcTemplate.query(
+                sql,
+                parameters,
+                new BeanPropertyRowMapper<>(EntreeAndOrderId.class)
+        );
+        log.info("Found all of the following entrees with order ids: " + entreeAndOrderIds);
+        return entreeAndOrderIds;
+    }
 }

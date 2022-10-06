@@ -123,4 +123,10 @@ public class AppetizerRepository {
                 "WHERE appetizer_ordered.order_id = ?";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Appetizer.class), id);
     }
+
+    public List<AppetizerOrdered> findALLAppetizersOrdered() {
+        String sql = "Select * FROM appetizer_ordered";
+        List<AppetizerOrdered> appetizerList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(AppetizerOrdered.class));
+        return appetizerList;
+    }
 }

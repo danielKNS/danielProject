@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -23,4 +25,9 @@ public class OrderController {
         return orderService.gettingOrderById(id);
     }
 
+    @GetMapping("/orders")
+    public List<OrderDto> getAllOrder() {
+        log.info("looking for ALL orders...");
+        return orderService.gettingAllOrders();
+    }
 }
