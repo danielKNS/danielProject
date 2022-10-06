@@ -308,4 +308,23 @@ public class OrderService {
 
         return orderDtos;
     }
+
+    /*
+        Delete Order by their ids:
+        first we need to make sure that the
+        order exist if it does then we can delete the order by using the
+        id that the user is passing is.
+        Second now we know that the order exit then we need to delete the appetizers and entrees
+        from the order we want to delete by using appetizerOrdered and entreeOrdered.
+        we use the order_id from appetizerOrdered and entreeOrdered to delete the appetizer & entree
+
+        How to make it better
+     */
+
+    public void deleteOrderById(Integer id) {
+        orderRepository.deleteOrderById(id);
+        appetizerRepository.deleteAppetizerOrdered(id);
+        entreeRepository.deleteEntreeOrdered(id);
+    }
+
 }

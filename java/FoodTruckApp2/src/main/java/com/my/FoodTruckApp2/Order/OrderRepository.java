@@ -56,4 +56,17 @@ public class OrderRepository {
 
         return orders;
     }
+
+    public void deleteOrderById(Integer id) {
+        String sql = "SELECT * FROM \"order\" WHERE id = ? ";
+        try {
+            jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Order.class), id);
+        } catch (EmptyResultDataAccessException emptyResultDataAccessException) {
+            log.info("This order id: " + id + " does NOT EXIST! ");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "This id: " + id + "Is not found ");
+        }
+        log.info("id: " + id + " Order has been deleted! ");
+        String deleteSql = "DELETE FROM \"order\" WHERE id = ?";
+        jdbcTemplate.update(deleteSql, id);
+    }
 }

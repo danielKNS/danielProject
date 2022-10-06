@@ -129,4 +129,10 @@ public class AppetizerRepository {
         List<AppetizerOrdered> appetizerList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(AppetizerOrdered.class));
         return appetizerList;
     }
+
+    public void deleteAppetizerOrdered(Integer id) {
+        log.info("id: " + id + " appetizer_ordered has been deleted! ");
+        String deleteSql = "DELETE FROM appetizer_ordered WHERE order_id = ?";
+        jdbcTemplate.update(deleteSql, id);
+    }
 }

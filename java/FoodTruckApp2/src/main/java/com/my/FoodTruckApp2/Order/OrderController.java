@@ -30,4 +30,10 @@ public class OrderController {
         log.info("looking for ALL orders...");
         return orderService.gettingAllOrders();
     }
+
+    @DeleteMapping("/orders/{id}")
+    public void deletingOrderById(@PathVariable Integer id) {
+        log.info("Looking for order id: " + id);
+        orderService.deleteOrderById(id);
+    }
 }

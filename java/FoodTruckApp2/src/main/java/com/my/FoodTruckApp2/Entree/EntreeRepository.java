@@ -146,4 +146,10 @@ public class EntreeRepository {
         log.info("Found all of the following entrees with order ids: " + entreeAndOrderIds);
         return entreeAndOrderIds;
     }
+
+    public void deleteEntreeOrdered(Integer id) {
+        log.info("id: " + id + " entree_ordered has been deleted! ");
+        String deleteSql = "DELETE FROM entree_ordered WHERE order_id = ?";
+        jdbcTemplate.update(deleteSql, id);
+    }
 }
