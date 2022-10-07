@@ -56,4 +56,9 @@ public class OrderRepository {
 
         return orders;
     }
+
+    public void deleteOrderById(Integer id) {
+        String deleteSql = "DELETE FROM \"order\" WHERE id = ?";
+        jdbcTemplate.update(deleteSql, id);
+    }
 }
