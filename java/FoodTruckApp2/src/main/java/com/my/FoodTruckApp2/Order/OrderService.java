@@ -9,6 +9,7 @@ import com.my.FoodTruckApp2.Entree.EntreeRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -128,6 +129,7 @@ public class OrderService {
      * OrderDto orderDto = new OrderDto(order.getId(), ordersRequestBody.getCustomerId(),
      * appetizerOrders, entreeOrders);
      **/
+    @Transactional(rollbackFor = Exception.class)
     public OrderDto createNewOrder(NewOrderRequestBody ordersRequestBody) {
         Order order = orderRepository.createNewOrder(ordersRequestBody);
 
@@ -308,4 +310,23 @@ public class OrderService {
 
         return orderDtos;
     }
+    /*
+        Delete Order by their ids:
+        first we need to make sure that the
+        order exist if it does then we can delete the order by using the
+        id that the user is passing is.
+        Second now we know that the order exit then we need to delete the appetizers and entrees
+        from the order we want to delete by using appetizerOrdered and entreeOrdered.
+        we use the order_id from appetizerOrdered and entreeOrdered to delete the appetizer & entree
+
+        How to make it better
+     */
+
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteOrderById(Integer orderId) {
+        appetizerRepository.deleteAppetizerOrderedById(orderId);
+        entreeRepository.deleteEntreeOrderedById(orderId);
+        orderRepository.deleteOrderById(orderId);
+    }
+
 }
