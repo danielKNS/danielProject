@@ -13,7 +13,7 @@ const About = () => {
           </div>
           <div></div>
         </div>
-        <div className="max-w-[1000px] w-full grid grid-cols-2 gap-9 px-4">
+        <div className="max-w-[1000px] w-full grid sm:grid-cols-2 gap-9 px-4">
           <div className="sm:text-right text-4xl font-bold">
             <p>Hi.I'm Daniel, nice to meet you.Please take a look around!</p>
           </div>
@@ -23,7 +23,8 @@ const About = () => {
               that i could build websites,apps & more! The moment i found this
               world of coding/programming i was amazed and full of ideas. But i
               never knew creating them is very challeging but when you see you
-              build working it gives me an amazing feeling of sastisfaction.
+              build working it gives me an amazing feeling of sastisfaction &
+              joy.
             </p>
           </div>
         </div>
