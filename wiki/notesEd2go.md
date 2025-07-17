@@ -51,16 +51,18 @@ Tables (<table>)
 Forms (<form>)
 Divs (<div>)
 
-## Inline Elements
+# Inline Elements
 Inline elements are elements that affect only snippets of content and do not block off a section of a page. Examples of inline elements include:
 
-- "Snippet" is a programming term for a small region of re-usable source code, machine code, or text.
+"Snippet" is a programming term for a small region of re-usable source code, machine code, or text.
 
+```js
 Links (<a>)
 Images (<img>)
 Form elements (<input>, <button>, <select>, <textarea>, etc.)
 Phrase elements (<em>, <strong>, <code>, etc.)
 Spans (<span>) – wraps text without giving it any special meaning. Meaning and style can be applied through its attributes.
+```
 
 ## Comments
 HTML comments are enclosed in <!-- and -->.
@@ -1265,3 +1267,59 @@ Note that you can assign an element any number of classes simply by separating t
 
 # ID Selectors:
 
+As with the class attribute, in HTML, all elements can take the id attribute, which is used to uniquely identify an element on the page. In CSS, ID selectors begin with a number sign (#) and have arbitrary names. The following rule will give the element with the “main-text” id a margin of 1.2em on the left and right:
+
+```css
+main-text {
+  margin-left: 1.2em;
+  margin-right: 1.2em;
+}
+```
+```js
+<div id="main-text">
+  <p>This is the main text of the page...</p>
+</div>
+```
+
+# Attributes Selectors :
+
+Attribute selectors specify elements that contain a specific attribute. They can also specify what the value of that attribute should or should not be.
+
+The following selector affects all links with a target attribute:
+
+```css
+a[target] {
+  color: red;
+}
+```
+The = (equals) operator can be used to specify the attribute value. The following selector would only affect links whose target attribute is exactly “_blank”:
+
+```css
+a[target='_blank'] {
+  color: red;
+}
+```
+You can get much more specific about attribute values…
+
+The ^= (starts-with) operator can be used to specify the beginning text of the attribute value. The following selector will only affect links whose href attribute starts with “mailto”:
+
+```css
+a[href^='mailto'] {
+  color: red;
+}
+```
+The $= (ends-with) operator can be used to specify the ending text of the attribute value. The following selector will only affect links whose class attribute ends with “link”:
+
+```css
+a[class$='link'] {
+  color: red;
+}
+```
+
+The *= (contains) operator can be used to specify text the attribute value must contain. The following selector will only affect links whose class attribute contains “top”:
+
+```css
+a[class*='top'] {
+  color: red;
+}
+```
