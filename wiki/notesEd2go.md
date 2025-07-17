@@ -218,17 +218,17 @@ HTML supports six levels of heading. The tags are `<h1>, <h2>, <h3>, <h4>, <h5>,
 
 ## Breaks and Horizontal Rules
 
-The <br> tag forces a line break. The <hr> tag creates a horizontal rule across the page. The following code shows how they are used:
+The `<br>` tag forces a line break. The `<hr>` tag creates a horizontal rule across the page. The following code shows how they are used:
 
-Notice that the <br> and <hr> tags are both empty tags, meaning that they do not contain any content, and therefore, do not have a corresponding closing tag.
+Notice that the `<br>` and `<hr>` tags are both empty tags, meaning that they do not contain any content, and therefore, do not have a corresponding closing tag.
 
 ## The div Tag
-The div element (<div>) is used to create a content division. That is, it divides a segment of content from the surrounding content. Visually, this results in placing the content on its own block, similar in effect to putting a <br> tag before and after the content.
+The div element `(<div>)` is used to create a content division. That is, it divides a segment of content from the surrounding content. Visually, this results in placing the content on its own block, similar in effect to putting a `<br>` tag before and after the content.
 
 While the preceding demo illustrates how the div element works, it is more commonly used to separate larger blocks of content. You will learn more about this in the `Sectioning a Web Page lesson`.
 
 ## Quoted Text
-The <blockquote> and <q> tags are used to designate quoted text. Both elements can take the cite attribute, which is used to reference the source. The value of the cite attribute, which is used to point to a URL with information about the quote, will not be visible on the page by default, but could be made accessible using JavaScript.
+The `<blockquote>` and `<q>` tags are used to designate quoted text. Both elements can take the cite attribute, which is used to reference the source. The value of the cite attribute, which is used to point to a URL with information about the quote, will not be visible on the page by default, but could be made accessible using JavaScript.
 
 blockquote is a block-level element, while q is an inline element. See the following example:
 
@@ -256,16 +256,16 @@ blockquote is a block-level element, while q is an inline element. See the follo
 -------Lines Omitted-------
 ```
 Some Notes :
-1. Most browsers add margins to blockquotes on both the left and right and wrap text nested in <q> tags with quotes. Google Chrome renders this page as follows:Display of Quote Example Declaration of Independence
+1. Most browsers add margins to blockquotes on both the left and right and wrap text nested in `<q>` tags with quotes. Google Chrome renders this page as follows:Display of Quote Example Declaration of Independence
 Some notes:
 
 2. Modern browsers don’t do anything visual with the cite attribute.
 Blockquotes should not be used for formatting purposes. If you want to add margins around an element, you should use Cascading Style Sheets (CSS).
 3. Blockquotes cannot be contained within paragraphs.
-4. Blockquotes cannot have text as a direct child. Usually, blockquotes contain paragraphs (<p> tags).
+4. Blockquotes cannot have text as a direct child. Usually, blockquotes contain paragraphs `(<p> tags)`.
 
 ## Preformatted Text
-Occasionally, it is desirable to output content as it is laid out in the code, whitespace and all. The <pre> tag is used for this purpose. It is often used in online coding tutorials so that the whitespace shown in the tutorial reflects how it would appear in the document it represents. The following code shows how <pre> is used:
+Occasionally, it is desirable to output content as it is laid out in the code, whitespace and all. The `<pre>` tag is used for this purpose. It is often used in online coding tutorials so that the whitespace shown in the tutorial reflects how it would appear in the document it represents. The following code shows how `<pre>` is used:
 
 ```html
 <!DOCTYPE html>
@@ -291,7 +291,7 @@ Occasionally, it is desirable to output content as it is laid out in the code, w
 </body>
 </html>
 ```
-Notice that the whitespace within the <pre> tags is not condensed. Remove the <pre> tags and this page will appear like this
+Notice that the whitespace within the `<pre>` tags is not condensed. Remove the `<pre>` tags and this page will appear like this
 
 ## Inline Semantic Elements
 Semantic (adj.): Of or relating to meaning, especially meaning in language.
@@ -310,16 +310,16 @@ Inline semantic elements provide meaningful information about the content they c
 `<s>` – Used to mark text as no longer accurate or relevant. Default styling is to put a line through the text.
 `<samp>` – Used to denote output from a computer program. Default styling is usually monospace.
 `<small>` – Used to represent text as a side comment or “small print.” Default styling is usually smaller than surrounding text.
-`<span>` – Used as a generic wrapper of inline content. The <span> tag can be used for grouping elements, and meaning and style can be added through adding attributes (e.g., id, class, and lang).
+`<span>` – Used as a generic wrapper of inline content. The `<span>` tag can be used for grouping elements, and meaning and style can be added through adding attributes (e.g., id, class, and lang).
 `<strong>` – Used to add extra emphasis or importance to text. Default styling is usually bold.
 `<sub>` – Used to denote a subscript.
 `<sup>` – Used to denote a superscript.
-<`time>` – Used to denote a date and/or time. It can include a datetime attribute with a machine-readable format of the enclosed date and/or time.
+`<time>` – Used to denote a date and/or time. It can include a datetime attribute with a machine-readable format of the enclosed date and/or time.
 `<u>` – Indicates that text should have some form of non-textual annotation applied. By default, this is an underline, but if you use this element, you should probably change the default rendering to something different, so that it doesn’t look like a link. Avoid using the <u> tag unless you have a specific semantic use case such as drawing attention to spelling or grammatical errors.
 
 All of these formatting effects can be created with CSS, so if you just want to change the formatting without implying any specific meaning, you should use CSS instead.
 
-We recommend avoiding the <b> and <i> tags. In most cases, <strong> and <em> are more appropriate.
+We recommend avoiding the `<b>` and `<i>` tags. In most cases, `<strong>` and `<em>` are more appropriate.
 
 # HTML Links
 The ability to link from one page to another is what makes HTML hyper. Calling it Hypertext, however, is a bit of a misnomer, as images can also be linked.
@@ -327,7 +327,7 @@ The ability to link from one page to another is what makes HTML hyper. Calling i
 The "Root" is the top of the website.
 
 ## Text Links
-The link tag is one of the least intuitive HTML tags. It is <a>, short for “anchor.” The <a> tag was originally used to create anchor points within a page, which could then be linked to. By itself, the <a> tag does nothing. To create a link, it requires the href attribute, which specifies the path to the file or location. The syntax is as follows:
+The link tag is one of the least intuitive HTML tags. It is `<a>`, short for “anchor.” The `<a>` tag was originally used to create anchor points within a page, which could then be linked to. By itself, the `<a>` tag does nothing. To create a link, it requires the href attribute, which specifies the path to the file or location. The syntax is as follows:
 
   ` <a href="path_to_file">Link Text</a> `
   
