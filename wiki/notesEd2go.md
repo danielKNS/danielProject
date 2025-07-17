@@ -1326,3 +1326,25 @@ a[class*='top'] {
   color: red;
 }
 ```
+
+# The Universal Selector :
+
+The universal selector is an asterisk (*). It matches every element(EVERYTHING!):
+
+```css
+* {
+  color: red;
+}
+```
+
+# Grouping :
+
+Selectors can share the same declarations by separating them with commas. The following rule will underline all em elements, all elements of the class “warning” and the element with the id of “important”:
+
+```css
+em,
+.warning,
+#important {
+  text-decoration: underline;
+}
+```
