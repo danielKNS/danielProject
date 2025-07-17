@@ -20,13 +20,13 @@ The order of attributes is not important.
 ## Empty vs. Container Tags
 
 The tags shown above are called container tags because they have both an opening and closing tag with content contained between them.
- Tags that do not contain content are called empty tags. The syntax is as follows:
+Tags that do not contain content are called empty tags. The syntax is as follows:
 
  ` <tagname /> `
 
-    or
+ or
 
-` <tagname att1="value" att2="value" /> `
+ ` <tagname att1="value" att2="value" /> `
 
 
 ## Shortcut Close
