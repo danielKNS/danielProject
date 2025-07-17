@@ -30,14 +30,15 @@ Tags that do not contain content are called empty tags. The syntax is as follows
 
 
 ## Shortcut Close
-Empty tags may also be written as follows:
+  Empty tags may also be written as follows:
 
-` <tagname /> `
-    or
+  ` <tagname /> `
 
-` <tagname att1="value" att2="value" /> `
+ or
 
-The forward slash (/) at the end, just before the close angle bracket (>), explicitly indicates that this tag is closed.
+  ` <tagname att1="value" att2="value" /> `
+
+The forward slash `/` at the end, just before the close angle bracket `>`, explicitly indicates that this tag is closed.
 In general, it is not necessary to use this shortcut close, but it also doesn’t cause any harm. Our only recommendation is that if you use it, use it consistently.
 
 # Block and Inline Elements
