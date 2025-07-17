@@ -44,12 +44,14 @@ In general, it is not necessary to use this shortcut close, but it also doesn’
 
 ## Block-level Elements 
 
-Block-level elements are elements that separate a block of content. For example, a paragraph (<p>) element is a block-level element. Other block-level elements include:
+Block-level elements are elements that separate a block of content. For example, a paragraph `(<p>)` element is a block-level element. Other block-level elements include:
 
+```js
 Lists (<ul> and <ol>)
 Tables (<table>)
 Forms (<form>)
 Divs (<div>)
+```
 
 # Inline Elements
 Inline elements are elements that affect only snippets of content and do not block off a section of a page. Examples of inline elements include:
